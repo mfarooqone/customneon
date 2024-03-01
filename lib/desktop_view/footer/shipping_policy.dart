@@ -10,8 +10,9 @@ class ShippingPolicy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(8.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -25,7 +26,7 @@ class ShippingPolicy extends StatelessWidget {
               ),
               autoText("We offer free shipping worldwide for all orders."),
               autoText(
-                  "We partner with top carriers for smooth shipping and delivery experience, shipments will be\nhandled by DHL Express, FedEx or UPS according to the destination."),
+                  "We partner with top carriers for smooth shipping and delivery experience, shipments will be handled by DHL Express, FedEx or UPS according to the destination."),
               SizedBox(
                 height: 2.h,
               ),
@@ -39,7 +40,7 @@ class ShippingPolicy extends StatelessWidget {
                 height: 2.h,
               ),
               autoText(
-                  "Given the handcrafting nature of neon signs, please allow up to 3 business days to have your\norder properly produced and inspected before shipping."),
+                  "Given the handcrafting nature of neon signs, please allow up to 3 business days to have your order properly produced and inspected before shipping."),
               SizedBox(
                 height: 2.h,
               ),
@@ -48,7 +49,7 @@ class ShippingPolicy extends StatelessWidget {
                 height: 2.h,
               ),
               autoText(
-                  "Once the order dispatches our warehouse, it will take between 5 and 7 business before\narriving at the doorstep."),
+                  "Once the order dispatches our warehouse, it will take between 5 and 7 business before arriving at the doorstep."),
               SizedBox(
                 height: 2.h,
               ),
@@ -57,12 +58,12 @@ class ShippingPolicy extends StatelessWidget {
                 height: 2.h,
               ),
               autoText(
-                  "Once your order is fulfilled from our side, you'll receive a shipping notification by email and\n/ or SMS that contains the order tracking number."),
+                  "Once your order is fulfilled from our side, you'll receive a shipping notification by email and / or SMS that contains the order tracking number."),
               SizedBox(
                 height: 2.h,
               ),
               autoText(
-                  "You can use tracking apps / websites accordingly to trace your order. We offer a universal\nwhereabouts of your order, regardless of which carrier is being used."),
+                  "You can use tracking apps / websites accordingly to trace your order. We offer a universal whereabouts of your order, regardless of which carrier is being used."),
               SizedBox(
                 height: 2.h,
               ),
@@ -80,7 +81,10 @@ class ShippingPolicy extends StatelessWidget {
                 height: 2.h,
               ),
               autoText(
-                  "There are factors that can inevitably prolong the shipping and delivery phase. While we\nremain committed to fulfilling orders in a timely manner, customs clearance, carrier’s\ntransport conditions, weather conditions, global / regional public safety issues may still disturb\nthe process.")
+                  "There are factors that can inevitably prolong the shipping and delivery phase. While we remain committed to fulfilling orders in a timely manner, customs clearance, carrier’s transport conditions, weather conditions, global / regional public safety issues may still disturb the process."),
+              SizedBox(
+                height: 4.h,
+              ),
             ],
           ),
         ),

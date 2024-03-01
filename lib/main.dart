@@ -1,4 +1,4 @@
-import 'package:customneon/homepage/homepage.dart';
+import 'package:customneon/desktop_view/footer/track_my_order.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(
       builder: (context, orientation, deviceType) {
-        return const GetMaterialApp(
+        return  GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Custom Neon',
-          home: HomePage(),
+          home: TrackMyOrder(),
         );
       },
     );

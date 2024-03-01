@@ -55,6 +55,10 @@ class FooterDesign extends StatelessWidget {
                   "FAQs",
                 ),
               ),
+              ////
+              ///
+              ///
+              ///
             ],
           )
         ],

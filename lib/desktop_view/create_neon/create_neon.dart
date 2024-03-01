@@ -6,6 +6,7 @@ import 'package:customneon/desktop_view/create_neon/choose_size_widget.dart';
 import 'package:customneon/desktop_view/create_neon/location.dart';
 import 'package:customneon/desktop_view/create_neon/select_font.dart';
 import 'package:customneon/desktop_view/create_neon/text_align_widget.dart';
+import 'package:customneon/desktop_view/footer/footer_design.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
@@ -695,9 +696,11 @@ class _CreateNeonState extends State<CreateNeon> {
                         ///
                         ///
                         ///
-                        Container(
-                          color: AppColors.lightGrey,
-                        )
+                        const FooterDesign()
+
+                        ///
+                        ///
+                        ///
                       ],
                     ),
                   ),

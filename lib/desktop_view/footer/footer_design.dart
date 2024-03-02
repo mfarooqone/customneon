@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:customneon/desktop_view/footer/privacy_policy.dart';
 import 'package:customneon/desktop_view/footer/refund_policy.dart';
 import 'package:customneon/desktop_view/footer/about_us.dart';
 import 'package:customneon/desktop_view/footer/shipping_policy.dart';
@@ -42,15 +43,16 @@ class FooterDesign extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Get.to(()=> const RefundPolicy());
+                  Get.to(() => const RefundPolicy());
                 },
-
                 child: const AutoSizeText(
                   "Refund Policy",
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => const PrivacyPolicy());
+                },
                 child: const AutoSizeText(
                   "Privacy Policy",
                 ),

@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:customneon/desktop_view/footer/refund_policy.dart';
 import 'package:customneon/desktop_view/footer/shipping_policy.dart';
 import 'package:customneon/desktop_view/footer/track_my_order.dart';
 import 'package:customneon/utills/app_colors.dart';
@@ -40,6 +41,7 @@ class FooterDesign extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
+                  Get.to(()=> const RefundPolicy());
                 },
                 child: const AutoSizeText(
                   "Refund Policy",

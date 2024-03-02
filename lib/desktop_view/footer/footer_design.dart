@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/desktop_view/footer/refund_policy.dart';
+import 'package:customneon/desktop_view/footer/about_us.dart';
 import 'package:customneon/desktop_view/footer/shipping_policy.dart';
 import 'package:customneon/desktop_view/footer/track_my_order.dart';
 import 'package:customneon/utills/app_colors.dart';
@@ -25,7 +26,7 @@ class FooterDesign extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Get.to(()=>  TrackMyOrder());
+                  Get.to(() => TrackMyOrder());
                 },
                 child: const AutoSizeText(
                   "Track My Order",
@@ -33,7 +34,7 @@ class FooterDesign extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Get.to(()=> const ShippingPolicy());
+                  Get.to(() => const ShippingPolicy());
                 },
                 child: const AutoSizeText(
                   "Shipping Policy",
@@ -43,6 +44,8 @@ class FooterDesign extends StatelessWidget {
                 onPressed: () {
                   Get.to(()=> const RefundPolicy());
                 },
+
+                onPressed: () {},
                 child: const AutoSizeText(
                   "Refund Policy",
                 ),
@@ -70,7 +73,40 @@ class FooterDesign extends StatelessWidget {
               ///
               ///
             ],
-          )
+          ),
+
+          ///
+          ///
+          ///   second column
+          ///
+          ///
+          Column(
+            children: [
+              AutoSizeText(
+                "Information",
+                style: AppTextStyle.black3,
+              ),
+              TextButton(
+                onPressed: () {
+                  Get.to(() => const AboutUs());
+                },
+                child: const AutoSizeText(
+                  "About Us",
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const AutoSizeText(
+                  "Contact Us",
+                ),
+              ),
+
+              ////
+              ///
+              ///
+              ///
+            ],
+          ),
         ],
       ),
     );

@@ -45,7 +45,6 @@ class FooterDesign extends StatelessWidget {
                   Get.to(()=> const RefundPolicy());
                 },
 
-                onPressed: () {},
                 child: const AutoSizeText(
                   "Refund Policy",
                 ),

@@ -262,7 +262,8 @@ class PrivacyPolicy extends StatelessWidget {
               SizedBox(
                 height: 2.h,
               ),
-              autoText(" • Temporary blacklist of credit cards associated with blacklisted IP addresses. This blacklist persists for a small number of days."),
+              autoText(
+                  " • Temporary blacklist of credit cards associated with blacklisted IP addresses. This blacklist persists for a small number of days."),
               SizedBox(
                 height: 3.h,
               ),
@@ -274,11 +275,13 @@ class PrivacyPolicy extends StatelessWidget {
               SizedBox(
                 height: 3.h,
               ),
-              autoText("If you are a resident of the EEA, you have the right to access the Personal Information we hold about you, to port it to a new service, and to ask that your Personal Information be corrected, updated, or erased. If you would like to exercise these rights, please contact us through the contact information above."),
+              autoText(
+                  "If you are a resident of the EEA, you have the right to access the Personal Information we hold about you, to port it to a new service, and to ask that your Personal Information be corrected, updated, or erased. If you would like to exercise these rights, please contact us through the contact information above."),
               SizedBox(
                 height: 3.h,
               ),
-              autoText("Your Personal Information will be initially processed in Ireland and then will be transferred outside of Europe for storage and further processing, including to Canada and the United States. For more information on how data transfers comply with the GDPR, see Shopify’s GDPR Whitepaper: https://help.shopify.com/en/manual/your-account/privacy/GDPR."),
+              autoText(
+                  "Your Personal Information will be initially processed in Ireland and then will be transferred outside of Europe for storage and further processing, including to Canada and the United States. For more information on how data transfers comply with the GDPR, see Shopify’s GDPR Whitepaper: https://help.shopify.com/en/manual/your-account/privacy/GDPR."),
               SizedBox(
                 height: 3.h,
               ),
@@ -286,11 +289,13 @@ class PrivacyPolicy extends StatelessWidget {
               SizedBox(
                 height: 3.h,
               ),
-              autoText("If you are a resident of California, you have the right to access the Personal Information we hold about you (also known as the ‘Right to Know’), to port it to a new service, and to ask that your Personal Information be corrected, updated, or erased. If you would like to exercise these rights, please contact us through the contact information above."),
+              autoText(
+                  "If you are a resident of California, you have the right to access the Personal Information we hold about you (also known as the ‘Right to Know’), to port it to a new service, and to ask that your Personal Information be corrected, updated, or erased. If you would like to exercise these rights, please contact us through the contact information above."),
               SizedBox(
                 height: 2.h,
               ),
-              autoText("If you would like to designate an authorized agent to submit these requests on your behalf, please contact us at the address above."),
+              autoText(
+                  "If you would like to designate an authorized agent to submit these requests on your behalf, please contact us at the address above."),
               SizedBox(
                 height: 3.h,
               ),
@@ -298,11 +303,13 @@ class PrivacyPolicy extends StatelessWidget {
               SizedBox(
                 height: 3.h,
               ),
-              autoText("A cookie is a small amount of information that’s downloaded to your computer or device when you visit our Site. We use a number of different cookies, including functional, performance, advertising, and social media or content cookies. Cookies make your browsing experience better by allowing the website to remember your actions and preferences (such as login and region selection). This means you don’t have to re-enter this information each time you return to the site or browse from one page to another. Cookies also provide information on how people use the website, for instance whether it’s their first time visiting or if they are a frequent visitor."),
+              autoText(
+                  "A cookie is a small amount of information that’s downloaded to your computer or device when you visit our Site. We use a number of different cookies, including functional, performance, advertising, and social media or content cookies. Cookies make your browsing experience better by allowing the website to remember your actions and preferences (such as login and region selection). This means you don’t have to re-enter this information each time you return to the site or browse from one page to another. Cookies also provide information on how people use the website, for instance whether it’s their first time visiting or if they are a frequent visitor."),
               SizedBox(
                 height: 2.h,
               ),
-              autoText("We use the following cookies to optimize your experience on our Site and to provide our services."),
+              autoText(
+                  "We use the following cookies to optimize your experience on our Site and to provide our services."),
               SizedBox(
                 height: 3.h,
               ),
@@ -310,7 +317,8 @@ class PrivacyPolicy extends StatelessWidget {
               SizedBox(
                 height: 3.h,
               ),
-              autoText("Please note that because there is no consistent industry understanding of how to respond to “Do Not Track” signals, we do not alter our data collection and usage practices when we detect such a signal from your browser."),
+              autoText(
+                  "Please note that because there is no consistent industry understanding of how to respond to “Do Not Track” signals, we do not alter our data collection and usage practices when we detect such a signal from your browser."),
               SizedBox(
                 height: 3.h,
               ),
@@ -318,7 +326,8 @@ class PrivacyPolicy extends StatelessWidget {
               SizedBox(
                 height: 3.h,
               ),
-              autoText("We may update this Privacy Policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons."),
+              autoText(
+                  "We may update this Privacy Policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons."),
               SizedBox(
                 height: 3.h,
               ),
@@ -326,19 +335,17 @@ class PrivacyPolicy extends StatelessWidget {
               SizedBox(
                 height: 3.h,
               ),
-              autoText("As noted above, if you would like to make a complaint, please contact us by e-mail or by mail using the details provided under “Contact” above."),
+              autoText(
+                  "As noted above, if you would like to make a complaint, please contact us by e-mail or by mail using the details provided under “Contact” above."),
               SizedBox(
                 height: 2.h,
               ),
-              autoText("If you are not satisfied with our response to your complaint, you have the right to lodge your complaint with the relevant data protection authority. You can contact your local data protection authority, or our supervisory authority here: [Add contact information or website for the data protection authority in your jurisdiction. For example: https://ico.org.uk/make-a-complaint/]"),
+              autoText(
+                  "If you are not satisfied with our response to your complaint, you have the right to lodge your complaint with the relevant data protection authority. You can contact your local data protection authority, or our supervisory authority here: [Add contact information or website for the data protection authority in your jurisdiction. For example: https://ico.org.uk/make-a-complaint/]"),
               SizedBox(
                 height: 3.h,
               ),
               autoText("Last updated: 2022/08/17"),
-
-
-
-
             ],
           ),
         ),

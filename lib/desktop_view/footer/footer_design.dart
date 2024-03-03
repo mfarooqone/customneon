@@ -3,6 +3,7 @@ import 'package:customneon/desktop_view/footer/privacy_policy.dart';
 import 'package:customneon/desktop_view/footer/refund_policy.dart';
 import 'package:customneon/desktop_view/footer/about_us.dart';
 import 'package:customneon/desktop_view/footer/shipping_policy.dart';
+import 'package:customneon/desktop_view/footer/terms_of_service.dart';
 import 'package:customneon/desktop_view/footer/track_my_order.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -58,7 +59,9 @@ class FooterDesign extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(()=> const TermsOfService());
+                },
                 child: const AutoSizeText(
                   "Terms of Service",
                 ),

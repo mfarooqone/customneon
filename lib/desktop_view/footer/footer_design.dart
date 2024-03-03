@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/desktop_view/footer/contact_us.dart';
+import 'package:customneon/desktop_view/footer/payment_methods.dart';
 import 'package:customneon/desktop_view/footer/privacy_policy.dart';
 import 'package:customneon/desktop_view/footer/refund_policy.dart';
 import 'package:customneon/desktop_view/footer/about_us.dart';
@@ -105,6 +106,15 @@ class FooterDesign extends StatelessWidget {
                 },
                 child: const AutoSizeText(
                   "Contact Us",
+                ),
+              ),
+
+              TextButton(
+                onPressed: () {
+                  Get.to(()=>  PaymentMethods());
+                },
+                child: const AutoSizeText(
+                  "Payment Methods",
                 ),
               ),
 

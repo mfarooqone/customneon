@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:customneon/desktop_view/footer/contact_us.dart';
 import 'package:customneon/desktop_view/footer/privacy_policy.dart';
 import 'package:customneon/desktop_view/footer/refund_policy.dart';
 import 'package:customneon/desktop_view/footer/about_us.dart';
@@ -99,7 +100,9 @@ class FooterDesign extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(()=>  ContactUs());
+                },
                 child: const AutoSizeText(
                   "Contact Us",
                 ),

@@ -6,8 +6,8 @@ import 'package:sizer/sizer.dart';
 import '../../utills/app_colors.dart';
 import '../../utills/app_text_style.dart';
 
-class ContactUs extends StatelessWidget {
-  ContactUs({Key? key}) : super(key: key);
+class FAQs extends StatelessWidget {
+  FAQs({Key? key}) : super(key: key);
 
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();

@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/desktop_view/footer/contact_us.dart';
+import 'package:customneon/desktop_view/footer/faqs.dart';
 import 'package:customneon/desktop_view/footer/payment_methods.dart';
 import 'package:customneon/desktop_view/footer/privacy_policy.dart';
 import 'package:customneon/desktop_view/footer/refund_policy.dart';
@@ -20,15 +21,19 @@ class FooterDesign extends StatelessWidget {
     return Container(
       color: AppColors.lightGrey,
       height: 50.h,
+      padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AutoSizeText(
                 "Support",
                 style: AppTextStyle.black3,
               ),
-              TextButton(
+              MaterialButton(
                 onPressed: () {
                   Get.to(() => TrackMyOrder());
                 },
@@ -36,7 +41,7 @@ class FooterDesign extends StatelessWidget {
                   "Track My Order",
                 ),
               ),
-              TextButton(
+              MaterialButton(
                 onPressed: () {
                   Get.to(() => const ShippingPolicy());
                 },
@@ -44,7 +49,7 @@ class FooterDesign extends StatelessWidget {
                   "Shipping Policy",
                 ),
               ),
-              TextButton(
+              MaterialButton(
                 onPressed: () {
                   Get.to(() => const RefundPolicy());
                 },
@@ -52,7 +57,7 @@ class FooterDesign extends StatelessWidget {
                   "Refund Policy",
                 ),
               ),
-              TextButton(
+              MaterialButton(
                 onPressed: () {
                   Get.to(() => const PrivacyPolicy());
                 },
@@ -60,16 +65,18 @@ class FooterDesign extends StatelessWidget {
                   "Privacy Policy",
                 ),
               ),
-              TextButton(
+              MaterialButton(
                 onPressed: () {
-                  Get.to(()=> const TermsOfService());
+                  Get.to(() => const TermsOfService());
                 },
                 child: const AutoSizeText(
                   "Terms of Service",
                 ),
               ),
-              TextButton(
-                onPressed: () {},
+              MaterialButton(
+                onPressed: () {
+                  Get.to(() =>  FAQs());
+                },
                 child: const AutoSizeText(
                   "FAQs",
                 ),
@@ -86,13 +93,18 @@ class FooterDesign extends StatelessWidget {
           ///   second column
           ///
           ///
+          ///
+          SizedBox(
+            width: 5.w
+          ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AutoSizeText(
                 "Information",
                 style: AppTextStyle.black3,
               ),
-              TextButton(
+              MaterialButton(
                 onPressed: () {
                   Get.to(() => const AboutUs());
                 },
@@ -100,23 +112,23 @@ class FooterDesign extends StatelessWidget {
                   "About Us",
                 ),
               ),
-              TextButton(
+              MaterialButton(
                 onPressed: () {
-                  Get.to(()=>  ContactUs());
+                  Get.to(() => ContactUs());
                 },
                 child: const AutoSizeText(
                   "Contact Us",
                 ),
               ),
 
-              TextButton(
+              MaterialButton(
                 onPressed: () {
-                  Get.to(()=>  PaymentMethods());
+                  Get.to(() => const PaymentMethods());
                 },
                 child: const AutoSizeText(
                   "Payment Methods",
                 ),
-              ),
+              )
 
               ////
               ///

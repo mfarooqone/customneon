@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         return const GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Custom Neon',
-          home: PaymentMethods(),
+          home: HomePage(),
         );
       },
     );

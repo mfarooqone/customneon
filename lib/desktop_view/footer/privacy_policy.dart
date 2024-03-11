@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -354,7 +353,7 @@ class PrivacyPolicy extends StatelessWidget {
   }
 
   Widget autoLabelText(String text) {
-    return AutoSizeText(
+    return Text(
       text,
       style:
           AppTextStyle.black3.copyWith(color: AppColors.black, fontSize: 8.sp),
@@ -362,7 +361,7 @@ class PrivacyPolicy extends StatelessWidget {
   }
 
   Widget autoText(String text) {
-    return AutoSizeText(
+    return Text(
       text,
       style: AppTextStyle.black4,
     );

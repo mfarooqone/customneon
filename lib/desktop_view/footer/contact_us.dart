@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -6,17 +5,24 @@ import 'package:sizer/sizer.dart';
 import '../../utills/app_colors.dart';
 import '../../utills/app_text_style.dart';
 
-class ContactUs extends StatelessWidget {
-  ContactUs({Key? key}) : super(key: key);
+class ContactUs extends StatefulWidget {
+  const ContactUs({Key? key}) : super(key: key);
 
+  @override
+  State<ContactUs> createState() => _ContactUsState();
+}
+
+class _ContactUsState extends State<ContactUs> {
   TextEditingController nameController = TextEditingController();
+
   TextEditingController emailController = TextEditingController();
+
   TextEditingController phoneNumberController = TextEditingController();
+
   TextEditingController commentController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -25,7 +31,7 @@ class ContactUs extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: AutoSizeText(
+                child: Text(
                   "Contact Us",
                   style: AppTextStyle.black3
                       .copyWith(color: AppColors.black, fontSize: 20.sp),
@@ -89,7 +95,7 @@ class ContactUs extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4.h)),
                     onPressed: () {},
-                    child: AutoSizeText(
+                    child: Text(
                       "Send Message",
                       style: AppTextStyle.white4,
                     ),
@@ -120,7 +126,7 @@ class ContactUs extends StatelessWidget {
   }
 
   Widget autoText(String text) {
-    return AutoSizeText(
+    return Text(
       text,
       style: AppTextStyle.black4,
     );

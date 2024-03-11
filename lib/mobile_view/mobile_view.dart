@@ -11,7 +11,7 @@ class MobileView extends StatelessWidget {
     //   appBar: AppBar(
     //     centerTitle: true,
     //     backgroundColor: AppColors.orange,
-    //     title: AutoSizeText(
+    //     title: Text(
     //       'FAST FREE SHIPPING & 1 YEAR WARRANTY',
     //       maxLines: 1,
     //       style: AppTextStyle.white2,
@@ -31,7 +31,7 @@ class MobileView extends StatelessWidget {
     //             ///
     //             Align(
     //               alignment: Alignment.center,
-    //               child: AutoSizeText(
+    //               child: Text(
     //                 'CREATE YOUR OWN NEON SIGN',
     //                 maxLines: 1,
     //                 style:
@@ -44,7 +44,7 @@ class MobileView extends StatelessWidget {
     //             ///
     //             Align(
     //               alignment: Alignment.center,
-    //               child: AutoSizeText(
+    //               child: Text(
     //                 'Design your neon sign with our online custom tool',
     //                 maxLines: 1,
     //                 style: AppTextStyle.black4,
@@ -75,7 +75,7 @@ class MobileView extends StatelessWidget {
     //                     children: [
     //                       Align(
     //                         alignment: Alignment.center,
-    //                         child: AutoSizeText(
+    //                         child: Text(
     //                           'Create Your Neon Sign',
     //                           maxLines: 1,
     //                           style: AppTextStyle.black4,
@@ -91,7 +91,7 @@ class MobileView extends StatelessWidget {
     //   ),
     //   // backgroundColor: Colors.deepPurple[200],
     //   // appBar: AppBar(
-    //   //   title: AutoSizeText(
+    //   //   title: Text(
     //   //     'FAST FREE SHIPPING & 1 YEAR WARRANTY',
     //   //     maxLines: 1,
     //   //     style: AppTextStyle.black6,

@@ -1,4 +1,4 @@
-// import 'package:auto_size_text/auto_size_text.dart';
+// 
 // import 'package:customneon/controllers/create_neon_controller.dart';
 // import 'package:customneon/utills/app_colors.dart';
 // import 'package:customneon/utills/app_text_style.dart';
@@ -27,7 +27,7 @@
 //       appBar: AppBar(
 //         centerTitle: true,
 //         backgroundColor: AppColors.orange,
-//         title: AutoSizeText(
+//         title: Text(
 //           'FAST FREE SHIPPING & 1 YEAR WARRANTY',
 //           maxLines: 1,
 //           style: AppTextStyle.white2,
@@ -53,7 +53,7 @@
 //                           ///
 //                           Align(
 //                             alignment: Alignment.center,
-//                             child: AutoSizeText(
+//                             child: Text(
 //                               'CREATE YOUR OWN NEON SIGN',
 //                               maxLines: 1,
 //                               style: AppTextStyle.white4
@@ -66,7 +66,7 @@
 //                           ///
 //                           Align(
 //                             alignment: Alignment.center,
-//                             child: AutoSizeText(
+//                             child: Text(
 //                               'Design your neon sign with our online custom tool',
 //                               maxLines: 1,
 //                               style: AppTextStyle.black4,
@@ -113,7 +113,7 @@
 //                                           SizedBox(height: 3.h),
 //                                           Align(
 //                                             alignment: Alignment.topLeft,
-//                                             child: AutoSizeText(
+//                                             child: Text(
 //                                               'Create Your Neon Sign',
 //                                               style: AppTextStyle.black4,
 //                                             ),
@@ -145,7 +145,7 @@
 //                                                 padding: EdgeInsets.symmetric(
 //                                                     horizontal: 1.h,
 //                                                     vertical: 1.h),
-//                                                 child: AutoSizeText(
+//                                                 child: Text(
 //                                                   '2 or more characters are required for this size, please add more characters.',
 //                                                   style: AppTextStyle.white2,
 //                                                 ),
@@ -156,7 +156,7 @@
 //                                           ///
 //                                           ///
 //                                           SizedBox(height: 3.h),
-//                                           AutoSizeText(
+//                                           Text(
 //                                             'Choose a font',
 //                                             maxLines: 1,
 //                                             style: AppTextStyle.black3,
@@ -193,7 +193,7 @@
 //                                           ///
 //                                           ///
 //                                           ///
-//                                           AutoSizeText(
+//                                           Text(
 //                                             'Text Align',
 //                                             maxLines: 1,
 //                                             style: AppTextStyle.black3,
@@ -215,17 +215,17 @@
 //                                           ///
 //                                           ///
 //                                           ///
-//                                           AutoSizeText(
-//                                             'Choose a colour',
+//                                           Text(
+//                                             'our',
 //                                             style: AppTextStyle.black3,
 //                                           ),
-//                                           AutoSizeText(
+//                                           Text(
 //                                             'Minimum height required for Magic LED Neon Sign: 7cm. If color options for Magic LED Neon Sign are unavailable, please choose a larger sign size.',
 //                                             style: AppTextStyle.black1.copyWith(
 //                                                 color: AppColors.grey),
 //                                           ),
 
-//                                           AutoSizeText(
+//                                           Text(
 //                                             createNeonController.getColorName(
 //                                                 selectedColor:
 //                                                     createNeonController
@@ -243,11 +243,11 @@
 //                                           ///
 //                                           ///
 //                                           ///
-//                                           AutoSizeText(
+//                                           Text(
 //                                             'Choose a size',
 //                                             style: AppTextStyle.black3,
 //                                           ),
-//                                           AutoSizeText(
+//                                           Text(
 //                                             '*Each sign is handcrafted, and sizes shown will be accurate within 1 or 2 inches. Neon sign larger than 43 inches will be made on two or more backboards that can be easily arranged together.',
 //                                             style: AppTextStyle.black1.copyWith(
 //                                                 color: AppColors.grey),
@@ -258,7 +258,7 @@
 //                                           ///
 //                                           ///
 //                                           SizedBox(height: 3.h),
-//                                           AutoSizeText(
+//                                           Text(
 //                                             'Backboard Style',
 //                                             style: AppTextStyle.black3,
 //                                           ),
@@ -277,12 +277,12 @@
 //                                           ///
 //                                           ///
 //                                           ///
-//                                           AutoSizeText(
+//                                           Text(
 //                                             'Choose a backboard color',
 //                                             style: AppTextStyle.black3,
 //                                           ),
 //                                           SizedBox(height: 1.h),
-//                                           AutoSizeText(
+//                                           Text(
 //                                             createNeonController
 //                                                 .getBackBoardColorName(
 //                                                     selectedColor:
@@ -294,7 +294,7 @@
 //                                           backBoardColorsView(),
 
 //                                           SizedBox(height: 3.h),
-//                                           AutoSizeText(
+//                                           Text(
 //                                             'Location',
 //                                             style: AppTextStyle.black3,
 //                                           ),
@@ -314,12 +314,12 @@
 //                                           ///
 
 //                                           SizedBox(height: 3.h),
-//                                           AutoSizeText(
+//                                           Text(
 //                                             'Free Remote and Dimmer',
 //                                             style: AppTextStyle.black3,
 //                                           ),
 
-//                                           AutoSizeText(
+//                                           Text(
 //                                             'A remote and dimmer is included free with every sign! (Except for Multicolor Neon Signs, which are controlled by the APP)',
 //                                             style: AppTextStyle.black2.copyWith(
 //                                                 color: AppColors.grey),
@@ -376,7 +376,7 @@
 //               ),
 //               child: Padding(
 //                 padding: EdgeInsets.symmetric(vertical: 2.h),
-//                 child: AutoSizeText(
+//                 child: Text(
 //                   "Yes",
 //                   style: AppTextStyle.black3,
 //                   textAlign: TextAlign.center,
@@ -412,7 +412,7 @@
 //               ),
 //               child: Padding(
 //                 padding: EdgeInsets.symmetric(vertical: 2.h),
-//                 child: AutoSizeText(
+//                 child: Text(
 //                   "No",
 //                   style: AppTextStyle.black3,
 //                   textAlign: TextAlign.center,
@@ -449,7 +449,7 @@
 //               ),
 //               child: Padding(
 //                 padding: EdgeInsets.symmetric(vertical: 2.h),
-//                 child: AutoSizeText(
+//                 child: Text(
 //                   "Outdoor",
 //                   style: AppTextStyle.black3,
 //                   textAlign: TextAlign.center,
@@ -484,7 +484,7 @@
 //               ),
 //               child: Padding(
 //                 padding: EdgeInsets.symmetric(vertical: 2.h),
-//                 child: AutoSizeText(
+//                 child: Text(
 //                   "Indoor",
 //                   style: AppTextStyle.black3,
 //                   textAlign: TextAlign.center,
@@ -517,7 +517,7 @@
 //             crossAxisAlignment: CrossAxisAlignment.center,
 //             children: [
 //               Expanded(
-//                 child: AutoSizeText(
+//                 child: Text(
 //                   createNeonController.selectedFont.value,
 //                   style: AppTextStyle.black3,
 //                 ),
@@ -657,11 +657,11 @@
 //                       mainAxisAlignment: MainAxisAlignment.start,
 //                       crossAxisAlignment: CrossAxisAlignment.start,
 //                       children: [
-//                         AutoSizeText(
+//                         Text(
 //                           createNeonController.backBoardsNames[index],
 //                           style: AppTextStyle.black3,
 //                         ),
-//                         AutoSizeText(
+//                         Text(
 //                           createNeonController.backBoardsSubTitles[index],
 //                           style: AppTextStyle.black1
 //                               .copyWith(color: AppColors.grey),

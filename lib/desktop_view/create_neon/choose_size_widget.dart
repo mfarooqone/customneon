@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -25,13 +24,13 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText(
+                Text(
                   'Choose a size',
                   style: AppTextStyle.black3,
                 ),
-                AutoSizeText(
+                Text(
                   '*Each sign is handcrafted, and sizes shown will be accurate within 1 or 2 inches. Neon sign larger than 43 inches will be made on two or more backboards that can be easily arranged together.',
-                  style: AppTextStyle.black1.copyWith(color: AppColors.grey),
+                  style: AppTextStyle.black2.copyWith(color: AppColors.grey),
                 ),
 
                 ///
@@ -44,47 +43,44 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
                 ///
                 ///
                 ///
-                GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  padding: EdgeInsets.zero,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 3 / 2,
-                    crossAxisSpacing: 1.0.h,
-                    mainAxisSpacing: 1.0.h,
-                  ),
-                  itemCount: createNeonController.sizeNames.length,
-                  itemBuilder: (BuildContext ctx, index) {
-                    return InkWell(
-                      onTap: () {
-                        createNeonController.selectedSize.value =
-                            createNeonController.sizeNames[index];
-                        createNeonController.isLoading.value = true;
-                        createNeonController.isLoading.value = false;
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(0.5.h),
-                          border: Border.all(
-                            color: createNeonController.sizeNames[index] ==
-                                    createNeonController.selectedSize.value
-                                ? AppColors.orange
-                                : Colors.grey,
-                            width: 0.1.h,
+                Wrap(
+                    spacing: 18,
+                    direction: Axis.horizontal,
+                    alignment: WrapAlignment.start,
+                    runSpacing: 18,
+                    children: createNeonController.sizeNames.map((e) {
+                      return InkWell(
+                        onTap: () {
+                          createNeonController.selectedSize.value = e;
+                          createNeonController.isLoading.value = true;
+                          createNeonController.isLoading.value = false;
+                        },
+                        child: Container(
+                          height: 5.h,
+                          width: 5.w,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(0.5.h),
+                            border: Border.all(
+                              color:
+                                  e == createNeonController.selectedSize.value
+                                      ? AppColors.orange
+                                      : Colors.grey,
+                              width: 0.1.h,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(1.h),
+                            child: Container(
+                              alignment: Alignment.center,
+                              child: Text(
+                                e,
+                                style: AppTextStyle.black2,
+                              ),
+                            ),
                           ),
                         ),
-                        child: Padding(
-                          padding: EdgeInsets.all(1.h),
-                          child: Container(
-                            alignment: Alignment.center,
-                            child: Text(createNeonController.sizeNames[index]),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
+                      );
+                    }).toList()),
               ],
             );
     });

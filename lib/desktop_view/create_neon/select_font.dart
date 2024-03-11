@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -23,7 +22,7 @@ class _SelectFontState extends State<SelectFont> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AutoSizeText(
+          Text(
             'Choose a font',
             maxLines: 1,
             style: AppTextStyle.black3,
@@ -48,7 +47,7 @@ class _SelectFontState extends State<SelectFont> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(
-                      child: AutoSizeText(
+                      child: Text(
                         createNeonController.selectedFont.value,
                         style: AppTextStyle.black3,
                       ),

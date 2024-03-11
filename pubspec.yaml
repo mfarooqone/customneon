@@ -31,7 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.6
-  auto_size_text: ^3.0.0
   sizer: ^2.0.15
   phosphor_flutter: ^2.0.1
   dropdown_button2: ^2.3.9

@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
 
 class MyExpansionTile extends StatefulWidget {
+  const MyExpansionTile({super.key});
+
   @override
   _MyExpansionTileState createState() => _MyExpansionTileState();
 }
@@ -24,16 +25,16 @@ class _MyExpansionTileState extends State<MyExpansionTile> {
             },
             child: Container(
               color: Colors.blue,
-              padding: EdgeInsets.all(8.0),
-              child: Text('Container 1'),
+              padding: const EdgeInsets.all(8.0),
+              child: const Text('Container 1'),
             ),
           ),
           if (_isExpanded1)
-            ExpansionTile(
+            const ExpansionTile(
               title: Text('Expansion Tile 1'),
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -52,16 +53,16 @@ class _MyExpansionTileState extends State<MyExpansionTile> {
             },
             child: Container(
               color: Colors.green,
-              padding: EdgeInsets.all(8.0),
-              child: Text('Container 2'),
+              padding: const EdgeInsets.all(8.0),
+              child: const Text('Container 2'),
             ),
           ),
           if (_isExpanded2)
-            ExpansionTile(
+            const ExpansionTile(
               title: Text('Expansion Tile 2'),
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -80,16 +81,16 @@ class _MyExpansionTileState extends State<MyExpansionTile> {
             },
             child: Container(
               color: Colors.red,
-              padding: EdgeInsets.all(8.0),
-              child: Text('Container 3'),
+              padding: const EdgeInsets.all(8.0),
+              child: const Text('Container 3'),
             ),
           ),
           if (_isExpanded3)
-            ExpansionTile(
+            const ExpansionTile(
               title: Text('Expansion Tile 3'),
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

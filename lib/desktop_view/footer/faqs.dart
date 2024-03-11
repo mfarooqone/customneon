@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -7,7 +6,7 @@ import '../../utills/app_colors.dart';
 import '../../utills/app_text_style.dart';
 
 class FAQs extends StatefulWidget {
-  FAQs({Key? key}) : super(key: key);
+  const FAQs({Key? key}) : super(key: key);
 
   @override
   State<FAQs> createState() => _FAQsState();
@@ -47,7 +46,7 @@ class _FAQsState extends State<FAQs> {
           child: Column(
             children: [
               Center(
-                child: AutoSizeText(
+                child: Text(
                   "FREQUENTLY ASKED QUESTIONS",
                   style: AppTextStyle.black3
                       .copyWith(color: AppColors.black, fontSize: 8.sp),
@@ -115,7 +114,7 @@ class _FAQsState extends State<FAQs> {
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: AutoSizeText(
+                    child: Text(
                       _selectedIndex == -1 ? "" : faqTexts[_selectedIndex],
                       style: AppTextStyle.black4.copyWith(color: Colors.black),
                     ),
@@ -162,8 +161,8 @@ class _FAQsState extends State<FAQs> {
                       : Colors.transparent),
               borderRadius: BorderRadius.circular(2.h)),
           child: Center(
-              child: AutoSizeText(
-            "${faqTexts[index]}",
+              child: Text(
+            faqTexts[index],
             style: AppTextStyle.black4.copyWith(
                 color: _selectedIndex == index ? Colors.black : Colors.black38),
           )),

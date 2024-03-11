@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -25,60 +24,60 @@ class _BackboardColorWidgetState extends State<BackboardColorWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText(
+                Text(
                   'Backboard Style',
                   style: AppTextStyle.black3,
                 ),
                 SizedBox(height: 3.h),
                 ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: createNeonController.backBoardsNames.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(bottom: 1.h),
-                        child: InkWell(
-                          onTap: () {
-                            createNeonController.selectedBackBoardStyle.value =
-                                createNeonController.backBoardsNames[index];
-                            createNeonController.isLoading.value = true;
-                            createNeonController.isLoading.value = false;
-                          },
-                          child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(1.h),
-                                border: Border.all(
-                                  color: createNeonController
-                                              .selectedBackBoardStyle.value ==
-                                          createNeonController
-                                              .backBoardsNames[index]
-                                      ? AppColors.orange
-                                      : AppColors.lightGrey,
-                                ),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: createNeonController.backBoardsNames.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(bottom: 1.h),
+                      child: InkWell(
+                        onTap: () {
+                          createNeonController.selectedBackBoardStyle.value =
+                              createNeonController.backBoardsNames[index];
+                          createNeonController.isLoading.value = true;
+                          createNeonController.isLoading.value = false;
+                        },
+                        child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(1.h),
+                              border: Border.all(
+                                color: createNeonController
+                                            .selectedBackBoardStyle.value ==
+                                        createNeonController
+                                            .backBoardsNames[index]
+                                    ? AppColors.orange
+                                    : AppColors.lightGrey,
                               ),
-                              child: Padding(
-                                padding: EdgeInsets.all(2.h),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    AutoSizeText(
-                                      createNeonController
-                                          .backBoardsNames[index],
-                                      style: AppTextStyle.black3,
-                                    ),
-                                    AutoSizeText(
-                                      createNeonController
-                                          .backBoardsSubTitles[index],
-                                      style: AppTextStyle.black1
-                                          .copyWith(color: AppColors.grey),
-                                    ),
-                                  ],
-                                ),
-                              )),
-                        ),
-                      );
-                    })
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(2.h),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    createNeonController.backBoardsNames[index],
+                                    style: AppTextStyle.black3,
+                                  ),
+                                  Text(
+                                    createNeonController
+                                        .backBoardsSubTitles[index],
+                                    style: AppTextStyle.black2
+                                        .copyWith(color: AppColors.grey),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ),
+                    );
+                  },
+                )
               ],
             );
     });

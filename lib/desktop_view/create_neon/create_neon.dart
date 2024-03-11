@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/desktop_view/auth_view/signin_view.dart';
 import 'package:customneon/desktop_view/create_neon/backboard_style_widget.dart';
@@ -50,7 +49,7 @@ class _CreateNeonState extends State<CreateNeon> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: AppColors.orange,
-        title: AutoSizeText(
+        title: Text(
           'FAST FREE SHIPPING & 1 YEAR WARRANTY',
           maxLines: 1,
           style: AppTextStyle.white2,
@@ -80,7 +79,7 @@ class _CreateNeonState extends State<CreateNeon> {
                           },
                           child: Align(
                             alignment: Alignment.center,
-                            child: AutoSizeText(
+                            child: Text(
                               'CREATE YOUR OWN NEON SIGN',
                               maxLines: 1,
                               style: AppTextStyle.white4
@@ -94,7 +93,7 @@ class _CreateNeonState extends State<CreateNeon> {
                         ///
                         Align(
                           alignment: Alignment.center,
-                          child: AutoSizeText(
+                          child: Text(
                             'Design your neon sign with our online custom tool',
                             maxLines: 1,
                             style: AppTextStyle.black4,
@@ -132,7 +131,7 @@ class _CreateNeonState extends State<CreateNeon> {
                                     ///
                                     Align(
                                       alignment: Alignment.center,
-                                      child: AutoSizeText(
+                                      child: Text(
                                         textEditingController.text,
                                         key: txtKey,
                                         textAlign: createNeonController
@@ -279,7 +278,7 @@ class _CreateNeonState extends State<CreateNeon> {
                                         SizedBox(height: 3.h),
                                         Align(
                                           alignment: Alignment.topLeft,
-                                          child: AutoSizeText(
+                                          child: Text(
                                             'Create Your Neon Sign',
                                             style: AppTextStyle.black4,
                                           ),
@@ -316,7 +315,7 @@ class _CreateNeonState extends State<CreateNeon> {
                                               padding: EdgeInsets.symmetric(
                                                   horizontal: 1.h,
                                                   vertical: 1.h),
-                                              child: AutoSizeText(
+                                              child: Text(
                                                 '2 or more characters are required for this size, please add more characters.',
                                                 style: AppTextStyle.white2,
                                               ),
@@ -384,7 +383,7 @@ class _CreateNeonState extends State<CreateNeon> {
 
                                         ///
                                         ///
-                                        AutoSizeText(
+                                        Text(
                                           'Power Adapter',
                                           style: AppTextStyle.black3,
                                         ),
@@ -405,16 +404,16 @@ class _CreateNeonState extends State<CreateNeon> {
                                         ///
                                         ///
                                         ///
-                                        AutoSizeText(
+                                        Text(
                                           'Additional Requirements',
                                           style: AppTextStyle.black3,
                                         ),
-                                        AutoSizeText(
+                                        Text(
                                           'Specify further requirements on your custom neon.',
                                           style: AppTextStyle.black1
                                               .copyWith(color: AppColors.grey),
                                         ),
-                                        AutoSizeText(
+                                        Text(
                                           'Specify further requirements on your custom neon.',
                                           style: AppTextStyle.black1
                                               .copyWith(color: AppColors.grey),
@@ -462,7 +461,7 @@ class _CreateNeonState extends State<CreateNeon> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
-                                                    AutoSizeText(
+                                                    Text(
                                                       '\$${createNeonController.totalAmount.value}',
                                                       style: AppTextStyle.black3
                                                           .copyWith(
@@ -472,7 +471,7 @@ class _CreateNeonState extends State<CreateNeon> {
                                                                   FontWeight
                                                                       .bold),
                                                     ),
-                                                    AutoSizeText(
+                                                    Text(
                                                       '  Tax and expedited shipping included',
                                                       style:
                                                           AppTextStyle.black1,
@@ -487,7 +486,7 @@ class _CreateNeonState extends State<CreateNeon> {
                                                     padding:
                                                         EdgeInsets.symmetric(
                                                             horizontal: 1.w),
-                                                    child: AutoSizeText(
+                                                    child: Text(
                                                       '2 or more characters are required for this size, please add more characters.',
                                                       style: AppTextStyle.black1
                                                           .copyWith(
@@ -507,7 +506,7 @@ class _CreateNeonState extends State<CreateNeon> {
                                                       .width,
                                                   color: AppColors.orange,
                                                   child: Center(
-                                                    child: AutoSizeText(
+                                                    child: Text(
                                                       'Finalize and Review',
                                                       style:
                                                           AppTextStyle.white4,
@@ -558,7 +557,7 @@ class _CreateNeonState extends State<CreateNeon> {
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(top: 1.h),
-                                  child: AutoSizeText(
+                                  child: Text(
                                     'Carbon neutral shipping on all orders',
                                     style: AppTextStyle.black3,
                                     textAlign: TextAlign.center,
@@ -587,17 +586,17 @@ class _CreateNeonState extends State<CreateNeon> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  AutoSizeText(
+                                  Text(
                                     'Expedited Free Shipping',
                                     style: AppTextStyle.black3,
                                     textAlign: TextAlign.center,
                                   ),
-                                  AutoSizeText(
+                                  Text(
                                     'Order today for your item(s) to dispatch by Dec 22.',
                                     style: AppTextStyle.black3,
                                     textAlign: TextAlign.center,
                                   ),
-                                  AutoSizeText(
+                                  Text(
                                     "You'll receive your package between Dec 21 and Jan 05",
                                     style: AppTextStyle.black3,
                                     textAlign: TextAlign.center,
@@ -614,7 +613,7 @@ class _CreateNeonState extends State<CreateNeon> {
                         SizedBox(height: 2.h),
                         Align(
                           alignment: Alignment.center,
-                          child: AutoSizeText(
+                          child: Text(
                             'WHY CUSTOMNEON',
                             style: AppTextStyle.black6.copyWith(
                               color: AppColors.orange,
@@ -734,7 +733,7 @@ class _CreateNeonState extends State<CreateNeon> {
           ),
 
           ///
-          AutoSizeText(
+          Text(
             title,
             style: AppTextStyle.black6.copyWith(
               color: AppColors.orange,
@@ -744,7 +743,7 @@ class _CreateNeonState extends State<CreateNeon> {
           ),
 
           ///
-          AutoSizeText(
+          Text(
             subTitle,
             style: AppTextStyle.black3,
             textAlign: TextAlign.center,

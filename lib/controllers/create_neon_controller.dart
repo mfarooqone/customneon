@@ -142,12 +142,11 @@ class CreateNeonController extends GetxController {
   ///
 
   List<String> sizeNames = [
-    "Small",
-    "Meduim",
-    "Large",
-    "X Large",
-    "XX Large",
-    "Supersized",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL",
     "Custom",
   ];
   List<String> backBoardsNames = [

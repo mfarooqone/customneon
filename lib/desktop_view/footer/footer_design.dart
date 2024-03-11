@@ -33,54 +33,54 @@ class FooterDesign extends StatelessWidget {
                 "Support",
                 style: AppTextStyle.black3,
               ),
-              MaterialButton(
-                onPressed: () {
-                  Get.to(() => TrackMyOrder());
-                },
-                child: const AutoSizeText(
-                  "Track My Order",
-                ),
+              SizedBox(
+                height: 2.5.h
               ),
-              MaterialButton(
-                onPressed: () {
-                  Get.to(() => const ShippingPolicy());
-                },
-                child: const AutoSizeText(
-                  "Shipping Policy",
-                ),
+              GestureDetector(
+                  onTap: (){
+                    Get.to(() =>   TrackMyOrder());
+                  },
+                  child: const AutoSizeText("Track My Order")),
+              SizedBox(
+                  height: 1.5.h
               ),
-              MaterialButton(
-                onPressed: () {
-                  Get.to(() => const RefundPolicy());
-                },
-                child: const AutoSizeText(
-                  "Refund Policy",
-                ),
+              GestureDetector(
+                  onTap: (){
+                    Get.to(() =>  const ShippingPolicy());
+                  },
+                  child: const AutoSizeText("Shipping Policy")),
+              SizedBox(
+                  height: 1.5.h
               ),
-              MaterialButton(
-                onPressed: () {
-                  Get.to(() => const PrivacyPolicy());
-                },
-                child: const AutoSizeText(
-                  "Privacy Policy",
-                ),
+              GestureDetector(
+                  onTap: (){
+                    Get.to(() =>  const RefundPolicy());
+                  },
+                  child: const AutoSizeText("Refund Policy")),
+              SizedBox(
+                  height: 1.5.h
               ),
-              MaterialButton(
-                onPressed: () {
-                  Get.to(() => const TermsOfService());
-                },
-                child: const AutoSizeText(
-                  "Terms of Service",
-                ),
+              GestureDetector(
+                  onTap: (){
+                    Get.to(() =>  const PrivacyPolicy());
+                  },
+                  child: const AutoSizeText("Privacy Policy")),
+              SizedBox(
+                  height: 1.5.h
               ),
-              MaterialButton(
-                onPressed: () {
+              GestureDetector(
+                  onTap: (){
+                    Get.to(() =>  const TermsOfService());
+                  },
+                  child: const AutoSizeText("Terms of Service")),
+              SizedBox(
+                  height: 1.5.h
+              ),
+              GestureDetector(
+                onTap: (){
                   Get.to(() =>  FAQs());
                 },
-                child: const AutoSizeText(
-                  "FAQs",
-                ),
-              ),
+                  child: const AutoSizeText("FAQs"))
               ////
               ///
               ///
@@ -104,31 +104,31 @@ class FooterDesign extends StatelessWidget {
                 "Information",
                 style: AppTextStyle.black3,
               ),
-              MaterialButton(
-                onPressed: () {
-                  Get.to(() => const AboutUs());
-                },
-                child: const AutoSizeText(
-                  "About Us",
-                ),
+              SizedBox(
+                height: 2.5.h,
               ),
-              MaterialButton(
-                onPressed: () {
-                  Get.to(() => ContactUs());
-                },
-                child: const AutoSizeText(
-                  "Contact Us",
-                ),
+              GestureDetector(
+                  onTap: (){
+                    Get.to(() =>  const AboutUs());
+                  },
+                  child: const AutoSizeText("About Us")),
+              SizedBox(
+                  height: 1.5.h
               ),
+              GestureDetector(
+                  onTap: (){
+                    Get.to(() =>  ContactUs());
+                  },
+                  child: const AutoSizeText("Contact Us")),
+              SizedBox(
+                  height: 1.5.h
+              ),
+              GestureDetector(
+                  onTap: (){
+                    Get.to(() =>  const PaymentMethods());
+                  },
+                  child: const AutoSizeText("Payment Methods"))
 
-              MaterialButton(
-                onPressed: () {
-                  Get.to(() => const PaymentMethods());
-                },
-                child: const AutoSizeText(
-                  "Payment Methods",
-                ),
-              )
 
               ////
               ///

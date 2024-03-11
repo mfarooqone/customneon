@@ -75,7 +75,7 @@ class _AdapterDropDownState extends State<AdapterDropDown> {
     //               .map<DropdownMenuItem<String>>((String value) {
     //             return DropdownMenuItem<String>(
     //               value: value,
-    //               child: AutoSizeText(
+    //               child: Text(
     //                 value,
     //                 style: AppTextStyle.black3,
     //               ),

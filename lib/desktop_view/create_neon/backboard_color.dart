@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -25,7 +24,7 @@ class _BackboardColorWidgetState extends State<BackboardColorWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText(
+                Text(
                   'Backboard Style',
                   style: AppTextStyle.black3,
                 ),
@@ -62,12 +61,12 @@ class _BackboardColorWidgetState extends State<BackboardColorWidget> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    AutoSizeText(
+                                    Text(
                                       createNeonController
                                           .backBoardsNames[index],
                                       style: AppTextStyle.black3,
                                     ),
-                                    AutoSizeText(
+                                    Text(
                                       createNeonController
                                           .backBoardsSubTitles[index],
                                       style: AppTextStyle.black1

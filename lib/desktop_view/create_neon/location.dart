@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -25,7 +24,7 @@ class _LocationWidgetState extends State<LocationWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText(
+                Text(
                   'Location',
                   style: AppTextStyle.black3,
                 ),
@@ -61,7 +60,7 @@ class _LocationWidgetState extends State<LocationWidget> {
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 2.h),
-                            child: AutoSizeText(
+                            child: Text(
                               "Outdoor",
                               style: AppTextStyle.black3,
                               textAlign: TextAlign.center,
@@ -96,7 +95,7 @@ class _LocationWidgetState extends State<LocationWidget> {
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 2.h),
-                            child: AutoSizeText(
+                            child: Text(
                               "Indoor",
                               style: AppTextStyle.black3,
                               textAlign: TextAlign.center,

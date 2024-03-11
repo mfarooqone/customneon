@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,7 @@ class AboutUs extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AutoSizeText(
+              Text(
                 "Our Story",
                 style: AppTextStyle.black3.copyWith(
                   color: AppColors.orange,
@@ -83,7 +82,7 @@ class AboutUs extends StatelessWidget {
   }
 
   Widget autoText(String text) {
-    return AutoSizeText(
+    return Text(
       text,
       style: AppTextStyle.black4,
     );

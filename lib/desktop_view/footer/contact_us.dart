@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -25,7 +24,7 @@ class ContactUs extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: AutoSizeText(
+                child: Text(
                   "Contact Us",
                   style: AppTextStyle.black3
                       .copyWith(color: AppColors.black, fontSize: 20.sp),
@@ -89,7 +88,7 @@ class ContactUs extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4.h)),
                     onPressed: () {},
-                    child: AutoSizeText(
+                    child: Text(
                       "Send Message",
                       style: AppTextStyle.white4,
                     ),
@@ -120,7 +119,7 @@ class ContactUs extends StatelessWidget {
   }
 
   Widget autoText(String text) {
-    return AutoSizeText(
+    return Text(
       text,
       style: AppTextStyle.black4,
     );

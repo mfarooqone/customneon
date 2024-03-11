@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -17,7 +16,7 @@ class TermsOfService extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AutoSizeText(
+              Text(
                 "Terms of service",
                 style: AppTextStyle.black3
                     .copyWith(color: AppColors.black, fontSize: 8.sp),
@@ -299,7 +298,7 @@ class TermsOfService extends StatelessWidget {
   }
 
   Widget autoText(String text) {
-    return AutoSizeText(
+    return Text(
       text,
       style: AppTextStyle.black4,
     );

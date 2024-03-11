@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -124,7 +123,7 @@ class PaymentMethods extends StatelessWidget {
   }
 
   Widget autoText(String text, TextStyle style) {
-    return AutoSizeText(
+    return Text(
       text,
       style: style,
     );

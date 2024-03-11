@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -25,11 +24,11 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText(
+                Text(
                   'Choose a size',
                   style: AppTextStyle.black3,
                 ),
-                AutoSizeText(
+                Text(
                   '*Each sign is handcrafted, and sizes shown will be accurate within 1 or 2 inches. Neon sign larger than 43 inches will be made on two or more backboards that can be easily arranged together.',
                   style: AppTextStyle.black1.copyWith(color: AppColors.grey),
                 ),

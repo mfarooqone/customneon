@@ -1,8 +1,6 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/desktop_view/auth_view/signup_view.dart';
 import 'package:customneon/homepage/homepage.dart';
 import 'package:customneon/utills/app_colors.dart';
-import 'package:customneon/utills/app_fonts.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +22,7 @@ class SigninView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AutoSizeText("Login",
+              Text("Login",
                   style: AppTextStyle.black6.copyWith(
                       color: AppColors.orange,
                       fontSize: 8.sp,
@@ -34,16 +32,16 @@ class SigninView extends StatelessWidget {
               ),
               Wrap(
                 children: [
-                  AutoSizeText("Don't have an account yet?",
+                  Text("Don't have an account yet?",
                       style: AppTextStyle.black3.copyWith(
                           color: AppColors.grey,
                           fontSize: 5.sp,
                           fontWeight: FontWeight.w400)),
                   GestureDetector(
-                    onTap: (){
-                      Get.to(()=>  SignupView());
+                    onTap: () {
+                      Get.to(() => SignupView());
                     },
-                    child: AutoSizeText(" Create account",
+                    child: Text(" Create account",
                         style: AppTextStyle.black3.copyWith(
                             fontSize: 5.sp, fontWeight: FontWeight.w400)),
                   ),
@@ -60,28 +58,28 @@ class SigninView extends StatelessWidget {
               SizedBox(
                 height: 2.h,
               ),
-              AutoSizeText("Forgot your password?",
-                  style: AppTextStyle.black4.copyWith(
-                      fontWeight: FontWeight.w400)),
+              Text("Forgot your password?",
+                  style: AppTextStyle.black4
+                      .copyWith(fontWeight: FontWeight.w400)),
               SizedBox(
                 height: 5.h,
               ),
-             SizedBox(
-                  width: MediaQuery.of(context).size.width / 7,
-                  child: MaterialButton(
-                    color: AppColors.orange,
-                    height: 9.h,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(2.h)),
-                    onPressed: () {
-                      Get.to(()=> const HomePage());
-                    },
-                    child: AutoSizeText(
-                       "Sign in".toUpperCase(),
-                      style: AppTextStyle.white4,
-                    ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 7,
+                child: MaterialButton(
+                  color: AppColors.orange,
+                  height: 9.h,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(2.h)),
+                  onPressed: () {
+                    Get.to(() => const HomePage());
+                  },
+                  child: Text(
+                    "Sign in".toUpperCase(),
+                    style: AppTextStyle.white4,
                   ),
                 ),
+              ),
             ],
           ),
         ),

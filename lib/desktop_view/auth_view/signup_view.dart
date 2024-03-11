@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/desktop_view/auth_view/signin_view.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -24,7 +23,7 @@ class SignupView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AutoSizeText("Signup",
+              Text("Signup",
                   style: AppTextStyle.black6.copyWith(
                       color: AppColors.orange,
                       fontSize: 8.sp,
@@ -34,16 +33,16 @@ class SignupView extends StatelessWidget {
               ),
               Wrap(
                 children: [
-                  AutoSizeText("Already have an account?",
+                  Text("Already have an account?",
                       style: AppTextStyle.black3.copyWith(
                           color: AppColors.grey,
                           fontSize: 5.sp,
                           fontWeight: FontWeight.w400)),
                   GestureDetector(
-                    onTap: (){
-                      Get.to(()=>  SigninView());
+                    onTap: () {
+                      Get.to(() => SigninView());
                     },
-                    child: AutoSizeText(" Signin",
+                    child: Text(" Signin",
                         style: AppTextStyle.black3.copyWith(
                             fontSize: 5.sp, fontWeight: FontWeight.w400)),
                   ),
@@ -76,7 +75,7 @@ class SignupView extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(2.h)),
                   onPressed: () {},
-                  child: AutoSizeText(
+                  child: Text(
                     "Sign up".toUpperCase(),
                     style: AppTextStyle.white4,
                   ),

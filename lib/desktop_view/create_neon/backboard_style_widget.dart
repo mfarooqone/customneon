@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -25,12 +24,12 @@ class _BackboardStyleWidgetState extends State<BackboardStyleWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText(
+                Text(
                   'Choose a backboard color',
                   style: AppTextStyle.black3,
                 ),
                 SizedBox(height: 1.h),
-                AutoSizeText(
+                Text(
                   createNeonController.getBackBoardColorName(
                       selectedColor:
                           createNeonController.selectedBackBoardColor),

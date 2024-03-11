@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -25,12 +24,12 @@ class _RemoteDimmerWidgetState extends State<RemoteDimmerWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText(
+                Text(
                   'Free Remote and Dimmer',
                   style: AppTextStyle.black3,
                 ),
 
-                AutoSizeText(
+                Text(
                   'A remote and dimmer is included free with every sign! (Except for Multicolor Neon Signs, which are controlled by the APP)',
                   style: AppTextStyle.black2.copyWith(color: AppColors.grey),
                 ),
@@ -61,7 +60,7 @@ class _RemoteDimmerWidgetState extends State<RemoteDimmerWidget> {
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 2.h),
-                            child: AutoSizeText(
+                            child: Text(
                               "Yes",
                               style: AppTextStyle.black3,
                               textAlign: TextAlign.center,
@@ -97,7 +96,7 @@ class _RemoteDimmerWidgetState extends State<RemoteDimmerWidget> {
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 2.h),
-                            child: AutoSizeText(
+                            child: Text(
                               "No",
                               style: AppTextStyle.black3,
                               textAlign: TextAlign.center,

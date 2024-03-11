@@ -1,10 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:customneon/desktop_view/footer/about_us.dart';
 import 'package:customneon/desktop_view/footer/contact_us.dart';
 import 'package:customneon/desktop_view/footer/faqs.dart';
 import 'package:customneon/desktop_view/footer/payment_methods.dart';
 import 'package:customneon/desktop_view/footer/privacy_policy.dart';
 import 'package:customneon/desktop_view/footer/refund_policy.dart';
-import 'package:customneon/desktop_view/footer/about_us.dart';
 import 'package:customneon/desktop_view/footer/shipping_policy.dart';
 import 'package:customneon/desktop_view/footer/terms_of_service.dart';
 import 'package:customneon/desktop_view/footer/track_my_order.dart';
@@ -29,58 +28,46 @@ class FooterDesign extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AutoSizeText(
+              Text(
                 "Support",
                 style: AppTextStyle.black3,
               ),
-              SizedBox(
-                height: 2.5.h
-              ),
+              SizedBox(height: 2.5.h),
               GestureDetector(
-                  onTap: (){
-                    Get.to(() =>   TrackMyOrder());
+                  onTap: () {
+                    Get.to(() => TrackMyOrder());
                   },
-                  child: const AutoSizeText("Track My Order")),
-              SizedBox(
-                  height: 1.5.h
-              ),
+                  child: const Text("Track My Order")),
+              SizedBox(height: 1.5.h),
               GestureDetector(
-                  onTap: (){
-                    Get.to(() =>  const ShippingPolicy());
+                  onTap: () {
+                    Get.to(() => const ShippingPolicy());
                   },
-                  child: const AutoSizeText("Shipping Policy")),
-              SizedBox(
-                  height: 1.5.h
-              ),
+                  child: const Text("Shipping Policy")),
+              SizedBox(height: 1.5.h),
               GestureDetector(
-                  onTap: (){
-                    Get.to(() =>  const RefundPolicy());
+                  onTap: () {
+                    Get.to(() => const RefundPolicy());
                   },
-                  child: const AutoSizeText("Refund Policy")),
-              SizedBox(
-                  height: 1.5.h
-              ),
+                  child: const Text("Refund Policy")),
+              SizedBox(height: 1.5.h),
               GestureDetector(
-                  onTap: (){
-                    Get.to(() =>  const PrivacyPolicy());
+                  onTap: () {
+                    Get.to(() => const PrivacyPolicy());
                   },
-                  child: const AutoSizeText("Privacy Policy")),
-              SizedBox(
-                  height: 1.5.h
-              ),
+                  child: const Text("Privacy Policy")),
+              SizedBox(height: 1.5.h),
               GestureDetector(
-                  onTap: (){
-                    Get.to(() =>  const TermsOfService());
+                  onTap: () {
+                    Get.to(() => const TermsOfService());
                   },
-                  child: const AutoSizeText("Terms of Service")),
-              SizedBox(
-                  height: 1.5.h
-              ),
+                  child: const Text("Terms of Service")),
+              SizedBox(height: 1.5.h),
               GestureDetector(
-                onTap: (){
-                  Get.to(() =>  FAQs());
-                },
-                  child: const AutoSizeText("FAQs"))
+                  onTap: () {
+                    Get.to(() => FAQs());
+                  },
+                  child: const Text("FAQs"))
               ////
               ///
               ///
@@ -94,13 +81,11 @@ class FooterDesign extends StatelessWidget {
           ///
           ///
           ///
-          SizedBox(
-            width: 5.w
-          ),
+          SizedBox(width: 5.w),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AutoSizeText(
+              Text(
                 "Information",
                 style: AppTextStyle.black3,
               ),
@@ -108,27 +93,22 @@ class FooterDesign extends StatelessWidget {
                 height: 2.5.h,
               ),
               GestureDetector(
-                  onTap: (){
-                    Get.to(() =>  const AboutUs());
+                  onTap: () {
+                    Get.to(() => const AboutUs());
                   },
-                  child: const AutoSizeText("About Us")),
-              SizedBox(
-                  height: 1.5.h
-              ),
+                  child: const Text("About Us")),
+              SizedBox(height: 1.5.h),
               GestureDetector(
-                  onTap: (){
-                    Get.to(() =>  ContactUs());
+                  onTap: () {
+                    Get.to(() => ContactUs());
                   },
-                  child: const AutoSizeText("Contact Us")),
-              SizedBox(
-                  height: 1.5.h
-              ),
+                  child: const Text("Contact Us")),
+              SizedBox(height: 1.5.h),
               GestureDetector(
-                  onTap: (){
-                    Get.to(() =>  const PaymentMethods());
+                  onTap: () {
+                    Get.to(() => const PaymentMethods());
                   },
-                  child: const AutoSizeText("Payment Methods"))
-
+                  child: const Text("Payment Methods"))
 
               ////
               ///

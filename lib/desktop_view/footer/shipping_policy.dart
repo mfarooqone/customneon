@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,7 @@ class ShippingPolicy extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AutoSizeText(
+              Text(
                 "Shipping Policy",
                 style: AppTextStyle.black3
                     .copyWith(color: AppColors.black, fontSize: 8.sp),
@@ -93,7 +92,7 @@ class ShippingPolicy extends StatelessWidget {
   }
 
   Widget autoText(String text) {
-    return AutoSizeText(
+    return Text(
       text,
       style: AppTextStyle.black4,
     );

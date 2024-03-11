@@ -32,6 +32,28 @@
   <title>customneon</title>
   <link rel="manifest" href="manifest.json">
 
+  <script type="module">
+  import { initializeApp } from "firebase/app";
+  import { getAnalytics } from "firebase/analytics";
+  const firebaseConfig = {
+  apiKey: "AIzaSyD0IJTjbpLD-Q95EgCuxbgaiHGJgfHGtCE",
+  authDomain: "customsneon-b32ef.firebaseapp.com",
+  projectId: "customsneon-b32ef",
+  storageBucket: "customsneon-b32ef.appspot.com",
+  messagingSenderId: "900142765503",
+  appId: "1:900142765503:web:041ea0f6fc7b5f4f16bd0a",
+  measurementId: "G-X9V73PMWF3"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+
+
+  </script>
+  
+
   <script>
     // The value below is injected by flutter build, do not touch.
     const serviceWorkerVersion = null;

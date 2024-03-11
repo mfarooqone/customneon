@@ -1,9 +1,19 @@
 import 'package:customneon/homepage/homepage.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+    apiKey: "AIzaSyD0IJTjbpLD-Q95EgCuxbgaiHGJgfHGtCE",
+    appId: "1:900142765503:web:041ea0f6fc7b5f4f16bd0a",
+    messagingSenderId: "900142765503",
+    projectId: "customsneon-b32ef",
+  ));
+
   runApp(const MyApp());
 }
 

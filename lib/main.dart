@@ -1,4 +1,5 @@
 import 'package:customneon/desktop_view/footer/payment_methods.dart';
+import 'package:customneon/dummy.dart';
 import 'package:customneon/homepage/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(
       builder: (context, orientation, deviceType) {
-        return const GetMaterialApp(
+        return  GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Custom Neon',
           home: HomePage(),

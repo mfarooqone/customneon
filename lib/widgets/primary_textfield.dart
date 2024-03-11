@@ -16,6 +16,7 @@ class PrimaryTextField extends StatelessWidget {
     this.onSubmitted,
     this.onChanged,
     this.inputFormatters,
+    this.suffixIcon,
   }) : super(key: key);
   final String heading;
   final TextEditingController controller;
@@ -26,6 +27,7 @@ class PrimaryTextField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final ValueChanged<String>? onSubmitted;
   final ValueChanged<String>? onChanged;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -56,12 +58,13 @@ class PrimaryTextField extends StatelessWidget {
               textAlign: TextAlign.start,
               style: AppTextStyle.black3,
               decoration: InputDecoration(
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 2.h, vertical: 1.5.h),
-                hintStyle: AppTextStyle.black4.copyWith(color: AppColors.grey),
-                hintText: hintText,
-                border: InputBorder.none,
-              ),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 2.h, vertical: 1.5.h),
+                  hintStyle:
+                      AppTextStyle.black4.copyWith(color: AppColors.grey),
+                  hintText: hintText,
+                  border: InputBorder.none,
+                  suffixIcon: suffixIcon),
               maxLines: maxLines,
               onSubmitted: onSubmitted,
               onChanged: onChanged,

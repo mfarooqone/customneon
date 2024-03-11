@@ -36,60 +36,53 @@ class _BackboardStyleWidgetState extends State<BackboardStyleWidget> {
                   style: AppTextStyle.black3,
                 ),
 
+                ////
                 ///
                 ///
                 ///
-                ///
-                GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  padding: EdgeInsets.zero,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4,
-                    childAspectRatio: 3 / 2,
-                    crossAxisSpacing: 1.0.h,
-                    mainAxisSpacing: 1.0.h,
-                  ),
-                  itemCount: createNeonController.backBoardColorList.length,
-                  itemBuilder: (BuildContext ctx, index) {
-                    return InkWell(
-                      onTap: () {
-                        createNeonController.selectedBackBoardColor =
-                            createNeonController.backBoardColorList[index];
-                        createNeonController.isLoading.value = true;
-                        createNeonController.isLoading.value = false;
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(0.5.h),
-                          border: Border.all(
-                            color: createNeonController
-                                        .backBoardColorList[index] ==
-                                    createNeonController.selectedBackBoardColor
-                                ? AppColors.orange
-                                : Colors.transparent,
-                            width: 0.1.h,
+                Wrap(
+                    spacing: 10,
+                    direction: Axis.horizontal,
+                    alignment: WrapAlignment.start,
+                    runSpacing: 10,
+                    children: createNeonController.backBoardColorList.map((e) {
+                      return InkWell(
+                        onTap: () {
+                          createNeonController.selectedBackBoardColor = e;
+                          createNeonController.isLoading.value = true;
+                          createNeonController.isLoading.value = false;
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(0.5.h),
+                            border: Border.all(
+                              color: e ==
+                                      createNeonController
+                                          .selectedBackBoardColor
+                                  ? AppColors.orange
+                                  : Colors.transparent,
+                              width: 0.1.h,
+                            ),
                           ),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(1.h),
-                          child: Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: createNeonController
-                                  .backBoardColorList[index],
-                              borderRadius: BorderRadius.circular(1.h),
-                              border: Border.all(
-                                color: Colors.grey,
-                                width: 0.1.h,
+                          child: Padding(
+                            padding: EdgeInsets.all(0.5.h),
+                            child: Container(
+                              height: 5.h,
+                              width: 5.w,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: e,
+                                borderRadius: BorderRadius.circular(1.h),
+                                border: Border.all(
+                                  color: Colors.grey,
+                                  width: 0.1.h,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    );
-                  },
-                ),
+                      );
+                    }).toList()),
               ],
             );
     });

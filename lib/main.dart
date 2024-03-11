@@ -1,4 +1,5 @@
 import 'package:customneon/desktop_view/auth_view/signin_view.dart';
+import 'package:customneon/desktop_view/auth_view/signup_view.dart';
 import 'package:customneon/desktop_view/footer/payment_methods.dart';
 import 'package:customneon/dummy.dart';
 import 'package:customneon/homepage/homepage.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         return  GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Custom Neon',
-          home: SigninView(),
+          home: HomePage(),
         );
       },
     );

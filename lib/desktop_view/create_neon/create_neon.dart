@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
+import 'package:customneon/desktop_view/auth_view/signin_view.dart';
 import 'package:customneon/desktop_view/create_neon/backboard_style_widget.dart';
 import 'package:customneon/desktop_view/create_neon/choose_color_widget.dart';
 import 'package:customneon/desktop_view/create_neon/choose_size_widget.dart';
@@ -73,13 +74,18 @@ class _CreateNeonState extends State<CreateNeon> {
                         ///
                         ///
                         ///
-                        Align(
-                          alignment: Alignment.center,
-                          child: AutoSizeText(
-                            'CREATE YOUR OWN NEON SIGN',
-                            maxLines: 1,
-                            style: AppTextStyle.white4
-                                .copyWith(color: AppColors.orange),
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(() => SigninView());
+                          },
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: AutoSizeText(
+                              'CREATE YOUR OWN NEON SIGN',
+                              maxLines: 1,
+                              style: AppTextStyle.white4
+                                  .copyWith(color: AppColors.orange),
+                            ),
                           ),
                         ),
 

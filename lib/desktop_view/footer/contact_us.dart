@@ -5,17 +5,24 @@ import 'package:sizer/sizer.dart';
 import '../../utills/app_colors.dart';
 import '../../utills/app_text_style.dart';
 
-class ContactUs extends StatelessWidget {
-  ContactUs({Key? key}) : super(key: key);
+class ContactUs extends StatefulWidget {
+  const ContactUs({Key? key}) : super(key: key);
 
+  @override
+  State<ContactUs> createState() => _ContactUsState();
+}
+
+class _ContactUsState extends State<ContactUs> {
   TextEditingController nameController = TextEditingController();
+
   TextEditingController emailController = TextEditingController();
+
   TextEditingController phoneNumberController = TextEditingController();
+
   TextEditingController commentController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(

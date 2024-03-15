@@ -1,5 +1,5 @@
 import 'package:customneon/controllers/auth_controller.dart';
-import 'package:customneon/desktop_view/auth_view/signin_view.dart';
+import 'package:customneon/screens/auth_view/signup_view.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -8,11 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-class SignupView extends StatelessWidget {
-  SignupView({Key? key}) : super(key: key);
+class SigninView extends StatelessWidget {
+  SigninView({Key? key}) : super(key: key);
 
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -27,7 +25,7 @@ class SignupView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Signup",
+                Text("Login",
                     style: AppTextStyle.black6.copyWith(
                         color: AppColors.orange,
                         fontSize: 8.sp,
@@ -37,16 +35,16 @@ class SignupView extends StatelessWidget {
                 ),
                 Wrap(
                   children: [
-                    Text("Already have an account?",
+                    Text("Don't have an account yet?",
                         style: AppTextStyle.black3.copyWith(
                             color: AppColors.grey,
                             fontSize: 5.sp,
                             fontWeight: FontWeight.w400)),
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => SigninView());
+                        Get.to(() => SignupView());
                       },
-                      child: Text(" Signin",
+                      child: Text(" Create account",
                           style: AppTextStyle.black3.copyWith(
                               fontSize: 5.sp, fontWeight: FontWeight.w400)),
                     ),
@@ -55,19 +53,17 @@ class SignupView extends StatelessWidget {
                 SizedBox(
                   height: 5.h,
                 ),
-                textField(context, "First Name", firstNameController),
-                SizedBox(
-                  height: 3.h,
-                ),
-                textField(context, "Last Name", lastNameController),
+                textField(context, "Email", emailController),
                 SizedBox(
                   height: 3.h,
                 ),
                 textField(context, "Password", passwordController),
                 SizedBox(
-                  height: 3.h,
+                  height: 2.h,
                 ),
-                textField(context, "Password", passwordController),
+                Text("Forgot your password?",
+                    style: AppTextStyle.black4
+                        .copyWith(fontWeight: FontWeight.w400)),
                 SizedBox(
                   height: 5.h,
                 ),
@@ -79,20 +75,17 @@ class SignupView extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(2.h)),
                     onPressed: () {
-                      if (firstNameController.text.isEmpty) {
-                        AppSnackBar.showSnackBar(
-                            "Name!", "Please enter your first name", context);
-                      } else if (lastNameController.text.isEmpty) {
-                        AppSnackBar.showSnackBar(
-                            "Name!", "Please enter your last name", context);
-                      } else if (emailController.text.isEmpty) {
+                      if (emailController.text.isEmpty) {
                         AppSnackBar.showSnackBar(
                             "Email!", "Please enter your email", context);
+                      } else if (passwordController.text.isEmpty) {
+                        AppSnackBar.showSnackBar("Password!!",
+                            "Please enter your password", context);
                       } else if (passwordController.text.length < 8) {
                         AppSnackBar.showSnackBar("Password!!",
-                            "Password must be 8 character long", context);
+                            "Password must be 8 chardcter long", context);
                       } else {
-                        authController.signup(emailController.text,
+                        authController.signin(emailController.text,
                             passwordController.text, context);
                       }
                     },
@@ -108,7 +101,7 @@ class SignupView extends StatelessWidget {
                             ),
                           )
                         : Text(
-                            "Sign up".toUpperCase(),
+                            "Sign in".toUpperCase(),
                             style: AppTextStyle.white4,
                           ),
                   ),

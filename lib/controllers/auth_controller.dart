@@ -130,4 +130,23 @@ class AuthController extends GetxController {
     }
     return user;
   }
+
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  Future<void> logout() async {
+    await _auth.signOut();
+    _auth.currentUser?.delete();
+    Get.deleteAll();
+    Get.offAll(() => const HomePage());
+    final AppPreferencesController prefs = Get.find();
+    await prefs.setBool(key: "isLogedIn", value: false);
+  }
 }

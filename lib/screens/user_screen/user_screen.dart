@@ -1,5 +1,7 @@
+import 'package:customneon/controllers/auth_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({Key? key}) : super(key: key);
@@ -9,6 +11,7 @@ class UserScreen extends StatefulWidget {
 
 class _UserScreenState extends State<UserScreen> {
   final FirebaseAuth auth = FirebaseAuth.instance;
+  final AuthController authController = Get.find();
   User? user;
 
   @override
@@ -20,14 +23,23 @@ class _UserScreenState extends State<UserScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          if (user != null)
-            Text(
-              user!.displayName ?? 'No Display Name',
-            ),
-        ],
-      ),
+      body: Obx(() {
+        return authController.isLoading.value
+            ? const CircularProgressIndicator()
+            : Column(
+                children: [
+                  if (user != null)
+                    Text(
+                      user!.displayName ?? 'No Display Name',
+                    ),
+                  ElevatedButton(
+                      onPressed: () {
+                        authController.logout();
+                      },
+                      child: const Text("Logout"))
+                ],
+              );
+      }),
     );
   }
 }

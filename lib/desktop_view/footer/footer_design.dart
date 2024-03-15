@@ -65,7 +65,7 @@ class FooterDesign extends StatelessWidget {
               SizedBox(height: 1.5.h),
               GestureDetector(
                   onTap: () {
-                    Get.to(() => FAQs());
+                    Get.to(() => const FAQs());
                   },
                   child: const Text("FAQs"))
               ////
@@ -100,7 +100,7 @@ class FooterDesign extends StatelessWidget {
               SizedBox(height: 1.5.h),
               GestureDetector(
                   onTap: () {
-                    Get.to(() => ContactUs());
+                    Get.to(() => const ContactUs());
                   },
                   child: const Text("Contact Us")),
               SizedBox(height: 1.5.h),

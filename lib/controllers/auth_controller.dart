@@ -37,7 +37,7 @@ class AuthController extends GetxController {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       Get.to(() => const HomePage());
       AppSnackBar.showSnackBar(
-          "Success", "You have successfully signuin to your account", context);
+          "Success", "You have successfully sign in to your account", context);
       isLoading.value = false;
       return true;
     } on FirebaseAuthException catch (e) {

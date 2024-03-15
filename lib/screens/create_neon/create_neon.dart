@@ -80,7 +80,7 @@ class _CreateNeonState extends State<CreateNeon> {
                               onPressed: () {
                                 final AuthController authController =
                                     Get.put(AuthController());
-                                authController.signInWithGoogle();
+                                authController.handleSignIn(context);
                               },
                               icon: const Icon(
                                 PhosphorIconsBold.goggles,

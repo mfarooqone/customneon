@@ -5,10 +5,10 @@ import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -100,37 +100,64 @@ class AuthController extends GetxController {
 
   ///
   ///
-  ///
-  Future<User?> signInWithGoogle() async {
-    await Firebase.initializeApp();
-    User? user;
-    FirebaseAuth auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-    GoogleAuthProvider authProvider = GoogleAuthProvider();
-
+  void handleSignIn(BuildContext context) async {
     try {
-      final UserCredential userCredential =
-          await auth.signInWithPopup(authProvider);
-      user = userCredential.user;
-    } catch (e) {
-      print(e);
-    }
+      final GoogleSignInAccount? account = await _googleSignIn.signInSilently();
 
-    if (user != null) {
-      final AppPreferencesController prefs = Get.find();
-      await prefs.setBool(key: "isLogedIn", value: true);
-      // uid = user.uid;
-      // name = user.displayName;
-      // userEmail = user.email;
-      // imageUrl = user.photoURL;
-
-      // print("name: $name");
-      // print("userEmail: $userEmail");
-      // print("imageUrl: $imageUrl");
+      if (account == null) {
+        // Render the sign-in button using the google_sign_in_web package
+        await _googleSignIn.signIn();
+      } else {
+        print('User Name: ${account.displayName}');
+        print('User Email: ${account.email}');
+        print('User Photo: ${account.photoUrl}');
+      }
+    } catch (error) {
+      print('Error signing in: $error');
     }
-    return user;
   }
 
+  ///
+  ///
+  ///
+  // Future<User?> signInWithGoogle() async {
+  //   try {
+  //     await Firebase.initializeApp();
+  //     FirebaseAuth auth = FirebaseAuth.instance;
+  //     GoogleAuthProvider authProvider = GoogleAuthProvider();
+
+  //     // Sign out any existing user
+  //     await auth.signOut();
+
+  //     final UserCredential userCredential =
+  //         await auth.signInWithPopup(authProvider);
+  //     User? user = userCredential.user;
+
+  //     if (user != null) {
+  //       final AppPreferencesController prefs = Get.find();
+  //       await prefs.setBool(key: "isLoggedIn", value: true);
+  //     }
+
+  //     return user;
+  //   } catch (e) {
+  //     print(e);
+  //     return null;
+  //   }
+  // }
+
+  ///
+  ///
+  ///
+// uid = user.uid;
+  // name = user.displayName;
+  // userEmail = user.email;
+  // imageUrl = user.photoURL;
+
+  // print("name: $name");
+  // print("userEmail: $userEmail");
+  // print("imageUrl: $imageUrl");
   ///
   ///
   ///

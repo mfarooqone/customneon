@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
@@ -69,21 +71,10 @@ class AuthController extends GetxController {
         }
       }
 
-      ///
-      ///
       /// save prefs data
-      ///
-      ///
+
       final AppPreferencesController prefs = Get.find();
       await prefs.setBool(key: "isLogedIn", value: true);
-
-      ///
-      ///
-      ///
-      bool dd = await prefs.getBool(key: "isLogedIn");
-      print("is loged in -==  $dd");
-
-      ///
 
       Get.to(() => const HomePage());
       AppSnackBar.showSnackBar(
@@ -126,13 +117,13 @@ class AuthController extends GetxController {
     }
 
     if (user != null) {
+      final AppPreferencesController prefs = Get.find();
+      await prefs.setBool(key: "isLogedIn", value: true);
       // uid = user.uid;
       // name = user.displayName;
       // userEmail = user.email;
       // imageUrl = user.photoURL;
 
-      // SharedPreferences prefs = await SharedPreferences.getInstance();
-      // prefs.setBool('auth', true);
       // print("name: $name");
       // print("userEmail: $userEmail");
       // print("imageUrl: $imageUrl");

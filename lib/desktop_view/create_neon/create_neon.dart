@@ -68,23 +68,39 @@ class _CreateNeonState extends State<CreateNeon> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                Get.to(() => SigninView());
+                              },
+                              icon: const Icon(
+                                PhosphorIconsBold.user,
+                              ),
+                            ),
+
+                            ///
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                PhosphorIconsBold.shoppingCart,
+                              ),
+                            ),
+                          ],
+                        ),
                         SizedBox(height: 6.h),
 
                         ///
                         ///
                         ///
-                        GestureDetector(
-                          onTap: () {
-                            Get.to(() => SigninView());
-                          },
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'CREATE YOUR OWN NEON SIGN',
-                              maxLines: 1,
-                              style: AppTextStyle.white4
-                                  .copyWith(color: AppColors.orange),
-                            ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'CREATE YOUR OWN NEON SIGN',
+                            maxLines: 1,
+                            style: AppTextStyle.white4
+                                .copyWith(color: AppColors.orange),
                           ),
                         ),
 

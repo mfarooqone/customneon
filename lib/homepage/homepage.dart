@@ -1,4 +1,4 @@
-import 'package:customneon/desktop_view/auth_view/signup_view.dart';
+import 'package:customneon/desktop_view/create_neon/create_neon.dart';
 import 'package:customneon/mobile_view/mobile_view.dart';
 import 'package:customneon/responsive/responsive_layout.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +12,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: ResponsiveLayout(
-        mobileBody: const MobileView(),
-        desktopBody: SignupView(),
+        mobileBody: MobileView(),
+        desktopBody: CreateNeon(),
       ),
     );
   }

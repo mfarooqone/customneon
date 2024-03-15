@@ -1,3 +1,4 @@
+import 'package:customneon/controllers/auth_controller.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/desktop_view/auth_view/signin_view.dart';
 import 'package:customneon/desktop_view/create_neon/backboard_style_widget.dart';
@@ -71,6 +72,16 @@ class _CreateNeonState extends State<CreateNeon> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
+                            IconButton(
+                              onPressed: () {
+                                final AuthController authController =
+                                    Get.put(AuthController());
+                                authController.signInWithGoogle();
+                              },
+                              icon: const Icon(
+                                PhosphorIconsBold.goggles,
+                              ),
+                            ),
                             IconButton(
                               onPressed: () {
                                 Get.to(() => SigninView());

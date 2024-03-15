@@ -6,12 +6,16 @@ import 'package:sizer/sizer.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
       options: const FirebaseOptions(
     apiKey: "AIzaSyD0IJTjbpLD-Q95EgCuxbgaiHGJgfHGtCE",
-    appId: "1:900142765503:web:041ea0f6fc7b5f4f16bd0a",
-    messagingSenderId: "900142765503",
+    authDomain: "customsneon-b32ef.firebaseapp.com",
     projectId: "customsneon-b32ef",
+    storageBucket: "customsneon-b32ef.appspot.com",
+    messagingSenderId: "900142765503",
+    appId: "1:900142765503:web:041ea0f6fc7b5f4f16bd0a",
+    measurementId: "G-X9V73PMWF3",
   ));
 
   runApp(const MyApp());

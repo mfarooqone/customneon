@@ -2,6 +2,7 @@ import 'package:customneon/desktop_view/auth_view/signin_view.dart';
 import 'package:customneon/homepage/homepage.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
@@ -50,5 +51,38 @@ class AuthController extends GetxController {
           "Failed", "Unexpected error during sign-in: $e", context);
       return false;
     }
+  }
+
+  ///
+  ///
+  ///
+  Future<User?> signInWithGoogle() async {
+    await Firebase.initializeApp();
+    User? user;
+    FirebaseAuth auth = FirebaseAuth.instance;
+
+    GoogleAuthProvider authProvider = GoogleAuthProvider();
+
+    try {
+      final UserCredential userCredential =
+          await auth.signInWithPopup(authProvider);
+      user = userCredential.user;
+    } catch (e) {
+      print(e);
+    }
+
+    if (user != null) {
+      // uid = user.uid;
+      // name = user.displayName;
+      // userEmail = user.email;
+      // imageUrl = user.photoURL;
+
+      // SharedPreferences prefs = await SharedPreferences.getInstance();
+      // prefs.setBool('auth', true);
+      // print("name: $name");
+      // print("userEmail: $userEmail");
+      // print("imageUrl: $imageUrl");
+    }
+    return user;
   }
 }

@@ -1,3 +1,4 @@
+import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/desktop_view/auth_view/signin_view.dart';
 import 'package:customneon/homepage/homepage.dart';
 import 'package:customneon/utills/app_snackbar.dart';
@@ -36,12 +37,34 @@ class AuthController extends GetxController {
     try {
       isLoading.value = true;
       await _auth.signInWithEmailAndPassword(email: email, password: password);
+
+      ///
+      ///
+      /// save prefs data
+      ///
+      ///
+      final AppPreferencesController prefs = Get.find();
+      await prefs.setBool(key: "isLogedIn", value: true);
+
+      ///
+      ///
+      ///
+      bool dd = await prefs.getBool(key: "isLogedIn");
+      print("is loged in -==  $dd");
+
+      ///
+
       Get.to(() => const HomePage());
       AppSnackBar.showSnackBar(
           "Success", "You have successfully sign in to your account", context);
       isLoading.value = false;
       return true;
     } on FirebaseAuthException catch (e) {
+      ///
+      final AppPreferencesController prefs = Get.find();
+      await prefs.setBool(key: "isLogedIn", value: false);
+
+      ///
       isLoading.value = false;
       AppSnackBar.showSnackBar("Failed", "${e.message}", context);
       return false;

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 BindingsBuilder createBindings(BuildContext context) {
   return BindingsBuilder(() {
-    Get.put(AuthController(), permanent: true);
     Get.put(AppPreferencesController(), permanent: true);
+    Get.put(AuthController(), permanent: true);
   });
 }

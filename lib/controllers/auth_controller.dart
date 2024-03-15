@@ -100,20 +100,15 @@ class AuthController extends GetxController {
 
   ///
   ///
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   void handleSignIn(BuildContext context) async {
     try {
-      final GoogleSignInAccount? account = await _googleSignIn.signInSilently();
+      GoogleSignIn googleSignIn = GoogleSignIn(
+        clientId:
+            '685563662753-nitnmudrd82s6jths10u2u8l8kqp7jej.apps.googleusercontent.com',
+      );
 
-      if (account == null) {
-        // Render the sign-in button using the google_sign_in_web package
-        await _googleSignIn.signIn();
-      } else {
-        print('User Name: ${account.displayName}');
-        print('User Email: ${account.email}');
-        print('User Photo: ${account.photoUrl}');
-      }
+      await googleSignIn.signIn();
     } catch (error) {
       print('Error signing in: $error');
     }

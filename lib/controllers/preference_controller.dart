@@ -6,16 +6,31 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AppPreferencesController extends GetxController {
   ///
 
-  Future<void> setString(String key, String value) async {
+  Future<void> setString({required String key, required String value}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString(key, value);
   }
 
   ///
 
-  Future<String> getString(key) async {
+  Future<String> getString({required String key}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String val = prefs.getString(key) ?? "";
+    log("this is the value from  prefs controller $key == $val");
+    return val;
+  }
+
+  ///
+  Future<void> setBool({required String key, required bool value}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool(key, value);
+  }
+
+  ///
+
+  Future<bool> getBool({required String key}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool val = prefs.getBool(key) ?? false;
     log("this is the value from  prefs controller $key == $val");
     return val;
   }
@@ -36,25 +51,4 @@ class AppPreferencesController extends GetxController {
     log("this is the value from  prefs controller $key == $val");
     return val;
   }
-
-  ///
-  ///
-  ///
-
-  // Future<void> clearEcryptedPrefs() async {
-  //   await encryptedSharedPreferences.clear();
-  // }
-
-  // Future<void> remove(String key) async {
-  //   // await encryptedSharedPreferences.remove(key);
-
-  //   encryptedSharedPreferences.remove(key).then((bool success) {
-  //     if (success) {
-  //       encryptedSharedPreferences.setString(key, "");
-  //       print('success');
-  //     } else {
-  //       print('fail');
-  //     }
-  //   });
-  // }
 }

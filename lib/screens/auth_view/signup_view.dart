@@ -119,8 +119,13 @@ class SignupView extends StatelessWidget {
 
                         ///
                         else {
-                          authController.signup(emailController.text,
-                              passwordController.text, context);
+                          authController.signup(
+                            context: context,
+                            email: emailController.text,
+                            password: passwordController.text,
+                            displayName:
+                                "${firstNameController.text} ${lastNameController.text}",
+                          );
                         }
                       },
                       child: authController.isLoading.value

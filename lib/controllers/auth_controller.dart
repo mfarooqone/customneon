@@ -4,6 +4,8 @@ import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
@@ -11,11 +13,27 @@ class AuthController extends GetxController {
 
   RxBool isLoading = false.obs;
 
-  Future<bool> signup(String email, String password, context) async {
+  Future<bool> signup({
+    required String email,
+    required String password,
+    required String displayName,
+    required BuildContext context,
+  }) async {
     try {
       isLoading.value = true;
-      await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      final userCredential = await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      ///
+      ///
+      userCredential.user?.updateDisplayName(displayName);
+
+      ///
+      ///
+      ///
+
       Get.to(() => SigninView());
       AppSnackBar.showSnackBar(
           "Success", "You have successfully signup to your account", context);
@@ -36,7 +54,20 @@ class AuthController extends GetxController {
   Future<bool> signin(String email, String password, context) async {
     try {
       isLoading.value = true;
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
+
+      final userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      if (userCredential.user != null) {
+        if (kDebugMode) {
+          print(userCredential.user);
+        }
+        if (kDebugMode) {
+          print(userCredential.user!.displayName);
+        }
+      }
 
       ///
       ///

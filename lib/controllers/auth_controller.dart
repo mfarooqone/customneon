@@ -1,6 +1,6 @@
 import 'package:customneon/controllers/preference_controller.dart';
-import 'package:customneon/desktop_view/auth_view/signin_view.dart';
-import 'package:customneon/homepage/homepage.dart';
+import 'package:customneon/screens/auth_view/signin_view.dart';
+import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';

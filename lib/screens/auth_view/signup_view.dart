@@ -1,5 +1,5 @@
 import 'package:customneon/controllers/auth_controller.dart';
-import 'package:customneon/desktop_view/auth_view/signin_view.dart';
+import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:customneon/utills/app_text_style.dart';

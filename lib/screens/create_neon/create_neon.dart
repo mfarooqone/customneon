@@ -1,5 +1,6 @@
 import 'package:customneon/controllers/auth_controller.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
+import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/create_neon/backboard_style_widget.dart';
 import 'package:customneon/screens/create_neon/choose_color_widget.dart';
@@ -8,6 +9,7 @@ import 'package:customneon/screens/create_neon/location.dart';
 import 'package:customneon/screens/create_neon/select_font.dart';
 import 'package:customneon/screens/create_neon/text_align_widget.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
+import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
@@ -33,6 +35,8 @@ class _CreateNeonState extends State<CreateNeon> {
   final TextEditingController textEditingController = TextEditingController();
   final CreateNeonController createNeonController =
       Get.put(CreateNeonController());
+
+  final AppPreferencesController prefs = Get.find();
 
   ///
 
@@ -83,8 +87,13 @@ class _CreateNeonState extends State<CreateNeon> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {
-                                Get.to(() => SigninView());
+                              onPressed: () async {
+                                bool isLogedIn =
+                                    await prefs.getBool(key: "isLogedIn");
+
+                                isLogedIn
+                                    ? Get.to(() => const UserScreen())
+                                    : Get.to(() => SigninView());
                               },
                               icon: const Icon(
                                 PhosphorIconsBold.user,

@@ -23,7 +23,7 @@ class SigninView extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
           child: Center(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text("Login",
                     style: AppTextStyle.black6.copyWith(
@@ -67,45 +67,70 @@ class SigninView extends StatelessWidget {
                 SizedBox(
                   height: 5.h,
                 ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 7,
-                  child: MaterialButton(
-                    color: AppColors.orange,
-                    height: 9.h,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(2.h)),
-                    onPressed: () {
-                      if (emailController.text.isEmpty) {
-                        AppSnackBar.showSnackBar(
-                            "Email!", "Please enter your email", context);
-                      } else if (passwordController.text.isEmpty) {
-                        AppSnackBar.showSnackBar("Password!!",
-                            "Please enter your password", context);
-                      } else if (passwordController.text.length < 8) {
-                        AppSnackBar.showSnackBar("Password!!",
-                            "Password must be 8 chardcter long", context);
-                      } else {
-                        authController.signin(emailController.text,
-                            passwordController.text, context);
-                      }
-                    },
-                    child: authController.isLoading.value
-                        ? const Center(
-                            child: SizedBox(
-                              height: 25,
-                              width: 25,
-                              child: CircularProgressIndicator(
-                                color: Colors.white,
-                                strokeWidth: 4,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 7,
+                      child: MaterialButton(
+                        color: AppColors.orange,
+                        height: 7.h,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(2.h)),
+                        onPressed: () {
+                          if (emailController.text.isEmpty) {
+                            AppSnackBar.showSnackBar(
+                                "Email!", "Please enter your email", context);
+                          } else if (passwordController.text.isEmpty) {
+                            AppSnackBar.showSnackBar("Password!!",
+                                "Please enter your password", context);
+                          } else if (passwordController.text.length < 8) {
+                            AppSnackBar.showSnackBar("Password!!",
+                                "Password must be 8 chardcter long", context);
+                          } else {
+                            authController.signin(emailController.text,
+                                passwordController.text, context);
+                          }
+                        },
+                        child: authController.isLoading.value
+                            ? const Center(
+                                child: SizedBox(
+                                  height: 25,
+                                  width: 25,
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                    strokeWidth: 4,
+                                  ),
+                                ),
+                              )
+                            : Text(
+                                "Sign in".toUpperCase(),
+                                style: AppTextStyle.white2,
                               ),
-                            ),
-                          )
-                        : Text(
-                            "Sign in".toUpperCase(),
-                            style: AppTextStyle.white4,
-                          ),
-                  ),
+                      ),
+                    ),
+
+                    SizedBox(
+                      width: 1.w,
+                    ),
+
+                    ///
+                    ///
+                    ///
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 7,
+                      height: 7.h,
+                      child: Image.asset(
+                        "assets/google_button.png",
+                        width: MediaQuery.of(context).size.width / 7,
+                        height: 7.h,
+                        fit: BoxFit.contain,
+                      ),
+                    )
+                  ],
                 ),
+
+                ///
               ],
             ),
           ),

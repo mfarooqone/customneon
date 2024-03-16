@@ -1,4 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
 
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
@@ -6,7 +5,6 @@ import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -112,6 +110,7 @@ class AuthController extends GetxController {
 
     GoogleAuthProvider authProvider = GoogleAuthProvider();
 
+  void handleSignIn(BuildContext context) async {
     try {
       final UserCredential userCredential =
           await auth.signInWithPopup(authProvider);
@@ -121,22 +120,56 @@ class AuthController extends GetxController {
         print(e);
       }
     }
+      GoogleSignIn googleSignIn = GoogleSignIn(
+        clientId:
+            '685563662753-nitnmudrd82s6jths10u2u8l8kqp7jej.apps.googleusercontent.com',
+      );
 
-    if (user != null) {
-      final AppPreferencesController prefs = Get.find();
-      await prefs.setBool(key: "isLogedIn", value: true);
-      // uid = user.uid;
-      // name = user.displayName;
-      // userEmail = user.email;
-      // imageUrl = user.photoURL;
-
-      // print("name: $name");
-      // print("userEmail: $userEmail");
-      // print("imageUrl: $imageUrl");
+      await googleSignIn.signIn();
+    } catch (error) {
+      print('Error signing in: $error');
     }
-    return user;
   }
 
+  ///
+  ///
+  ///
+  // Future<User?> signInWithGoogle() async {
+  //   try {
+  //     await Firebase.initializeApp();
+  //     FirebaseAuth auth = FirebaseAuth.instance;
+  //     GoogleAuthProvider authProvider = GoogleAuthProvider();
+
+  //     // Sign out any existing user
+  //     await auth.signOut();
+
+  //     final UserCredential userCredential =
+  //         await auth.signInWithPopup(authProvider);
+  //     User? user = userCredential.user;
+
+  //     if (user != null) {
+  //       final AppPreferencesController prefs = Get.find();
+  //       await prefs.setBool(key: "isLoggedIn", value: true);
+  //     }
+
+  //     return user;
+  //   } catch (e) {
+  //     print(e);
+  //     return null;
+  //   }
+  // }
+
+  ///
+  ///
+  ///
+// uid = user.uid;
+  // name = user.displayName;
+  // userEmail = user.email;
+  // imageUrl = user.photoURL;
+
+  // print("name: $name");
+  // print("userEmail: $userEmail");
+  // print("imageUrl: $imageUrl");
   ///
   ///
   ///

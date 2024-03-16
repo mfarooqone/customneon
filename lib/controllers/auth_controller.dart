@@ -1,3 +1,4 @@
+// ignore_for_file: use_build_context_synchronously
 
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
@@ -5,6 +6,7 @@ import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -110,25 +112,25 @@ class AuthController extends GetxController {
 
     GoogleAuthProvider authProvider = GoogleAuthProvider();
 
-  void handleSignIn(BuildContext context) async {
-    try {
-      final UserCredential userCredential =
-          await auth.signInWithPopup(authProvider);
-      user = userCredential.user;
-    } catch (e) {
-      if (kDebugMode) {
-        print(e);
+    void handleSignIn(BuildContext context) async {
+      try {
+        final UserCredential userCredential =
+            await auth.signInWithPopup(authProvider);
+        user = userCredential.user;
+      } catch (e) {
+        if (kDebugMode) {
+          print(e);
+        }
       }
-    }
       GoogleSignIn googleSignIn = GoogleSignIn(
         clientId:
             '685563662753-nitnmudrd82s6jths10u2u8l8kqp7jej.apps.googleusercontent.com',
       );
 
       await googleSignIn.signIn();
-    } catch (error) {
-      print('Error signing in: $error');
     }
+
+    return user;
   }
 
   ///

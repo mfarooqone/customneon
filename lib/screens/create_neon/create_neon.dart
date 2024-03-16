@@ -1,4 +1,3 @@
-import 'package:customneon/controllers/auth_controller.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
@@ -15,6 +14,7 @@ import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
 import 'package:customneon/widgets/adapter_dropdown.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -78,9 +78,9 @@ class _CreateNeonState extends State<CreateNeon> {
                           children: [
                             IconButton(
                               onPressed: () {
-                                final AuthController authController =
-                                    Get.put(AuthController());
-                                authController.handleSignIn(context);
+                                // final AuthController authController =
+                                //     Get.put(AuthController());
+                                // authController.handleSignIn(context);
                               },
                               icon: const Icon(
                                 PhosphorIconsBold.goggles,
@@ -332,8 +332,10 @@ class _CreateNeonState extends State<CreateNeon> {
                                             setState(() {
                                               size =
                                                   txtKey.currentContext!.size!;
-                                              print(
-                                                  'height ${size.height} and width ${size.width}');
+                                              if (kDebugMode) {
+                                                print(
+                                                    'height ${size.height} and width ${size.width}');
+                                              }
                                               // }
                                             });
                                           },

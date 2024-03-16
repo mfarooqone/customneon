@@ -1,6 +1,4 @@
 import 'package:customneon/app_bindings.dart';
-import 'package:customneon/screens/homepage/homepage.dart';
-import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

@@ -3,15 +3,17 @@
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
+import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth auth = FirebaseAuth.instance;
 
   RxBool isLoading = false.obs;
 
@@ -23,7 +25,7 @@ class AuthController extends GetxController {
   }) async {
     try {
       isLoading.value = true;
-      final userCredential = await _auth.createUserWithEmailAndPassword(
+      final userCredential = await auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -57,7 +59,7 @@ class AuthController extends GetxController {
     try {
       isLoading.value = true;
 
-      final userCredential = await _auth.signInWithEmailAndPassword(
+      final userCredential = await auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -76,7 +78,7 @@ class AuthController extends GetxController {
       final AppPreferencesController prefs = Get.find();
       await prefs.setBool(key: "isLogedIn", value: true);
 
-      Get.to(() => const HomePage());
+      Get.to(() => const UserScreen());
       AppSnackBar.showSnackBar(
           "Success", "You have successfully sign in to your account", context);
       isLoading.value = false;
@@ -105,6 +107,8 @@ class AuthController extends GetxController {
     await Firebase.initializeApp();
     User? user;
     FirebaseAuth auth = FirebaseAuth.instance;
+    GoogleSignIn googleSignIn = GoogleSignIn();
+    await googleSignIn.signOut();
 
     GoogleAuthProvider authProvider = GoogleAuthProvider();
 
@@ -113,7 +117,9 @@ class AuthController extends GetxController {
           await auth.signInWithPopup(authProvider);
       user = userCredential.user;
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
 
     if (user != null) {
@@ -142,8 +148,8 @@ class AuthController extends GetxController {
   ///
   ///
   Future<void> logout() async {
-    await _auth.signOut();
-    _auth.currentUser?.delete();
+    await auth.signOut();
+    auth.currentUser?.delete();
     Get.deleteAll();
     Get.offAll(() => const HomePage());
     final AppPreferencesController prefs = Get.find();

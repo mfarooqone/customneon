@@ -1,4 +1,5 @@
 import 'package:customneon/controllers/auth_controller.dart';
+import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -26,111 +27,102 @@ class _UserScreenState extends State<UserScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Obx(() {
-        if (authController.isLoading.value) {
-          return const CircularProgressIndicator();
-        } else {
-          return SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  // if (user != null)
-                  //   Text(
-                  //     user!.displayName ?? 'No Display Name',
-                  //   ),
-                  // ElevatedButton(
-                  //     onPressed: () {
-                  //       authController.logout();
-                  //     },
-                  //     child: const Text("Logout")),
-
-                  Center(
-                    child: Text(
-                      "Account Details",
-                      style: AppTextStyle.black3
-                          .copyWith(color: AppColors.black, fontSize: 8.sp),
+    return WillPopScope(
+      onWillPop: () {
+        Get.offAll(const HomePage());
+        return Future(() => true);
+      },
+      child: Scaffold(
+        body: Obx(() {
+          if (authController.isLoading.value) {
+            return const CircularProgressIndicator();
+          } else {
+            return SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Text(
+                        "Account Details",
+                        style: AppTextStyle.black3
+                            .copyWith(color: AppColors.black, fontSize: 8.sp),
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      autoLabelText("Name"),
-                      containerWidget(
-                          authController.auth.currentUser?.displayName ??
-                              "No Name Found"),
-                      SizedBox(
-                        height: 3.h,
-                      ),
-                      autoLabelText("Email"),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      containerWidget(authController.auth.currentUser?.email ??
-                          "No Email Found"),
-                      SizedBox(
-                        height: 3.h,
-                      ),
-                      autoLabelText("Address"),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      containerWidget("Multan, Pakistan"),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 4,
-                        child: MaterialButton(
-                          color: AppColors.orange,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(1.h)),
-                          height: 8.2.h,
-                          onPressed: () {},
-                          child: Text(
-                            "Edit Details",
-                            style: AppTextStyle.white3.copyWith(fontSize: 4.sp),
+                    SizedBox(
+                      height: 5.h,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Name", style: AppTextStyle.black3),
+                        containerWidget(
+                            authController.auth.currentUser?.displayName ??
+                                "No Name Found"),
+                        SizedBox(
+                          height: 3.h,
+                        ),
+                        Text("Email", style: AppTextStyle.black3),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        containerWidget(
+                            authController.auth.currentUser?.email ??
+                                "No Email Found"),
+                        SizedBox(
+                          height: 3.h,
+                        ),
+                        Text("Address", style: AppTextStyle.black3),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        containerWidget("Multan, Pakistan"),
+                        SizedBox(
+                          height: 4.h,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 4,
+                          child: MaterialButton(
+                            color: AppColors.orange,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(1.h)),
+                            height: 8.2.h,
+                            onPressed: () {},
+                            child: Text(
+                              "Edit Details",
+                              style:
+                                  AppTextStyle.white3.copyWith(fontSize: 4.sp),
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 4,
-                        child: MaterialButton(
-                          color: AppColors.orange,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(1.h)),
-                          height: 8.2.h,
-                          onPressed: () {},
-                          child: Text(
-                            "Logout",
-                            style: AppTextStyle.white3.copyWith(fontSize: 4.sp),
-                          ),
+                        SizedBox(
+                          height: 2.h,
                         ),
-                      )
-                    ],
-                  )
-                ],
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 4,
+                          child: MaterialButton(
+                            color: AppColors.orange,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(1.h)),
+                            height: 8.2.h,
+                            onPressed: () {},
+                            child: Text(
+                              "Logout",
+                              style:
+                                  AppTextStyle.white3.copyWith(fontSize: 4.sp),
+                            ),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          );
-        }
-      }),
-    );
-  }
-
-  Widget autoLabelText(String text) {
-    return Text(
-      text,
-      style:
-          AppTextStyle.black3.copyWith(color: AppColors.black, fontSize: 5.sp),
+            );
+          }
+        }),
+      ),
     );
   }
 

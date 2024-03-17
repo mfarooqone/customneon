@@ -124,7 +124,7 @@ class SigninView extends StatelessWidget {
                                 height: 4.w,
                               ),
                               onPressed: () {
-                                authController.googleSignIn();
+                                authController.googleSignIn(context);
                               },
                             ),
                     ),

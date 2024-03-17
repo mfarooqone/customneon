@@ -1,9 +1,10 @@
 import 'package:customneon/controllers/auth_controller.dart';
+import 'package:customneon/controllers/preference_controller.dart';
+import 'package:customneon/models/user_model.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:customneon/widgets/primary_button.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -17,21 +18,32 @@ class UserScreen extends StatefulWidget {
 }
 
 class _UserScreenState extends State<UserScreen> {
-  final FirebaseAuth auth = FirebaseAuth.instance;
   final AuthController authController = Get.find();
-  User? user;
-
+  UserModel? storedUser;
   @override
   void initState() {
-    user = auth.currentUser;
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      getUser();
+    });
     super.initState();
+  }
+
+  void getUser() async {
+    authController.isLoading.value = true;
+    storedUser = await AppPreferencesController.getUser();
+    if (storedUser != null) {
+      print('User Display Name: ${storedUser?.displayName}');
+      print('User Email: ${storedUser?.email}');
+      print('User Photo URL: ${storedUser?.photoUrl}');
+    }
+    authController.isLoading.value = false;
   }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () {
-        Get.offAll(const HomePage());
+        Get.off(const HomePage());
         return Future(() => true);
       },
       child: Scaffold(
@@ -55,13 +67,35 @@ class _UserScreenState extends State<UserScreen> {
                     SizedBox(
                       height: 5.h,
                     ),
+                    if (storedUser?.photoUrl != null &&
+                        storedUser!.photoUrl.isNotEmpty)
+                      Container(
+                        width: 10.w,
+                        height: 10.w,
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(20.h),
+                        ),
+                        clipBehavior: Clip.hardEdge,
+                        child: Image.network(
+                          storedUser!.photoUrl,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        ///
+                        ///
+
+                        ///
+                        ///
+                        ///
+
                         Text("Name", style: AppTextStyle.black3),
                         containerWidget(
-                            authController.auth.currentUser?.displayName ??
-                                "No Name Found"),
+                            storedUser?.displayName ?? "No Name Found"),
                         SizedBox(
                           height: 3.h,
                         ),
@@ -73,9 +107,7 @@ class _UserScreenState extends State<UserScreen> {
                         ),
 
                         ///
-                        containerWidget(
-                            authController.auth.currentUser?.email ??
-                                "No Email Found"),
+                        containerWidget(storedUser?.email ?? "No Email Found"),
 
                         ///
                         SizedBox(
@@ -104,7 +136,9 @@ class _UserScreenState extends State<UserScreen> {
                           width: MediaQuery.of(context).size.width / 4,
                           child: PrimaryButton(
                             title: "Logout",
-                            onPressed: () {},
+                            onPressed: () {
+                              authController.logout();
+                            },
                           ),
                         ),
 

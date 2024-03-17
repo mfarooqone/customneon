@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:customneon/controllers/preference_controller.dart';
+import 'package:customneon/models/user_model.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
@@ -64,24 +65,31 @@ class AuthController extends GetxController {
       );
 
       if (userCredential.user != null) {
+        final AppPreferencesController prefs = Get.find();
+        await prefs.setBool(key: "isLogedIn", value: true);
+
+        UserModel userModel = UserModel(
+          displayName: userCredential.user!.displayName ?? "",
+          email: userCredential.user!.email ?? "",
+          photoUrl: userCredential.user!.photoURL ?? "",
+        );
+        await prefs.saveUser(userModel);
+
+        ///
+
+        Get.to(() => const UserScreen());
+        AppSnackBar.showSnackBar("Success",
+            "You have successfully sign in to your account", context);
+        isLoading.value = false;
         if (kDebugMode) {
           print(userCredential.user);
         }
-        if (kDebugMode) {
-          print(userCredential.user!.displayName);
-        }
+        return true;
+      } else {
+        return false;
       }
 
       /// save prefs data
-
-      final AppPreferencesController prefs = Get.find();
-      await prefs.setBool(key: "isLogedIn", value: true);
-
-      Get.to(() => const UserScreen());
-      AppSnackBar.showSnackBar(
-          "Success", "You have successfully sign in to your account", context);
-      isLoading.value = false;
-      return true;
     } on FirebaseAuthException catch (e) {
       ///
       final AppPreferencesController prefs = Get.find();
@@ -102,73 +110,46 @@ class AuthController extends GetxController {
   ///
   ///
   ///
-  void googleSignIn() async {
+  void googleSignIn(BuildContext context) async {
+    isLoading.value = true;
     GoogleSignIn googleSignIn = GoogleSignIn(
       clientId:
           '685563662753-nitnmudrd82s6jths10u2u8l8kqp7jej.apps.googleusercontent.com',
     );
-    GoogleSignInAccount? user = await googleSignIn.signIn();
 
+    ///
+    GoogleSignInAccount? user = await googleSignIn.signIn();
     if (user != null) {
-      // final AppPreferencesController prefs = Get.find();
-      // await prefs.setBool(key: "isLogedIn", value: true);
+      final AppPreferencesController prefs = Get.find();
+      await prefs.setBool(key: "isLogedIn", value: true);
+
+      UserModel userModel = UserModel(
+        displayName: user.displayName ?? "",
+        email: user.email,
+        photoUrl: user.photoUrl ?? "",
+      );
+      await prefs.saveUser(userModel);
+
+      ///
+
+      Get.to(() => const UserScreen());
+      AppSnackBar.showSnackBar(
+          "Success", "You have successfully sign in to your account", context);
+      isLoading.value = false;
+
+      ///
+      ///
+      ///
+
       if (kDebugMode) {
         print(user);
-
-        /// save prefs data
       }
-      if (kDebugMode) {
-        print(user.displayName);
-      }
+    } else {
+      isLoading.value = false;
+      AppSnackBar.showSnackBar("Error", "Something went wrong", context);
     }
   }
 
-  ///
-  ///
-  ///
-  // Future<User?> signInWithGoogle() async {
-  //   try {
-  //     await Firebase.initializeApp();
-  //     FirebaseAuth auth = FirebaseAuth.instance;
-  //     GoogleAuthProvider authProvider = GoogleAuthProvider();
-
-  //     // Sign out any existing user
-  //     await auth.signOut();
-
-  //     final UserCredential userCredential =
-  //         await auth.signInWithPopup(authProvider);
-  //     User? user = userCredential.user;
-
-  //     if (user != null) {
-  //       final AppPreferencesController prefs = Get.find();
-  //       await prefs.setBool(key: "isLoggedIn", value: true);
-  //     }
-
-  //     return user;
-  //   } catch (e) {
-  //     print(e);
-  //     return null;
-  //   }
-  // }
-
-  ///
-  ///
-  ///
-// uid = user.uid;
-  // name = user.displayName;
-  // userEmail = user.email;
-  // imageUrl = user.photoURL;
-
-  // print("name: $name");
-  // print("userEmail: $userEmail");
-  // print("imageUrl: $imageUrl");
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
   ///
   ///
   ///
@@ -176,8 +157,8 @@ class AuthController extends GetxController {
     await auth.signOut();
     auth.currentUser?.delete();
     Get.deleteAll();
-    Get.offAll(() => const HomePage());
     final AppPreferencesController prefs = Get.find();
     await prefs.setBool(key: "isLogedIn", value: false);
+    Get.offAll(() => const HomePage());
   }
 }

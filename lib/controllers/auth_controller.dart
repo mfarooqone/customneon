@@ -115,7 +115,7 @@ class AuthController extends GetxController {
     GoogleSignIn googleSignIn = GoogleSignIn(
       clientId:
           '685563662753-nitnmudrd82s6jths10u2u8l8kqp7jej.apps.googleusercontent.com',
-      serverClientId: "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",
+      // serverClientId: "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",
     );
 
     ///

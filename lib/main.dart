@@ -20,6 +20,7 @@ Future main() async {
       appId: "1:900142765503:web:041ea0f6fc7b5f4f16bd0a",
       measurementId: "G-X9V73PMWF3",
     ));
+    // ));
   } else {
     await Firebase.initializeApp();
   }

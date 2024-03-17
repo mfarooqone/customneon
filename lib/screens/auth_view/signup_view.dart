@@ -3,7 +3,7 @@ import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:customneon/utills/app_text_style.dart';
-import 'package:customneon/widgets/loading_indicator.dart';
+import 'package:customneon/widgets/button_loader.dart';
 import 'package:customneon/widgets/primary_button.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +85,10 @@ class SignupView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       authController.isLoading.value
-                          ? const LoadingIndicator()
+                          ? SizedBox(
+                              width: MediaQuery.of(context).size.width / 5,
+                              child: const ButtonLoader(),
+                            )
                           : SizedBox(
                               width: MediaQuery.of(context).size.width / 5,
                               child: PrimaryButton(
@@ -148,17 +151,23 @@ class SignupView extends StatelessWidget {
 
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 5,
-                        child: PrimaryButton(
-                          title: "Sign up with Google",
-                          backgroundColor: AppColors.black,
-                          isLeadingWidget: true,
-                          leadingWidget: Image.asset(
-                            "assets/google_icon.png",
-                            width: 4.w,
-                            height: 4.w,
-                          ),
-                          onPressed: () {},
-                        ),
+                        child: authController.isLoading.value
+                            ? ButtonLoader(
+                                backgroundColor: AppColors.black,
+                              )
+                            : PrimaryButton(
+                                title: "Sign up with Google",
+                                backgroundColor: AppColors.black,
+                                isLeadingWidget: true,
+                                leadingWidget: Image.asset(
+                                  "assets/google_icon.png",
+                                  width: 4.w,
+                                  height: 4.w,
+                                ),
+                                onPressed: () {
+                                  authController.googleSignIn(context);
+                                },
+                              ),
                       ),
                     ],
                   ),

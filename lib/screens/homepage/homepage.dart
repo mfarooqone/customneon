@@ -1,4 +1,4 @@
-import 'package:customneon/screens/user_screen/user_screen.dart';
+import 'package:customneon/screens/footer/contact_us.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,6 +10,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: UserScreen());
+    return const Scaffold(body: ContactUs());
   }
 }

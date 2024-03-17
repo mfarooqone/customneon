@@ -159,6 +159,7 @@ class AuthController extends GetxController {
     Get.deleteAll();
     final AppPreferencesController prefs = Get.find();
     await prefs.setBool(key: "isLogedIn", value: false);
+    prefs.clearData();
     Get.offAll(() => const HomePage());
   }
 }

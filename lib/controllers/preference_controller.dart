@@ -8,6 +8,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AppPreferencesController extends GetxController {
   ///
 
+  Future<void> clearData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.clear();
+  }
+
   Future<void> setString({required String key, required String value}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString(key, value);

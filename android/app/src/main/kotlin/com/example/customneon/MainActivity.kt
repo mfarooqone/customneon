@@ -1,4 +1,4 @@
-package com.example.customneon
+package com.customneon.desiresol
 
 import io.flutter.embedding.android.FlutterActivity
 

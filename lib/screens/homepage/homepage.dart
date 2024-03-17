@@ -1,4 +1,4 @@
-import 'package:customneon/screens/footer/contact_us.dart';
+import 'package:customneon/screens/auth_view/signup_view.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,6 +10,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: ContactUs());
+    return Scaffold(body: SignupView());
   }
 }

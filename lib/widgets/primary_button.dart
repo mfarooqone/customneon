@@ -17,8 +17,8 @@ class PrimaryButton extends StatelessWidget {
   final double? height;
   final double? width;
   final double? fontSize;
-  final IconData? icon;
-  final bool isIcon;
+  final Widget? leadingWidget;
+  final bool isLeadingWidget;
 
   const PrimaryButton({
     Key? key,
@@ -32,43 +32,42 @@ class PrimaryButton extends StatelessWidget {
     this.height,
     this.width,
     this.fontSize,
-    this.icon,
-    this.isIcon = false,
+    this.leadingWidget,
+    this.isLeadingWidget = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
-      child: Material(
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(1.h),
         color: enabled ? backgroundColor ?? AppColors.orange : AppColors.grey,
-        child: InkWell(
-          onTap: enabled ? onPressed : null,
-          borderRadius: BorderRadius.circular(1.h),
-          child: Container(
-            width: width ?? double.infinity,
-            height: height ?? 6.h,
-            alignment: Alignment.center,
-            padding: padding,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                isIcon
-                    ? Icon(
-                        icon,
-                        color: AppColors.white,
-                      )
-                    : const SizedBox(),
-                isIcon ? const SizedBox(width: 11) : const SizedBox(),
-                Text(
+      ),
+      child: InkWell(
+        onTap: enabled ? onPressed : null,
+        borderRadius: BorderRadius.circular(1.h),
+        child: Container(
+          width: width ?? double.infinity,
+          height: height ?? 6.h,
+          alignment: Alignment.center,
+          padding: padding,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              isLeadingWidget ? leadingWidget! : const SizedBox(),
+              isLeadingWidget ? SizedBox(width: 0.5.w) : const SizedBox(),
+              SizedBox(
+                width: 11.w,
+                child: Text(
                   title,
                   textAlign: TextAlign.center,
                   style: AppTextStyle.white2,
+                  overflow: TextOverflow.ellipsis,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

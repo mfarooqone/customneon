@@ -106,7 +106,9 @@ class _UserScreenState extends State<UserScreen> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(1.h)),
                             height: 8.2.h,
-                            onPressed: () {},
+                            onPressed: () {
+                              authController.logout();
+                            },
                             child: Text(
                               "Logout",
                               style:

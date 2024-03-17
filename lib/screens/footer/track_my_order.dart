@@ -1,5 +1,4 @@
-import 'package:customneon/utills/app_colors.dart';
-import 'package:customneon/utills/app_text_style.dart';
+import 'package:customneon/widgets/primary_button.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -16,21 +15,18 @@ class TrackMyOrder extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              "Track My Order",
-              style: AppTextStyle.black5.copyWith(color: AppColors.orange),
-            ),
             SizedBox(
-              height: 3.h,
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width / 3,
+              height: 14.h,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Flexible(
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 2.2,
                     child: PrimaryTextField(
+                      heading: "Track My Order",
                       controller: trackController,
                       hintText: "Tracking Number",
                     ),
@@ -38,15 +34,10 @@ class TrackMyOrder extends StatelessWidget {
                   SizedBox(
                     width: 2.h,
                   ),
-                  MaterialButton(
-                    color: AppColors.orange,
-                    height: 8.2.h,
-                    onPressed: () {},
-                    child: Text(
-                      "Track",
-                      style: AppTextStyle.white3,
-                    ),
-                  )
+                  SizedBox(
+                    width: 10.w,
+                    child: PrimaryButton(title: "Track", onPressed: () {}),
+                  ),
                 ],
               ),
             )

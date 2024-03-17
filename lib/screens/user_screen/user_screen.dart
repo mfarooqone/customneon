@@ -1,6 +1,7 @@
 import 'package:customneon/controllers/auth_controller.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/utills/app_colors.dart';
+import 'package:customneon/widgets/primary_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -64,12 +65,18 @@ class _UserScreenState extends State<UserScreen> {
                           height: 3.h,
                         ),
                         Text("Email", style: AppTextStyle.black3),
+
+                        ///
                         SizedBox(
                           height: 1.h,
                         ),
+
+                        ///
                         containerWidget(
                             authController.auth.currentUser?.email ??
                                 "No Email Found"),
+
+                        ///
                         SizedBox(
                           height: 3.h,
                         ),
@@ -78,42 +85,29 @@ class _UserScreenState extends State<UserScreen> {
                           height: 1.h,
                         ),
                         containerWidget("Multan, Pakistan"),
+
+                        ///
                         SizedBox(
                           height: 4.h,
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width / 4,
-                          child: MaterialButton(
-                            color: AppColors.orange,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(1.h)),
-                            height: 8.2.h,
-                            onPressed: () {},
-                            child: Text(
-                              "Edit Details",
-                              style:
-                                  AppTextStyle.white3.copyWith(fontSize: 4.sp),
-                            ),
-                          ),
+                          child: PrimaryButton(
+                              title: "Edit Details", onPressed: () {}),
                         ),
                         SizedBox(
                           height: 2.h,
                         ),
+
                         SizedBox(
                           width: MediaQuery.of(context).size.width / 4,
-                          child: MaterialButton(
-                            color: AppColors.orange,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(1.h)),
-                            height: 8.2.h,
+                          child: PrimaryButton(
+                            title: "Logout",
                             onPressed: () {},
-                            child: Text(
-                              "Logout",
-                              style:
-                                  AppTextStyle.white3.copyWith(fontSize: 4.sp),
-                            ),
                           ),
-                        )
+                        ),
+
+                        ///
                       ],
                     )
                   ],

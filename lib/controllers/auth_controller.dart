@@ -10,7 +10,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
   final FirebaseAuth auth = FirebaseAuth.instance;
@@ -110,49 +109,7 @@ class AuthController extends GetxController {
   ///
   ///
   ///
-  void googleSignIn(BuildContext context) async {
-    isLoading.value = true;
-    GoogleSignIn googleSignIn = GoogleSignIn(
-      clientId:
-          '685563662753-nitnmudrd82s6jths10u2u8l8kqp7jej.apps.googleusercontent.com',
-
-      ///
-      ///
-      ///
-    );
-
-    ///
-    GoogleSignInAccount? user = await googleSignIn.signIn();
-    if (user != null) {
-      final AppPreferencesController prefs = Get.find();
-      await prefs.setBool(key: "isLogedIn", value: true);
-
-      UserModel userModel = UserModel(
-        displayName: user.displayName ?? "",
-        email: user.email,
-        photoUrl: user.photoUrl ?? "",
-      );
-      await prefs.saveUser(userModel);
-
-      ///
-
-      Get.to(() => const UserScreen());
-      AppSnackBar.showSnackBar(
-          "Success", "You have successfully sign in to your account", context);
-      isLoading.value = false;
-
-      ///
-      ///
-      ///
-
-      if (kDebugMode) {
-        print(user);
-      }
-    } else {
-      isLoading.value = false;
-      AppSnackBar.showSnackBar("Error", "Something went wrong", context);
-    }
-  }
+  void googleSignIn(BuildContext context) async {}
 
   ///
   ///

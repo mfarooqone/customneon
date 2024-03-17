@@ -659,7 +659,7 @@ class _CreateNeonState extends State<CreateNeon> {
                             ///
                             ///
                             detailsStyle(
-                              icon: PhosphorIcons.truck(),
+                              image: AppImagePath.fastAndFreeDelivery,
                               title: 'FAST & FREE DELIVERY',
                               subTitle:
                                   'For all orders, we offer free worldwide shipping. Standard orders typically take 9-11 business days, which includes both production and shipping to most addresses around the world.',
@@ -667,7 +667,7 @@ class _CreateNeonState extends State<CreateNeon> {
 
                             ///
                             detailsStyle(
-                              icon: PhosphorIcons.shieldCheckered(),
+                              image: AppImagePath.twoYearGuarntee,
                               title: '2-YEAR GUARANTEE',
                               subTitle:
                                   'Our signs feature high-quality LED neon technology and come with a 2-year warranty for durability assurance, providing you with peace of mind regarding their durability.',
@@ -675,7 +675,7 @@ class _CreateNeonState extends State<CreateNeon> {
 
                             ///
                             detailsStyle(
-                              icon: PhosphorIcons.lightning(),
+                              image: AppImagePath.highEfficiency,
                               title: 'HIGH EFFICIENCY',
                               subTitle:
                                   'Our LED neon signs are eco-friendly and energy-efficient, providing high brightness while consuming 80% less power than traditional options. They have a sustainable lifespan of over 100,000 hours.',
@@ -697,7 +697,7 @@ class _CreateNeonState extends State<CreateNeon> {
                           children: [
                             ///
                             detailsStyle(
-                              icon: PhosphorIcons.headphones(),
+                              image: AppImagePath.professionalService,
                               title: 'PROFESSIONAL SERVICE',
                               subTitle:
                                   'Our team of customer service experts is here to assist you. Contact us via phone or email, and within 2 business days, we’ll provide you with a personalized solution.',
@@ -705,7 +705,7 @@ class _CreateNeonState extends State<CreateNeon> {
 
                             ///
                             detailsStyle(
-                              icon: PhosphorIcons.note(),
+                              image: AppImagePath.fullyCustomizable,
                               title: 'FULLY COSTUMIZABLE',
                               subTitle:
                                   'Each element of your neon sign can be fully customized to your liking. We have the capability to create any neon sign you desire, offering a variety of fonts, backboards and an extensive range of colors.',
@@ -714,7 +714,7 @@ class _CreateNeonState extends State<CreateNeon> {
                             ///
                             ///
                             detailsStyle(
-                              icon: PhosphorIcons.wrench(),
+                              image: AppImagePath.easyInstallation,
                               title: 'EASY INSTALLATION',
                               subTitle:
                                   'Depending on the installation requirements of each product, relevant installation accessories will be included in the package free of charge to assist you in easily installing your neon sign.',
@@ -728,7 +728,7 @@ class _CreateNeonState extends State<CreateNeon> {
                         ///
                         ///
                         ///
-                        const FooterDesign()
+                        const FooterDesign(),
 
                         ///
                         ///
@@ -743,7 +743,7 @@ class _CreateNeonState extends State<CreateNeon> {
   }
 
   SizedBox detailsStyle({
-    required IconData icon,
+    required String image,
     required String title,
     required String subTitle,
   }) {
@@ -753,11 +753,7 @@ class _CreateNeonState extends State<CreateNeon> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            size: 12.h,
-            color: AppColors.orange,
-          ),
+          Image(image: AssetImage(image), height: 18.h, fit: BoxFit.fill),
 
           ///
           Text(

@@ -19,7 +19,7 @@ class FooterDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.lightGrey,
-      height: 50.h,
+      height: 55.h,
       padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

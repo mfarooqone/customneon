@@ -141,6 +141,26 @@ class _UserScreenState extends State<UserScreen> {
                             },
                           ),
                         ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 4,
+                          child: MaterialButton(
+                            color: AppColors.orange,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(1.h)),
+                            height: 8.2.h,
+                            onPressed: () {
+                              authController.logout();
+                            },
+                            child: Text(
+                              "Logout",
+                              style:
+                                  AppTextStyle.white3.copyWith(fontSize: 4.sp),
+                            ),
+                          ),
+                        )
 
                         ///
                       ],

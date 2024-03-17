@@ -3,6 +3,7 @@ import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:customneon/utills/app_text_style.dart';
+import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:customneon/widgets/primary_button.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
@@ -84,16 +85,7 @@ class SignupView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       authController.isLoading.value
-                          ? Center(
-                              child: SizedBox(
-                                height: 25,
-                                width: MediaQuery.of(context).size.width / 5,
-                                child: const CircularProgressIndicator(
-                                  color: Colors.white,
-                                  strokeWidth: 4,
-                                ),
-                              ),
-                            )
+                          ? const LoadingIndicator()
                           : SizedBox(
                               width: MediaQuery.of(context).size.width / 5,
                               child: PrimaryButton(

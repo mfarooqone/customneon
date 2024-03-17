@@ -13,6 +13,7 @@ import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
 import 'package:customneon/widgets/adapter_dropdown.dart';
+import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -63,9 +64,7 @@ class _CreateNeonState extends State<CreateNeon> {
       body: Obx(
         () {
           return createNeonController.isLoading.value
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
+              ? const LoadingIndicator()
               : SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),

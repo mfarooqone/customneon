@@ -37,7 +37,7 @@
 //         () {
 //           return createNeonController.isLoading.value
 //               ? const Center(
-//                   child: CircularProgressIndicator(),
+//                   child: const LoadingIndicator(),
 //                 )
 //               : SingleChildScrollView(
 //                   child: Padding(

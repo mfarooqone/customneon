@@ -1,6 +1,7 @@
 import 'package:customneon/controllers/auth_controller.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/utills/app_colors.dart';
+import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:customneon/widgets/primary_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class _UserScreenState extends State<UserScreen> {
       child: Scaffold(
         body: Obx(() {
           if (authController.isLoading.value) {
-            return const CircularProgressIndicator();
+            return const LoadingIndicator();
           } else {
             return SingleChildScrollView(
               child: Padding(

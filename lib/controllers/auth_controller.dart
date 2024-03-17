@@ -6,7 +6,6 @@ import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -103,34 +102,25 @@ class AuthController extends GetxController {
   ///
   ///
   ///
-  Future<User?> signInWithGoogle() async {
-    await Firebase.initializeApp();
-    User? user;
-    FirebaseAuth auth = FirebaseAuth.instance;
-    GoogleSignIn googleSignIn = GoogleSignIn();
-    await googleSignIn.signOut();
+  void googleSignIn() async {
+    GoogleSignIn googleSignIn = GoogleSignIn(
+      clientId:
+          '685563662753-nitnmudrd82s6jths10u2u8l8kqp7jej.apps.googleusercontent.com',
+    );
+    GoogleSignInAccount? user = await googleSignIn.signIn();
 
-    GoogleAuthProvider authProvider = GoogleAuthProvider();
+    if (user != null) {
+      // final AppPreferencesController prefs = Get.find();
+      // await prefs.setBool(key: "isLogedIn", value: true);
+      if (kDebugMode) {
+        print(user);
 
-    void handleSignIn(BuildContext context) async {
-      try {
-        final UserCredential userCredential =
-            await auth.signInWithPopup(authProvider);
-        user = userCredential.user;
-      } catch (e) {
-        if (kDebugMode) {
-          print(e);
-        }
+        /// save prefs data
       }
-      GoogleSignIn googleSignIn = GoogleSignIn(
-        clientId:
-            '685563662753-nitnmudrd82s6jths10u2u8l8kqp7jej.apps.googleusercontent.com',
-      );
-
-      await googleSignIn.signIn();
+      if (kDebugMode) {
+        print(user.displayName);
+      }
     }
-
-    return user;
   }
 
   ///

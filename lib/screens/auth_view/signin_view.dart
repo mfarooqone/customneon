@@ -110,17 +110,23 @@ class SigninView extends StatelessWidget {
                     ///
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 5,
-                      child: PrimaryButton(
-                        title: "Sign up with Google",
-                        backgroundColor: AppColors.black,
-                        isLeadingWidget: true,
-                        leadingWidget: Image.asset(
-                          "assets/google_icon.png",
-                          width: 4.w,
-                          height: 4.w,
-                        ),
-                        onPressed: () {},
-                      ),
+                      child: authController.isLoading.value
+                          ? ButtonLoader(
+                              backgroundColor: AppColors.black,
+                            )
+                          : PrimaryButton(
+                              title: "Sign in with Google",
+                              backgroundColor: AppColors.black,
+                              isLeadingWidget: true,
+                              leadingWidget: Image.asset(
+                                "assets/google_icon.png",
+                                width: 4.w,
+                                height: 4.w,
+                              ),
+                              onPressed: () {
+                                authController.googleSignIn();
+                              },
+                            ),
                     ),
                   ],
                 ),

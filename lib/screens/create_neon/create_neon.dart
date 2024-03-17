@@ -76,16 +76,6 @@ class _CreateNeonState extends State<CreateNeon> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             IconButton(
-                              onPressed: () {
-                                // final AuthController authController =
-                                //     Get.put(AuthController());
-                                // authController.handleSignIn(context);
-                              },
-                              icon: const Icon(
-                                PhosphorIconsBold.goggles,
-                              ),
-                            ),
-                            IconButton(
                               onPressed: () async {
                                 bool isLogedIn =
                                     await prefs.getBool(key: "isLogedIn");

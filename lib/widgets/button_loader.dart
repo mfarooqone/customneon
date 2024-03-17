@@ -4,14 +4,15 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sizer/sizer.dart';
 
 class ButtonLoader extends StatelessWidget {
-  const ButtonLoader({Key? key}) : super(key: key);
+  const ButtonLoader({Key? key, this.backgroundColor}) : super(key: key);
+  final Color? backgroundColor;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 6.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(1.h),
-        color: AppColors.orange,
+        color: backgroundColor ?? AppColors.orange,
       ),
       child: SpinKitCircle(
         color: AppColors.white,

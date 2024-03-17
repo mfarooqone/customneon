@@ -123,14 +123,14 @@ class _UserScreenState extends State<UserScreen> {
                         SizedBox(
                           height: 4.h,
                         ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 4,
-                          child: PrimaryButton(
-                              title: "Edit Details", onPressed: () {}),
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
+                        // SizedBox(
+                        //   width: MediaQuery.of(context).size.width / 4,
+                        //   child: PrimaryButton(
+                        //       title: "Edit Details", onPressed: () {}),
+                        // ),
+                        // SizedBox(
+                        //   height: 2.h,
+                        // ),
 
                         SizedBox(
                           width: MediaQuery.of(context).size.width / 4,

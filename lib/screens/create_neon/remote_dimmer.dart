@@ -1,6 +1,7 @@
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
+import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -19,7 +20,7 @@ class _RemoteDimmerWidgetState extends State<RemoteDimmerWidget> {
   Widget build(BuildContext context) {
     return Obx(() {
       return createNeonController.isLoading.value
-          ? const CircularProgressIndicator()
+          ? const LoadingIndicator()
           : Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

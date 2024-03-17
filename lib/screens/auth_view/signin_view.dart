@@ -3,6 +3,8 @@ import 'package:customneon/screens/auth_view/signup_view.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:customneon/utills/app_text_style.dart';
+import 'package:customneon/widgets/button_loader.dart';
+import 'package:customneon/widgets/primary_button.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -70,45 +72,34 @@ class SigninView extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 7,
-                      child: MaterialButton(
-                        color: AppColors.orange,
-                        height: 7.h,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(2.h)),
-                        onPressed: () {
-                          if (emailController.text.isEmpty) {
-                            AppSnackBar.showSnackBar(
-                                "Email!", "Please enter your email", context);
-                          } else if (passwordController.text.isEmpty) {
-                            AppSnackBar.showSnackBar("Password!!",
-                                "Please enter your password", context);
-                          } else if (passwordController.text.length < 8) {
-                            AppSnackBar.showSnackBar("Password!!",
-                                "Password must be 8 chardcter long", context);
-                          } else {
-                            authController.signin(emailController.text,
-                                passwordController.text, context);
-                          }
-                        },
-                        child: authController.isLoading.value
-                            ? const Center(
-                                child: SizedBox(
-                                  height: 25,
-                                  width: 25,
-                                  child: CircularProgressIndicator(
-                                    color: Colors.white,
-                                    strokeWidth: 4,
-                                  ),
-                                ),
-                              )
-                            : Text(
-                                "Sign in".toUpperCase(),
-                                style: AppTextStyle.white2,
-                              ),
-                      ),
-                    ),
+                    authController.isLoading.value
+                        ? SizedBox(
+                            width: MediaQuery.of(context).size.width / 5,
+                            child: const ButtonLoader(),
+                          )
+                        : SizedBox(
+                            width: MediaQuery.of(context).size.width / 5,
+                            child: PrimaryButton(
+                              title: "Sign in with Email",
+                              onPressed: () {
+                                if (emailController.text.isEmpty) {
+                                  AppSnackBar.showSnackBar("Email!",
+                                      "Please enter your email", context);
+                                } else if (passwordController.text.isEmpty) {
+                                  AppSnackBar.showSnackBar("Password!!",
+                                      "Please enter your password", context);
+                                } else if (passwordController.text.length < 8) {
+                                  AppSnackBar.showSnackBar(
+                                      "Password!!",
+                                      "Password must be 8 chardcter long",
+                                      context);
+                                } else {
+                                  authController.signin(emailController.text,
+                                      passwordController.text, context);
+                                }
+                              },
+                            ),
+                          ),
 
                     SizedBox(
                       width: 1.w,
@@ -118,15 +109,25 @@ class SigninView extends StatelessWidget {
                     ///
                     ///
                     SizedBox(
-                      width: MediaQuery.of(context).size.width / 7,
-                      height: 7.h,
-                      child: Image.asset(
-                        "assets/google_button.png",
-                        width: MediaQuery.of(context).size.width / 7,
-                        height: 7.h,
-                        fit: BoxFit.contain,
-                      ),
-                    )
+                      width: MediaQuery.of(context).size.width / 5,
+                      child: authController.isLoading.value
+                          ? ButtonLoader(
+                              backgroundColor: AppColors.black,
+                            )
+                          : PrimaryButton(
+                              title: "Sign in with Google",
+                              backgroundColor: AppColors.black,
+                              isLeadingWidget: true,
+                              leadingWidget: Image.asset(
+                                "assets/google_icon.png",
+                                width: 4.w,
+                                height: 4.w,
+                              ),
+                              onPressed: () {
+                                authController.googleSignIn(context);
+                              },
+                            ),
+                    ),
                   ],
                 ),
 

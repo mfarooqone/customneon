@@ -1,10 +1,17 @@
+import 'dart:convert';
 import 'dart:developer';
 
+import 'package:customneon/models/user_model.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppPreferencesController extends GetxController {
   ///
+
+  Future<void> clearData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.clear();
+  }
 
   Future<void> setString({required String key, required String value}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -50,5 +57,28 @@ class AppPreferencesController extends GetxController {
     List<String>? val = prefs.getStringList(key);
     log("this is the value from  prefs controller $key == $val");
     return val;
+  }
+
+  ///
+  ///
+  ///
+  ///
+  ///
+  static const String _key = 'user';
+  // Save user model to SharedPreferences
+  Future<void> saveUser(UserModel user) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(_key, json.encode(user.toJson()));
+  }
+
+  // Retrieve user model from SharedPreferences
+  static Future<UserModel?> getUser() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? jsonString = prefs.getString(_key);
+    if (jsonString != null) {
+      final Map<String, dynamic> map = json.decode(jsonString);
+      return UserModel.fromJson(map);
+    }
+    return null;
   }
 }

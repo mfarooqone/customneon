@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "900142765503",
+    "project_id": "customsneon-b32ef",
+    "storage_bucket": "customsneon-b32ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900142765503:android:c4bc7f3c7730fc2a16bd0a",
+        "android_client_info": {
+          "package_name": "com.customneon.desiresol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900142765503-6heajs46q1ron28e09tfq68rjcm3v5mu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEY_i78DmW65XCysU682F_4y085M-jMCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900142765503-6heajs46q1ron28e09tfq68rjcm3v5mu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

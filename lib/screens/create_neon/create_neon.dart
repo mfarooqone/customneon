@@ -8,6 +8,7 @@ import 'package:customneon/screens/create_neon/location.dart';
 import 'package:customneon/screens/create_neon/select_font.dart';
 import 'package:customneon/screens/create_neon/text_align_widget.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
+import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -73,8 +74,25 @@ class _CreateNeonState extends State<CreateNeon> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            GestureDetector(
+                              onTap: () {
+                                Get.offAll(const HomePage(),
+                                    transition: Transition.noTransition);
+                              },
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width / 8,
+                                height: MediaQuery.of(context).size.height / 8,
+                                // color: Colors.red,
+                                child: Image.asset(
+                                  "assets/logo.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                            const Spacer(),
                             IconButton(
                               onPressed: () async {
                                 bool isLogedIn =
@@ -98,7 +116,7 @@ class _CreateNeonState extends State<CreateNeon> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 6.h),
+                        SizedBox(height: 1.h),
 
                         ///
                         ///
@@ -108,7 +126,7 @@ class _CreateNeonState extends State<CreateNeon> {
                           child: Text(
                             'CREATE YOUR OWN NEON SIGN',
                             maxLines: 1,
-                            style: AppTextStyle.white4
+                            style: AppTextStyle.white3
                                 .copyWith(color: AppColors.orange),
                           ),
                         ),
@@ -121,7 +139,7 @@ class _CreateNeonState extends State<CreateNeon> {
                           child: Text(
                             'Design your neon sign with our online custom tool',
                             maxLines: 1,
-                            style: AppTextStyle.white4,
+                            style: AppTextStyle.white3,
                           ),
                         ),
                         SizedBox(height: 6.h),

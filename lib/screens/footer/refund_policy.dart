@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:customneon/screens/footer/footer_design.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:flutter/material.dart';

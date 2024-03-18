@@ -1,6 +1,5 @@
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/controllers/preference_controller.dart';
-import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/create_neon/backboard_style_widget.dart';
 import 'package:customneon/screens/create_neon/choose_color_widget.dart';
 import 'package:customneon/screens/create_neon/choose_size_widget.dart';
@@ -8,8 +7,7 @@ import 'package:customneon/screens/create_neon/location.dart';
 import 'package:customneon/screens/create_neon/select_font.dart';
 import 'package:customneon/screens/create_neon/text_align_widget.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
-import 'package:customneon/screens/homepage/homepage.dart';
-import 'package:customneon/screens/user_screen/user_screen.dart';
+import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
@@ -19,7 +17,6 @@ import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:sizer/sizer.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
@@ -73,49 +70,14 @@ class _CreateNeonState extends State<CreateNeon> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                Get.offAll(const HomePage(),
-                                    transition: Transition.noTransition);
-                              },
-                              child: SizedBox(
-                                width: MediaQuery.of(context).size.width / 8,
-                                height: MediaQuery.of(context).size.height / 8,
-                                // color: Colors.red,
-                                child: Image.asset(
-                                  "assets/logo.png",
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
-                            IconButton(
-                              onPressed: () async {
-                                bool isLogedIn =
-                                    await prefs.getBool(key: "isLogedIn");
+                        ///
+                        ///
+                        ///
+                        const HeaderDesign(),
 
-                                isLogedIn
-                                    ? Get.to(() => const UserScreen())
-                                    : Get.to(() => SigninView());
-                              },
-                              icon: const Icon(
-                                PhosphorIconsBold.user,
-                              ),
-                            ),
-
-                            ///
-                            IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                PhosphorIconsBold.shoppingCart,
-                              ),
-                            ),
-                          ],
-                        ),
+                        ///
+                        ///
+                        ///
                         SizedBox(height: 1.h),
 
                         ///

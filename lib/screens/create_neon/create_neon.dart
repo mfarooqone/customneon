@@ -174,7 +174,7 @@ class _CreateNeonState extends State<CreateNeon> {
                                                         "right"
                                                     ? TextAlign.right
                                                     : TextAlign.center,
-                                        style: AppTextStyle.white5.copyWith(
+                                        style: AppTextStyle.white4.copyWith(
                                           fontSize: 20.sp,
                                           color: !createNeonController
                                                   .showNeon.value
@@ -637,19 +637,19 @@ class _CreateNeonState extends State<CreateNeon> {
                         ///
                         ///
                         ///
-                        SizedBox(height: 2.h),
+                        SizedBox(height: 4.h),
                         Align(
                           alignment: Alignment.center,
                           child: Text(
                             'WHY CUSTOMNEON',
-                            style: AppTextStyle.white6.copyWith(
+                            style: AppTextStyle.white4.copyWith(
                               color: AppColors.orange,
                               fontWeight: FontWeight.bold,
                             ),
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        SizedBox(height: 2.h),
+                        SizedBox(height: 8.h),
 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -748,19 +748,24 @@ class _CreateNeonState extends State<CreateNeon> {
     required String subTitle,
   }) {
     return SizedBox(
-      width: 16.w,
+      width: 20.w,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image(image: AssetImage(image), height: 18.h, fit: BoxFit.fill),
+          Image(
+            image: AssetImage(image),
+            height: 10.h,
+            fit: BoxFit.fill,
+          ),
+          SizedBox(height: 4.h),
 
           ///
           Text(
             title,
-            style: AppTextStyle.white6.copyWith(
+            style: AppTextStyle.white3.copyWith(
               color: AppColors.orange,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
             ),
             textAlign: TextAlign.center,
           ),
@@ -768,7 +773,7 @@ class _CreateNeonState extends State<CreateNeon> {
           ///
           Text(
             subTitle,
-            style: AppTextStyle.white3,
+            style: AppTextStyle.white2,
             textAlign: TextAlign.center,
           ),
 

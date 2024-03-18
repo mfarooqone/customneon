@@ -28,14 +28,4 @@ class AppTextStyle {
     fontSize: 4.0.w / 2,
     fontFamily: AppFonts.roboto,
   );
-  static TextStyle white5 = TextStyle(
-    color: AppColors.white,
-    fontSize: 5.0.w / 2,
-    fontFamily: AppFonts.roboto,
-  );
-  static TextStyle white6 = TextStyle(
-    color: AppColors.white,
-    fontSize: 6.0.w / 2,
-    fontFamily: AppFonts.roboto,
-  );
 }

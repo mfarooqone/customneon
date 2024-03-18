@@ -37,7 +37,7 @@ class SignupView extends StatelessWidget {
                     height: 12.h,
                   ),
                   Text("Signup",
-                      style: AppTextStyle.white6.copyWith(
+                      style: AppTextStyle.white4.copyWith(
                           color: AppColors.orange,
                           fontSize: 8.sp,
                           fontWeight: FontWeight.w500)),

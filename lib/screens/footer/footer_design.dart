@@ -11,7 +11,6 @@ import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -42,7 +41,7 @@ class FooterDesign extends StatelessWidget {
                       children: [
                         Text(
                           "Support",
-                          style: AppTextStyle.black3,
+                          style: AppTextStyle.white3,
                         ),
                         SizedBox(height: 2.5.h),
                         GestureDetector(
@@ -99,7 +98,7 @@ class FooterDesign extends StatelessWidget {
                       children: [
                         Text(
                           "Information",
-                          style: AppTextStyle.black3,
+                          style: AppTextStyle.white3,
                         ),
                         SizedBox(
                           height: 2.5.h,
@@ -184,7 +183,7 @@ class FooterDesign extends StatelessWidget {
           ),
           const Divider(
             color: Colors.black,
-              thickness: 0.5,
+            thickness: 0.5,
           ),
           SizedBox(
             height: 5.h,
@@ -196,7 +195,7 @@ class FooterDesign extends StatelessWidget {
           SizedBox(
             height: 3.h,
           ),
-          Text("")
+          const Text("")
         ],
       ),
     );

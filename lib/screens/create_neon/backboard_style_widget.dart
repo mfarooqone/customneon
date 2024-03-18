@@ -27,14 +27,14 @@ class _BackboardStyleWidgetState extends State<BackboardStyleWidget> {
               children: [
                 Text(
                   'Choose a backboard color',
-                  style: AppTextStyle.black3,
+                  style: AppTextStyle.white3,
                 ),
                 SizedBox(height: 1.h),
                 Text(
                   createNeonController.getBackBoardColorName(
                       selectedColor:
                           createNeonController.selectedBackBoardColor),
-                  style: AppTextStyle.black3,
+                  style: AppTextStyle.white3,
                 ),
 
                 ////

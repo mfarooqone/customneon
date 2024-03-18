@@ -38,37 +38,4 @@ class AppTextStyle {
     fontSize: 6.0.w / 2,
     fontFamily: AppFonts.roboto,
   );
-  ///////////////////////////////////////////////
-  ///     Regular Black
-  ///////////////////////////////////////////////
-  static TextStyle black1 = TextStyle(
-    color: AppColors.black,
-    fontSize: 1.0.w / 2,
-    fontFamily: AppFonts.roboto,
-  );
-  static TextStyle black2 = TextStyle(
-    color: AppColors.black,
-    fontSize: 2.0.w / 2,
-    fontFamily: AppFonts.roboto,
-  );
-  static TextStyle black3 = TextStyle(
-    color: AppColors.black,
-    fontSize: 3.0.w / 2,
-    fontFamily: AppFonts.roboto,
-  );
-  static TextStyle black4 = TextStyle(
-    color: AppColors.black,
-    fontSize: 4.0.w / 2,
-    fontFamily: AppFonts.roboto,
-  );
-  static TextStyle black5 = TextStyle(
-    color: AppColors.black,
-    fontSize: 5.0.w / 2,
-    fontFamily: AppFonts.roboto,
-  );
-  static TextStyle black6 = TextStyle(
-    color: AppColors.black,
-    fontSize: 6.0.w / 2,
-    fontFamily: AppFonts.roboto,
-  );
 }

@@ -42,109 +42,111 @@ class _FAQsState extends State<FAQs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child:  Column(
-            children: [
-              Center(
-                child: Text(
-                  "FREQUENTLY ASKED QUESTIONS",
-                  style: AppTextStyle.black3
-                      .copyWith(color: AppColors.black, fontSize: 8.sp),
+        child: Column(
+          children: [
+            Center(
+              child: Text(
+                "FREQUENTLY ASKED QUESTIONS",
+                style: AppTextStyle.white3
+                    .copyWith(color: AppColors.black, fontSize: 8.sp),
+              ),
+            ),
+            SizedBox(
+              height: 8.h,
+            ),
+            Center(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width / 1.8,
+                child: PrimaryTextField(
+                  controller: faqsTypingController,
+                  hintText: "Start typing",
+                  suffixIcon: Icon(
+                    Icons.search,
+                    size: 5.sp,
+                  ),
                 ),
               ),
-              SizedBox(
-                height: 8.h,
-              ),
-              Center(
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width / 1.8,
-                  child: PrimaryTextField(
-                    controller: faqsTypingController,
-                    hintText: "Start typing",
-                    suffixIcon: Icon(
-                      Icons.search,
-                      size: 5.sp,
+            ),
+            SizedBox(
+              height: 5.h,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    boxWidget(0),
+                    SizedBox(
+                      width: 3.w,
+                    ),
+                    boxWidget(1),
+                    SizedBox(
+                      width: 3.w,
+                    ),
+                    boxWidget(2),
+                  ],
+                ),
+                SizedBox(
+                  height: 5.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    boxWidget(3),
+                    SizedBox(
+                      width: 3.w,
+                    ),
+                    boxWidget(4),
+                    SizedBox(
+                      width: 3.w,
+                    ),
+                    boxWidget(5),
+                  ],
+                ),
+                SizedBox(
+                  height: 5.h,
+                ),
+                Center(child: boxWidget(6)),
+                SizedBox(
+                  height: 8.h,
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      _selectedIndex == -1 ? "" : faqTexts[_selectedIndex],
+                      style: AppTextStyle.white4.copyWith(color: Colors.black),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 5.h,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      boxWidget(0),
-                      SizedBox(
-                        width: 3.w,
-                      ),
-                      boxWidget(1),
-                      SizedBox(
-                        width: 3.w,
-                      ),
-                      boxWidget(2),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      boxWidget(3),
-                      SizedBox(
-                        width: 3.w,
-                      ),
-                      boxWidget(4),
-                      SizedBox(
-                        width: 3.w,
-                      ),
-                      boxWidget(5),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  Center(child: boxWidget(6)),
-                  SizedBox(
-                    height: 8.h,
-                  ),
+                if (_selectedIndex != -1)
                   Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        _selectedIndex == -1 ? "" : faqTexts[_selectedIndex],
-                        style: AppTextStyle.black4.copyWith(color: Colors.black),
-                      ),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 2.h),
+                        Text(
+                          faqDescriptions[_selectedIndex],
+                          style: TextStyle(fontSize: 3.sp),
+                        ),
+                      ],
                     ),
                   ),
-                  if (_selectedIndex != -1)
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: 2.h),
-                          Text(
-                            faqDescriptions[_selectedIndex],
-                            style: TextStyle(fontSize: 3.sp),
-                          ),
-                        ],
-                      ),
-                    ),
-                ],
-              ),
-              SizedBox(
-                height: 12.h,
-              ),
-               FooterDesign(),
-            ],
-          ),
+              ],
+            ),
+            SizedBox(
+              height: 12.h,
+            ),
+            FooterDesign(),
+          ],
         ),
-      );
+      ),
+    );
   }
 
   Widget boxWidget(int index) {
@@ -171,7 +173,7 @@ class _FAQsState extends State<FAQs> {
           child: Center(
               child: Text(
             faqTexts[index],
-            style: AppTextStyle.black4.copyWith(
+            style: AppTextStyle.white4.copyWith(
                 color: _selectedIndex == index ? Colors.black : Colors.black38),
           )),
         ),

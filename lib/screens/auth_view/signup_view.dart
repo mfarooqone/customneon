@@ -37,7 +37,7 @@ class SignupView extends StatelessWidget {
                     height: 12.h,
                   ),
                   Text("Signup",
-                      style: AppTextStyle.black6.copyWith(
+                      style: AppTextStyle.white6.copyWith(
                           color: AppColors.orange,
                           fontSize: 8.sp,
                           fontWeight: FontWeight.w500)),
@@ -47,7 +47,7 @@ class SignupView extends StatelessWidget {
                   Wrap(
                     children: [
                       Text("Already have an account?",
-                          style: AppTextStyle.black3.copyWith(
+                          style: AppTextStyle.white3.copyWith(
                               color: AppColors.grey,
                               fontSize: 5.sp,
                               fontWeight: FontWeight.w400)),
@@ -56,7 +56,7 @@ class SignupView extends StatelessWidget {
                           Get.to(() => SigninView());
                         },
                         child: Text(" Signin",
-                            style: AppTextStyle.black3.copyWith(
+                            style: AppTextStyle.white3.copyWith(
                                 fontSize: 5.sp, fontWeight: FontWeight.w400)),
                       ),
                     ],
@@ -178,7 +178,7 @@ class SignupView extends StatelessWidget {
                   SizedBox(
                     height: 10.h,
                   ),
-                   FooterDesign(),
+                  FooterDesign(),
                 ],
               ),
             ),

@@ -27,11 +27,11 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
               children: [
                 Text(
                   'Choose a size',
-                  style: AppTextStyle.black3,
+                  style: AppTextStyle.white3,
                 ),
                 Text(
                   '*Each sign is handcrafted, and sizes shown will be accurate within 1 or 2 inches. Neon sign larger than 43 inches will be made on two or more backboards that can be easily arranged together.',
-                  style: AppTextStyle.black2.copyWith(color: AppColors.grey),
+                  style: AppTextStyle.white2.copyWith(color: AppColors.grey),
                 ),
 
                 ///
@@ -75,7 +75,7 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
                               alignment: Alignment.center,
                               child: Text(
                                 e,
-                                style: AppTextStyle.black2,
+                                style: AppTextStyle.white2,
                               ),
                             ),
                           ),

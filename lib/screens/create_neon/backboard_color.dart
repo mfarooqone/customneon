@@ -27,7 +27,7 @@ class _BackboardColorWidgetState extends State<BackboardColorWidget> {
               children: [
                 Text(
                   'Backboard Style',
-                  style: AppTextStyle.black3,
+                  style: AppTextStyle.white3,
                 ),
                 SizedBox(height: 3.h),
                 ListView.builder(
@@ -64,12 +64,12 @@ class _BackboardColorWidgetState extends State<BackboardColorWidget> {
                                 children: [
                                   Text(
                                     createNeonController.backBoardsNames[index],
-                                    style: AppTextStyle.black3,
+                                    style: AppTextStyle.white3,
                                   ),
                                   Text(
                                     createNeonController
                                         .backBoardsSubTitles[index],
-                                    style: AppTextStyle.black2
+                                    style: AppTextStyle.white2
                                         .copyWith(color: AppColors.grey),
                                   ),
                                 ],

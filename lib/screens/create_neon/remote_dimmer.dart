@@ -27,12 +27,12 @@ class _RemoteDimmerWidgetState extends State<RemoteDimmerWidget> {
               children: [
                 Text(
                   'Free Remote and Dimmer',
-                  style: AppTextStyle.black3,
+                  style: AppTextStyle.white3,
                 ),
 
                 Text(
                   'A remote and dimmer is included free with every sign! (Except for Multicolor Neon Signs, which are controlled by the APP)',
-                  style: AppTextStyle.black2.copyWith(color: AppColors.grey),
+                  style: AppTextStyle.white2.copyWith(color: AppColors.grey),
                 ),
                 SizedBox(height: 3.h),
 
@@ -63,7 +63,7 @@ class _RemoteDimmerWidgetState extends State<RemoteDimmerWidget> {
                             padding: EdgeInsets.symmetric(vertical: 2.h),
                             child: Text(
                               "Yes",
-                              style: AppTextStyle.black3,
+                              style: AppTextStyle.white3,
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -99,7 +99,7 @@ class _RemoteDimmerWidgetState extends State<RemoteDimmerWidget> {
                             padding: EdgeInsets.symmetric(vertical: 2.h),
                             child: Text(
                               "No",
-                              style: AppTextStyle.black3,
+                              style: AppTextStyle.white3,
                               textAlign: TextAlign.center,
                             ),
                           ),

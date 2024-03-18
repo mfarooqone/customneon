@@ -37,7 +37,7 @@ class PrimaryTextField extends StatelessWidget {
         if (heading.isNotEmpty)
           Text(
             heading,
-            style: AppTextStyle.black2,
+            style: AppTextStyle.white2,
           ),
         if (heading.isNotEmpty)
           SizedBox(
@@ -56,11 +56,11 @@ class PrimaryTextField extends StatelessWidget {
               keyboardType: keyboardType,
               inputFormatters: inputFormatters,
               textAlign: TextAlign.start,
-              style: AppTextStyle.black2,
+              style: AppTextStyle.white2,
               decoration: InputDecoration(
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 2.h, vertical: 1.5.h),
-                hintStyle: AppTextStyle.black2.copyWith(color: AppColors.grey),
+                hintStyle: AppTextStyle.white2.copyWith(color: AppColors.grey),
                 hintText: hintText,
                 border: InputBorder.none,
                 suffixIcon: suffixIcon,

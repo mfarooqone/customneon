@@ -27,7 +27,7 @@ class _LocationWidgetState extends State<LocationWidget> {
               children: [
                 Text(
                   'Location',
-                  style: AppTextStyle.black3,
+                  style: AppTextStyle.white3,
                 ),
 
                 ///
@@ -63,7 +63,7 @@ class _LocationWidgetState extends State<LocationWidget> {
                             padding: EdgeInsets.symmetric(vertical: 2.h),
                             child: Text(
                               "Outdoor",
-                              style: AppTextStyle.black3,
+                              style: AppTextStyle.white3,
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -98,7 +98,7 @@ class _LocationWidgetState extends State<LocationWidget> {
                             padding: EdgeInsets.symmetric(vertical: 2.h),
                             child: Text(
                               "Indoor",
-                              style: AppTextStyle.black3,
+                              style: AppTextStyle.white3,
                               textAlign: TextAlign.center,
                             ),
                           ),

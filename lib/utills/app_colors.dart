@@ -4,7 +4,7 @@ class AppColors {
   static Color black = Colors.black;
   static Color grey = Colors.grey;
   static Color lightGrey = Colors.grey.withOpacity(0.1);
-  static Color gold = const Color.fromARGB(255, 226, 205, 12);
+  static Color gold = const Color(0xFFE5B80B);
   static Color silver = Colors.grey[350]!;
 
   ///

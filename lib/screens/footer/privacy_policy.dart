@@ -354,7 +354,7 @@ class PrivacyPolicy extends StatelessWidget {
             SizedBox(
               height: 12.h,
             ),
-             FooterDesign(),
+            FooterDesign(),
           ],
         ),
       ),
@@ -365,14 +365,14 @@ class PrivacyPolicy extends StatelessWidget {
     return Text(
       text,
       style:
-          AppTextStyle.black3.copyWith(color: AppColors.black, fontSize: 8.sp),
+          AppTextStyle.white3.copyWith(color: AppColors.black, fontSize: 8.sp),
     );
   }
 
   Widget autoText(String text) {
     return Text(
       text,
-      style: AppTextStyle.black4,
+      style: AppTextStyle.white4,
     );
   }
 }

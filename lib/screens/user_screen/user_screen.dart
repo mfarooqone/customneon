@@ -1,6 +1,7 @@
 import 'package:customneon/controllers/auth_controller.dart';
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/models/user_model.dart';
+import 'package:customneon/screens/footer/footer_design.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
@@ -52,11 +53,12 @@ class _UserScreenState extends State<UserScreen> {
             return const LoadingIndicator();
           } else {
             return SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
-                child: Column(
+              child:  Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    SizedBox(
+                      height: 10.h,
+                    ),
                     Center(
                       child: Text(
                         "Account Details",
@@ -164,11 +166,14 @@ class _UserScreenState extends State<UserScreen> {
 
                         ///
                       ],
-                    )
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                     FooterDesign(),
                   ],
                 ),
-              ),
-            );
+              );
           }
         }),
       ),

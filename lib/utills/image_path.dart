@@ -10,4 +10,9 @@ class AppImagePath {
   static const String professionalService = '${assetsPath}professional_service.png';
   static const String fullyCustomizable = '${assetsPath}fully_customizable.png';
   static const String easyInstallation = '${assetsPath}easy_installation.png';
+  static const String facebookIcon = '${assetsPath}facebook_icon.png';
+  static const String pinterestIcon = '${assetsPath}pinterest_icon.png';
+  static const String instagramIcon = '${assetsPath}instagram_icon.png';
+  static const String youtubeIcon = '${assetsPath}youtube_icon.png';
+
 }

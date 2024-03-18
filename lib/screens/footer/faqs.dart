@@ -1,3 +1,4 @@
+import 'package:customneon/screens/footer/footer_design.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -41,9 +42,7 @@ class _FAQsState extends State<FAQs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
-          child: Column(
+        child:  Column(
             children: [
               Center(
                 child: Text(
@@ -112,31 +111,40 @@ class _FAQsState extends State<FAQs> {
                   SizedBox(
                     height: 8.h,
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      _selectedIndex == -1 ? "" : faqTexts[_selectedIndex],
-                      style: AppTextStyle.black4.copyWith(color: Colors.black),
+                  Padding(
+                    padding:  EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        _selectedIndex == -1 ? "" : faqTexts[_selectedIndex],
+                        style: AppTextStyle.black4.copyWith(color: Colors.black),
+                      ),
                     ),
                   ),
                   if (_selectedIndex != -1)
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: 2.h),
-                        Text(
-                          faqDescriptions[_selectedIndex],
-                          style: TextStyle(fontSize: 3.sp),
-                        ),
-                      ],
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 2.h),
+                          Text(
+                            faqDescriptions[_selectedIndex],
+                            style: TextStyle(fontSize: 3.sp),
+                          ),
+                        ],
+                      ),
                     ),
                 ],
-              )
+              ),
+              SizedBox(
+                height: 12.h,
+              ),
+               FooterDesign(),
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   Widget boxWidget(int index) {

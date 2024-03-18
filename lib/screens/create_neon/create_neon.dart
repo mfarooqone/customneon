@@ -728,7 +728,7 @@ class _CreateNeonState extends State<CreateNeon> {
                         ///
                         ///
                         ///
-                        const FooterDesign(),
+                         FooterDesign(),
 
                         ///
                         ///

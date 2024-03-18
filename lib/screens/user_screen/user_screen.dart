@@ -32,11 +32,6 @@ class _UserScreenState extends State<UserScreen> {
   void getUser() async {
     authController.isLoading.value = true;
     storedUser = await AppPreferencesController.getUser();
-    if (storedUser != null) {
-      print('User Display Name: ${storedUser?.displayName}');
-      print('User Email: ${storedUser?.email}');
-      print('User Photo URL: ${storedUser?.photoUrl}');
-    }
     authController.isLoading.value = false;
   }
 

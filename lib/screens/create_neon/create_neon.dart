@@ -666,7 +666,7 @@ class _CreateNeonState extends State<CreateNeon> {
                         ///
                         ///
                         ///
-                        SizedBox(height: 2.h),
+                        SizedBox(height: 8.h),
 
                         ///
                         ///
@@ -704,6 +704,19 @@ class _CreateNeonState extends State<CreateNeon> {
                           ],
                         ),
 
+                        SizedBox(height: 8.h),
+
+                        ///
+                        ///
+                        ///
+                        Center(
+                          child: Image.asset(
+                            "assets/neon_flow.png",
+                            width: 90.w,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+
                         ///
                         ///
                         ///
@@ -738,7 +751,7 @@ class _CreateNeonState extends State<CreateNeon> {
             height: 10.h,
             fit: BoxFit.fill,
           ),
-          SizedBox(height: 4.h),
+          SizedBox(height: 3.h),
 
           ///
           Text(
@@ -749,6 +762,9 @@ class _CreateNeonState extends State<CreateNeon> {
             ),
             textAlign: TextAlign.center,
           ),
+
+          ///
+          SizedBox(height: 1.h),
 
           ///
           Text(

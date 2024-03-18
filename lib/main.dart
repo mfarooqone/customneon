@@ -37,10 +37,11 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           theme: ThemeData(
-              scaffoldBackgroundColor: Colors.black54,
-              iconTheme: IconThemeData(
-                color: AppColors.orange,
-              )),
+            scaffoldBackgroundColor: Colors.black54,
+            iconTheme: IconThemeData(
+              color: AppColors.orange,
+            ),
+          ),
           debugShowCheckedModeBanner: false,
           title: 'Custom Neon',
           home: const HomePage(),

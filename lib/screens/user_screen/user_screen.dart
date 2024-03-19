@@ -72,19 +72,17 @@ class _UserScreenState extends State<UserScreen> {
                   if (storedUser?.photoUrl != null &&
                       storedUser!.photoUrl.isNotEmpty)
                     Container(
-                      width: 10.w,
-                      height: 10.w,
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(20.h),
-                      ),
-                      clipBehavior: Clip.hardEdge,
-                      child: Image.network(
-                        storedUser!.photoUrl,
-                        fit: BoxFit.contain,
-                      )
-                    ),
-
+                        width: 10.w,
+                        height: 10.w,
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(20.h),
+                        ),
+                        clipBehavior: Clip.hardEdge,
+                        child: Image.network(
+                          storedUser!.photoUrl,
+                          fit: BoxFit.contain,
+                        )),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -114,6 +112,7 @@ class _UserScreenState extends State<UserScreen> {
                       SizedBox(
                         height: 1.h,
                       ),
+
                       ///
                       containerWidget(storedUser?.email ?? "No Email Found"),
 
@@ -195,7 +194,10 @@ class _UserScreenState extends State<UserScreen> {
         border: Border.all(color: Colors.white, width: 1),
         borderRadius: BorderRadius.circular(2.h),
       ),
-      child: Text(text, style: AppTextStyle.white2,),
+      child: Text(
+        text,
+        style: AppTextStyle.white2,
+      ),
     );
   }
 }

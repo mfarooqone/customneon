@@ -1,6 +1,7 @@
 import 'package:customneon/controllers/auth_controller.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
+import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -33,6 +34,10 @@ class SignupView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  const HeaderDesign(),
                   SizedBox(
                     height: 12.h,
                   ),

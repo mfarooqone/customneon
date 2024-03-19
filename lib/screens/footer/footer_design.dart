@@ -48,37 +48,55 @@ class FooterDesign extends StatelessWidget {
                             onTap: () {
                               Get.to(() => TrackMyOrder());
                             },
-                            child: const Text("Track My Order")),
+                            child: Text(
+                              "Track My Order",
+                              style: AppTextStyle.white2,
+                            )),
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
                               Get.to(() => const ShippingPolicy());
                             },
-                            child: const Text("Shipping Policy")),
+                            child: Text(
+                              "Shipping Policy",
+                              style: AppTextStyle.white2,
+                            )),
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
                               Get.to(() => const RefundPolicy());
                             },
-                            child: const Text("Refund Policy")),
+                            child: Text(
+                              "Refund Policy",
+                              style: AppTextStyle.white2,
+                            )),
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
                               Get.to(() => const PrivacyPolicy());
                             },
-                            child: const Text("Privacy Policy")),
+                            child: Text(
+                              "Privacy Policy",
+                              style: AppTextStyle.white2,
+                            )),
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
                               Get.to(() => const TermsOfService());
                             },
-                            child: const Text("Terms of Service")),
+                            child: Text(
+                              "Terms of Service",
+                              style: AppTextStyle.white2,
+                            )),
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
                               Get.to(() => const FAQs());
                             },
-                            child: const Text("FAQs"))
+                            child: Text(
+                              "FAQs",
+                              style: AppTextStyle.white2,
+                            ))
                         ////
                         ///
                         ///
@@ -107,19 +125,28 @@ class FooterDesign extends StatelessWidget {
                             onTap: () {
                               Get.to(() => const AboutUs());
                             },
-                            child: const Text("About Us")),
+                            child: Text(
+                              "About Us",
+                              style: AppTextStyle.white2,
+                            )),
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
                               Get.to(() => const ContactUs());
                             },
-                            child: const Text("Contact Us")),
+                            child: Text(
+                              "Contact Us",
+                              style: AppTextStyle.white2,
+                            )),
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
                               Get.to(() => const PaymentMethods());
                             },
-                            child: const Text("Payment Methods"))
+                            child: Text(
+                              "Payment Methods",
+                              style: AppTextStyle.white2,
+                            ))
 
                         ////
                         ///
@@ -132,7 +159,10 @@ class FooterDesign extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text("Subscribe & Save"),
+                    Text(
+                      "Subscribe & Save",
+                      style: AppTextStyle.white2,
+                    ),
                     SizedBox(
                       height: 3.h,
                     ),
@@ -147,12 +177,17 @@ class FooterDesign extends StatelessWidget {
                     SizedBox(
                       height: 3.h,
                     ),
-                    const Text(
-                        "Sign up for exclusive deals, including a unique\ncoupon for \$30 OFF your first order."),
+                    Text(
+                      "Sign up for exclusive deals, including a unique\ncoupon for \$30 OFF your first order.",
+                      style: AppTextStyle.white2,
+                    ),
                     SizedBox(
                       height: 4.h,
                     ),
-                    const Text("Stay Connected"),
+                    Text(
+                      "Stay Connected",
+                      style: AppTextStyle.white2,
+                    ),
                     SizedBox(
                       height: 4.h,
                     ),
@@ -182,7 +217,7 @@ class FooterDesign extends StatelessWidget {
             height: 12.h,
           ),
           const Divider(
-            color: Colors.black,
+            color: Colors.white,
             thickness: 0.5,
           ),
           SizedBox(
@@ -190,7 +225,10 @@ class FooterDesign extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(right: 10.h, left: 10.h),
-            child: const Text("© 2024, NeonWill. All rights reserved."),
+            child: Text(
+              "© 2024, NeonWill. All rights reserved.",
+              style: AppTextStyle.white2,
+            ),
           ),
           SizedBox(
             height: 3.h,

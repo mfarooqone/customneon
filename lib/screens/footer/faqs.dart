@@ -44,11 +44,14 @@ class _FAQsState extends State<FAQs> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(
+              height: 10.h,
+            ),
             Center(
               child: Text(
                 "FREQUENTLY ASKED QUESTIONS",
                 style: AppTextStyle.white3
-                    .copyWith(color: AppColors.black, fontSize: 8.sp),
+                    .copyWith(color: AppColors.white, fontSize: 8.sp),
               ),
             ),
             SizedBox(
@@ -108,28 +111,24 @@ class _FAQsState extends State<FAQs> {
                   height: 5.h,
                 ),
                 Center(child: boxWidget(6)),
-                SizedBox(
-                  height: 8.h,
-                ),
                 Padding(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
+                      EdgeInsets.symmetric(horizontal: 10.h, vertical: 5.h),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       _selectedIndex == -1 ? "" : faqTexts[_selectedIndex],
-                      style: AppTextStyle.white4.copyWith(color: Colors.black),
+                      style: AppTextStyle.white3.copyWith(color: Colors.white),
                     ),
                   ),
                 ),
                 if (_selectedIndex != -1)
                   Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
+                        EdgeInsets.symmetric(horizontal: 10.h),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 2.h),
                         Text(
                           faqDescriptions[_selectedIndex],
                           style: TextStyle(fontSize: 3.sp),
@@ -163,18 +162,18 @@ class _FAQsState extends State<FAQs> {
           height: 12.h,
           width: 30.h,
           decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.black,
               border: Border.all(
                   width: 1,
                   color: _selectedIndex == index
-                      ? Colors.black
+                      ? Colors.white
                       : Colors.transparent),
               borderRadius: BorderRadius.circular(2.h)),
           child: Center(
               child: Text(
             faqTexts[index],
-            style: AppTextStyle.white4.copyWith(
-                color: _selectedIndex == index ? Colors.black : Colors.black38),
+            style: AppTextStyle.white3.copyWith(
+                color: _selectedIndex == index ? Colors.white : Colors.white),
           )),
         ),
       ),

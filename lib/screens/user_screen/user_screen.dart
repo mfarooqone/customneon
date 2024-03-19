@@ -58,7 +58,7 @@ class _UserScreenState extends State<UserScreen> {
                     child: Text(
                       "Account Details",
                       style: AppTextStyle.white3
-                          .copyWith(color: AppColors.black, fontSize: 8.sp),
+                          .copyWith(color: AppColors.white, fontSize: 8.sp),
                     ),
                   ),
                   SizedBox(
@@ -77,8 +77,9 @@ class _UserScreenState extends State<UserScreen> {
                       child: Image.network(
                         storedUser!.photoUrl,
                         fit: BoxFit.contain,
-                      ),
+                      )
                     ),
+
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -90,19 +91,24 @@ class _UserScreenState extends State<UserScreen> {
                       ///
                       ///
 
-                      Text("Name", style: AppTextStyle.white3),
+                      Text("Name", style: AppTextStyle.white2),
+                      SizedBox(
+                        height: 1.h,
+                      ),
                       containerWidget(
                           storedUser?.displayName ?? "No Name Found"),
                       SizedBox(
                         height: 3.h,
                       ),
-                      Text("Email", style: AppTextStyle.white3),
+                      Text("Email", style: AppTextStyle.white2),
 
                       ///
                       SizedBox(
                         height: 1.h,
                       ),
-
+                      SizedBox(
+                        height: 1.h,
+                      ),
                       ///
                       containerWidget(storedUser?.email ?? "No Email Found"),
 
@@ -110,7 +116,7 @@ class _UserScreenState extends State<UserScreen> {
                       SizedBox(
                         height: 3.h,
                       ),
-                      Text("Address", style: AppTextStyle.white3),
+                      Text("Address", style: AppTextStyle.white2),
                       SizedBox(
                         height: 1.h,
                       ),
@@ -180,10 +186,11 @@ class _UserScreenState extends State<UserScreen> {
       width: MediaQuery.of(context).size.width / 4,
       padding: EdgeInsets.only(top: 2.5.h, left: 1.w),
       decoration: BoxDecoration(
-        color: Colors.cyan.shade200,
+        color: Colors.black,
+        border: Border.all(color: Colors.white, width: 1),
         borderRadius: BorderRadius.circular(2.h),
       ),
-      child: Text(text),
+      child: Text(text, style: AppTextStyle.white2,),
     );
   }
 }

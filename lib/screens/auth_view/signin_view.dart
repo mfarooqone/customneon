@@ -7,6 +7,7 @@ import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/widgets/button_loader.dart';
 import 'package:customneon/widgets/primary_button.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -58,17 +59,23 @@ class SigninView extends StatelessWidget {
                 SizedBox(
                   height: 5.h,
                 ),
-                textField(context, "Email", emailController),
-                SizedBox(
-                  height: 3.h,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    textField(context, "Email", emailController),
+                    SizedBox(
+                      height: 3.h,
+                    ),
+                    textField(context, "Password", passwordController),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    Text("Forgot your password?",
+                          textAlign: TextAlign.start,
+                          style: AppTextStyle.white2
+                              .copyWith(fontWeight: FontWeight.w400)),
+                  ],
                 ),
-                textField(context, "Password", passwordController),
-                SizedBox(
-                  height: 2.h,
-                ),
-                Text("Forgot your password?",
-                    style: AppTextStyle.white4
-                        .copyWith(fontWeight: FontWeight.w400)),
                 SizedBox(
                   height: 5.h,
                 ),

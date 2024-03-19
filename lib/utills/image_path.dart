@@ -16,4 +16,6 @@ class AppImagePath {
   static const String pinterestIcon = '${assetsPath}pinterest_icon.png';
   static const String instagramIcon = '${assetsPath}instagram_icon.png';
   static const String youtubeIcon = '${assetsPath}youtube_icon.png';
+  static const String placeholderImage = '${assetsPath}placeholder_img.png';
+
 }

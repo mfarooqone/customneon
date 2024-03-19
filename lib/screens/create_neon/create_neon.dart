@@ -1,3 +1,4 @@
+import 'package:before_after_image_slider_nullsafty/before_after_image_slider_nullsafty.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/create_neon/backboard_style_widget.dart';
@@ -46,6 +47,8 @@ class _CreateNeonState extends State<CreateNeon> {
     textEditingController.text = 'Hi';
     super.initState();
   }
+
+  double value = 0.5;
 
   @override
   Widget build(BuildContext context) {
@@ -711,10 +714,19 @@ class _CreateNeonState extends State<CreateNeon> {
                         ///
                         Center(
                           child: Image.asset(
-                            "assets/neon_flow.png",
+                            AppImagePath.neonFlow,
                             width: 90.w,
                             fit: BoxFit.contain,
                           ),
+                        ),
+
+                        ///
+                        ///
+                        ///
+
+                        BeforeAfter(
+                          beforeImage: Image.asset(AppImagePath.afterimage),
+                          afterImage: Image.asset(AppImagePath.beforeImage),
                         ),
 
                         ///

@@ -17,5 +17,7 @@ class AppImagePath {
   static const String instagramIcon = '${assetsPath}instagram_icon.png';
   static const String youtubeIcon = '${assetsPath}youtube_icon.png';
   static const String placeholderImage = '${assetsPath}placeholder_img.png';
-
+  static const String neonFlow = '${assetsPath}neon_flow.png';
+  static const String beforeImage = '${assetsPath}before_image.png';
+  static const String afterimage = '${assetsPath}after_image.png';
 }

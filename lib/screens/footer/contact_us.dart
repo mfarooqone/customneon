@@ -1,4 +1,5 @@
 import 'package:customneon/screens/footer/footer_design.dart';
+import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/widgets/primary_button.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,10 @@ class _ContactUsState extends State<ContactUs> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(
+              height: 5.h,
+            ),
+            const HeaderDesign(),
             SizedBox(
               height: 8.h,
             ),

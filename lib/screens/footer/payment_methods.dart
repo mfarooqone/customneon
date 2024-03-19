@@ -1,4 +1,5 @@
 import 'package:customneon/screens/footer/footer_design.dart';
+import 'package:customneon/screens/header/header_design.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -13,6 +14,10 @@ class PaymentMethods extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(
+              height: 5.h,
+            ),
+            const HeaderDesign(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.h),
               child: Column(

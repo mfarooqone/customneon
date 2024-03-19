@@ -2,6 +2,7 @@ import 'package:customneon/controllers/auth_controller.dart';
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/models/user_model.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
+import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
@@ -51,6 +52,10 @@ class _UserScreenState extends State<UserScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  const HeaderDesign(),
                   SizedBox(
                     height: 10.h,
                   ),

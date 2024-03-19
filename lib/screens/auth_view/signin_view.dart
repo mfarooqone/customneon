@@ -1,13 +1,13 @@
 import 'package:customneon/controllers/auth_controller.dart';
 import 'package:customneon/screens/auth_view/signup_view.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
+import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_snackbar.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/widgets/button_loader.dart';
 import 'package:customneon/widgets/primary_button.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -28,6 +28,10 @@ class SigninView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                SizedBox(
+                  height: 5.h,
+                ),
+                const HeaderDesign(),
                 SizedBox(
                   height: 12.h,
                 ),

@@ -1,4 +1,5 @@
 import 'package:customneon/screens/footer/footer_design.dart';
+import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,10 @@ class ShippingPolicy extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: 5.h,
+            ),
+            const HeaderDesign(),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
               child: Column(

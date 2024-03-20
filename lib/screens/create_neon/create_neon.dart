@@ -221,14 +221,8 @@ class _CreateNeonState extends State<CreateNeon> {
                                       alignment: Alignment.topCenter,
                                       child: Padding(
                                         padding: EdgeInsets.only(top: 2.h),
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              "Height : ${createNeonController.textHeight.toStringAsFixed(2)}cm / ${(createNeonController.textHeight / 2.54).toStringAsFixed(2)} in \nWidth : ${createNeonController.textWidth.toStringAsFixed(2)}cm / ${(createNeonController.textWidth / 2.54).toStringAsFixed(2)}in",
-                                              style: AppTextStyle.white2,
-                                            ),
-                                          ],
-                                        ),
+                                        child: getSizeInfo(createNeonController
+                                            .selectedSize.value),
                                       ),
                                     ),
 
@@ -496,6 +490,64 @@ class _CreateNeonState extends State<CreateNeon> {
         },
       ),
     );
+  }
+
+  ///
+  ///
+  ///
+  ///
+  Widget getSizeInfo(String size) {
+    return Obx(() {
+      switch (size) {
+        case "S":
+          return Text(
+            "H: ${createNeonController.textHeight.value.toStringAsFixed(2)}cm / ${(createNeonController.textHeight.value / 2.54).toStringAsFixed(2)}in \nW: ${createNeonController.textWidth.value.toStringAsFixed(2)}cm / ${(createNeonController.textWidth.value / 2.54).toStringAsFixed(2)}in",
+            style: AppTextStyle.white1,
+          );
+
+        case "M":
+          double height = createNeonController.textHeight.value + 2.5;
+          double width = createNeonController.textWidth.value + 2.5;
+          return Text(
+            "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in \nW: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+            style: AppTextStyle.white1,
+          );
+
+        case "L":
+          double height = createNeonController.textHeight.value + 5;
+          double width = createNeonController.textWidth.value + 5;
+          return Text(
+            "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in \nW: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+            style: AppTextStyle.white1,
+          );
+        case "XL":
+          double height = createNeonController.textHeight.value + 7.5;
+          double width = createNeonController.textWidth.value + 7.5;
+          return Text(
+            "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in \nW: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+            style: AppTextStyle.white1,
+          );
+        case "XXL":
+          double height = createNeonController.textHeight.value + 10;
+          double width = createNeonController.textWidth.value + 10;
+          return Text(
+            "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in \nW: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+            style: AppTextStyle.white1,
+          );
+        case "Custom":
+          double height = createNeonController.textHeight.value + 12.5;
+          double width = createNeonController.textHeight.value + 12.5;
+          return Text(
+            "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in \nW: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+            style: AppTextStyle.white1,
+          );
+        default:
+          return Text(
+            "H: ${createNeonController.textHeight.value.toStringAsFixed(2)}cm / ${(createNeonController.textHeight.value / 2.54).toStringAsFixed(2)}in \nW: ${createNeonController.textWidth.value.toStringAsFixed(2)}cm / ${(createNeonController.textWidth.value / 2.54).toStringAsFixed(2)}in",
+            style: AppTextStyle.white1,
+          );
+      }
+    });
   }
 
   SizedBox detailsStyle({

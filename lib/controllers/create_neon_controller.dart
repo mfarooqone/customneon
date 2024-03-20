@@ -206,8 +206,8 @@ class CreateNeonController extends GetxController {
     Size size = textPainter.size;
 
     ///
-    textWidth.value = size.width;
-    textHeight.value = size.height;
+    textWidth.value = size.width * 2;
+    textHeight.value = size.height * 2;
 
     ///
 

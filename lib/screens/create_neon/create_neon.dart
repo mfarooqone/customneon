@@ -225,6 +225,14 @@ class _CreateNeonState extends State<CreateNeon> {
                                             .selectedSize.value),
                                       ),
                                     ),
+                                    Align(
+                                      alignment: Alignment.topRight,
+                                      child: Padding(
+                                        padding: EdgeInsets.only(top: 2.h),
+                                        child: getPriceInfo(createNeonController
+                                            .selectedSize.value),
+                                      ),
+                                    ),
 
                                     ///
                                     ///
@@ -545,6 +553,82 @@ class _CreateNeonState extends State<CreateNeon> {
           return Text(
             "H: ${createNeonController.textHeight.value.toStringAsFixed(2)}cm / ${(createNeonController.textHeight.value / 2.54).toStringAsFixed(2)}in \nW: ${createNeonController.textWidth.value.toStringAsFixed(2)}cm / ${(createNeonController.textWidth.value / 2.54).toStringAsFixed(2)}in",
             style: AppTextStyle.white1,
+          );
+      }
+    });
+  }
+
+  ///
+  ///
+  ///
+  Widget getPriceInfo(String size) {
+    return Obx(() {
+      switch (size) {
+        case "S":
+          double value = (createNeonController.textHeight.value *
+                  createNeonController.textWidth.value) /
+              6;
+
+          return Text(
+            "\$${value.toStringAsFixed(2)}",
+            style: AppTextStyle.white4,
+          );
+
+        case "M":
+          double height = createNeonController.textHeight.value + 2.5;
+          double width = createNeonController.textWidth.value + 2.5;
+
+          double value = (height * width) / 6;
+
+          return Text(
+            "\$${value.toStringAsFixed(2)}",
+            style: AppTextStyle.white4,
+          );
+
+        case "L":
+          double height = createNeonController.textHeight.value + 5;
+          double width = createNeonController.textWidth.value + 5;
+          double value = (height * width) / 6;
+
+          return Text(
+            "\$${value.toStringAsFixed(2)}",
+            style: AppTextStyle.white4,
+          );
+        case "XL":
+          double height = createNeonController.textHeight.value + 7.5;
+          double width = createNeonController.textWidth.value + 7.5;
+          double value = (height * width) / 6;
+
+          return Text(
+            "\$${value.toStringAsFixed(2)}",
+            style: AppTextStyle.white4,
+          );
+        case "XXL":
+          double height = createNeonController.textHeight.value + 10;
+          double width = createNeonController.textWidth.value + 10;
+          double value = (height * width) / 6;
+
+          return Text(
+            "\$${value.toStringAsFixed(2)}",
+            style: AppTextStyle.white4,
+          );
+        case "Custom":
+          double height = createNeonController.textHeight.value + 12.5;
+          double width = createNeonController.textHeight.value + 12.5;
+          double value = (height * width) / 6;
+
+          return Text(
+            "\$${value.toStringAsFixed(2)}",
+            style: AppTextStyle.white4,
+          );
+        default:
+          double value = (createNeonController.textHeight.value *
+                  createNeonController.textWidth.value) /
+              6;
+
+          return Text(
+            "\$${value.toStringAsFixed(2)}",
+            style: AppTextStyle.white4,
           );
       }
     });

@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use, unnecessary_null_comparison
 
+import 'dart:ui' as ui;
+
 import 'package:customneon/utills/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -184,6 +186,7 @@ class CreateNeonController extends GetxController {
 
   ///
   ///
+
   void calculateTextSize({
     required String text,
     required TextStyle style,
@@ -205,9 +208,27 @@ class CreateNeonController extends GetxController {
 
     Size size = textPainter.size;
 
+    // Convert logical pixels to physical pixels
+    final double devicePixelRatio = ui.window.devicePixelRatio;
+    final double widthInches = size.width /
+        devicePixelRatio /
+        ui.window.physicalSize.width *
+        ui.window.physicalSize.width /
+        ui.window.devicePixelRatio;
+    final double heightInches = size.height /
+        devicePixelRatio /
+        ui.window.physicalSize.height *
+        ui.window.physicalSize.height /
+        ui.window.devicePixelRatio;
+
     ///
-    textWidth.value = size.width * 2;
-    textHeight.value = size.height * 2;
+    textWidth.value = widthInches;
+    textHeight.value = heightInches;
+
+    ///
+    ///
+    textHeight.value = textHeight.value * 4;
+    textWidth.value = textWidth.value * 6.5;
 
     ///
 

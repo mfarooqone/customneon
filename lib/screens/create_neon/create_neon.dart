@@ -44,6 +44,13 @@ class _CreateNeonState extends State<CreateNeon> {
   @override
   void initState() {
     textEditingController.text = 'Hi';
+    createNeonController.calculateTextSize(
+      text: 'Hi',
+      style: TextStyle(
+        fontFamily: createNeonController.selectedFont.value,
+      ),
+      context: Get.context!,
+    );
     super.initState();
   }
 
@@ -220,6 +227,24 @@ class _CreateNeonState extends State<CreateNeon> {
                                                         .selectedColor,
                                                   ),
                                                 ],
+                                        ),
+                                      ),
+                                    ),
+
+                                    ///
+                                    ///
+                                    ///
+                                    Align(
+                                      alignment: Alignment.topCenter,
+                                      child: Padding(
+                                        padding: EdgeInsets.only(top: 2.h),
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              "Height : ${createNeonController.textHeight.toStringAsFixed(2)}cm / ${(createNeonController.textHeight / 2.54).toStringAsFixed(2)} in \n Width : ${createNeonController.textWidth.toStringAsFixed(2)}cm / ${(createNeonController.textWidth / 2.54).toStringAsFixed(2)}in",
+                                              style: AppTextStyle.white2,
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),

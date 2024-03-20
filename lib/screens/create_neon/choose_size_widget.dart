@@ -57,8 +57,8 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
                           createNeonController.isLoading.value = false;
                         },
                         child: Container(
-                          height: 5.h,
-                          width: 5.w,
+                          height: 10.h,
+                          width: 10.w,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(0.5.h),
                             border: Border.all(
@@ -73,9 +73,26 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
                             padding: EdgeInsets.all(1.h),
                             child: Container(
                               alignment: Alignment.center,
-                              child: Text(
-                                e,
-                                style: AppTextStyle.white2,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    e,
+                                    style: AppTextStyle.white2,
+                                  ),
+
+                                  ///
+                                  ///
+                                  ///
+                                  const Spacer(),
+                                  Text(
+                                    "H: ${createNeonController.textHeight.toStringAsFixed(2)}cm / ${(createNeonController.textHeight / 2.54).toStringAsFixed(2)}in",
+                                    style: AppTextStyle.white1,
+                                  ),
+                                  Text(
+                                    "W: ${createNeonController.textWidth.toStringAsFixed(2)}cm / ${(createNeonController.textWidth / 2.54).toStringAsFixed(2)}in",
+                                    style: AppTextStyle.white1,
+                                  ),
+                                ],
                               ),
                             ),
                           ),

@@ -10,22 +10,22 @@ class AppTextStyle {
   ///////////////////////////////////////////////
   static TextStyle white1 = TextStyle(
     color: AppColors.white,
-    fontSize: 1.0.w / 2,
+    fontSize: 2.5.sp,
     fontFamily: AppFonts.roboto,
   );
   static TextStyle white2 = TextStyle(
     color: AppColors.white,
-    fontSize: 2.0.w / 2,
+    fontSize: 3.0.sp,
     fontFamily: AppFonts.roboto,
   );
   static TextStyle white3 = TextStyle(
     color: AppColors.white,
-    fontSize: 3.0.w / 2,
+    fontSize: 4.0.sp,
     fontFamily: AppFonts.roboto,
   );
   static TextStyle white4 = TextStyle(
     color: AppColors.white,
-    fontSize: 4.0.w / 2,
+    fontSize: 5.0.sp,
     fontFamily: AppFonts.roboto,
   );
 }

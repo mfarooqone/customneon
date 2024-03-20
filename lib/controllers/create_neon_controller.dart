@@ -19,7 +19,7 @@ class CreateNeonController extends GetxController {
 
   Color selectedColor = AppColors.orange;
   Color selectedBackBoardColor = Colors.transparent;
-  RxString selectedSize = "".obs;
+  RxString selectedSize = "S".obs;
   RxString selectedBackBoardStyle = "".obs;
   RxString selectedAdapter = "USA / CANADA 120V".obs;
   RxDouble totalAmount = 0.1.obs;

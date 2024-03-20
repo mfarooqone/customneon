@@ -18,6 +18,14 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
       Get.put(CreateNeonController());
   @override
   Widget build(BuildContext context) {
+    final Map<String, Widget> sizeInfoWidgets = {
+      "S": getSizeInfoWidget("S"),
+      "M": getSizeInfoWidget("M"),
+      "L": getSizeInfoWidget("L"),
+      "XL": getSizeInfoWidget("XL"),
+      "XXL": getSizeInfoWidget("XXL"),
+      "Custom": getSizeInfoWidget("Custom"),
+    };
     return Obx(() {
       return createNeonController.isLoading.value
           ? const LoadingIndicator()
@@ -45,62 +53,159 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
                 ///
                 ///
                 Wrap(
-                    spacing: 18,
-                    direction: Axis.horizontal,
-                    alignment: WrapAlignment.start,
-                    runSpacing: 18,
-                    children: createNeonController.sizeNames.map((e) {
-                      return InkWell(
-                        onTap: () {
-                          createNeonController.selectedSize.value = e;
-                          createNeonController.isLoading.value = true;
-                          createNeonController.isLoading.value = false;
-                        },
-                        child: Container(
-                          height: 10.h,
-                          width: 10.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(0.5.h),
-                            border: Border.all(
-                              color:
-                                  e == createNeonController.selectedSize.value
-                                      ? AppColors.orange
-                                      : Colors.grey,
-                              width: 0.1.h,
-                            ),
+                  spacing: 18,
+                  direction: Axis.horizontal,
+                  alignment: WrapAlignment.start,
+                  runSpacing: 18,
+                  children: createNeonController.sizeNames.map((e) {
+                    return InkWell(
+                      onTap: () {
+                        createNeonController.selectedSize.value = e;
+                        createNeonController.isLoading.value = true;
+                        createNeonController.isLoading.value = false;
+                      },
+                      child: Container(
+                        height: 10.h,
+                        width: 10.w,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(0.5.h),
+                          border: Border.all(
+                            color: e == createNeonController.selectedSize.value
+                                ? AppColors.orange
+                                : Colors.grey,
+                            width: 0.1.h,
                           ),
-                          child: Padding(
-                            padding: EdgeInsets.all(1.h),
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: Column(
-                                children: [
-                                  Text(
-                                    e,
-                                    style: AppTextStyle.white2,
-                                  ),
-
-                                  ///
-                                  ///
-                                  ///
-                                  const Spacer(),
-                                  Text(
-                                    "H: ${createNeonController.textHeight.toStringAsFixed(2)}cm / ${(createNeonController.textHeight / 2.54).toStringAsFixed(2)}in",
-                                    style: AppTextStyle.white1,
-                                  ),
-                                  Text(
-                                    "W: ${createNeonController.textWidth.toStringAsFixed(2)}cm / ${(createNeonController.textWidth / 2.54).toStringAsFixed(2)}in",
-                                    style: AppTextStyle.white1,
-                                  ),
-                                ],
-                              ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(1.h),
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: Column(
+                              children: [
+                                Text(
+                                  e,
+                                  style: AppTextStyle.white2,
+                                ),
+                                const Spacer(),
+                                sizeInfoWidgets[e]!,
+                              ],
                             ),
                           ),
                         ),
-                      );
-                    }).toList()),
+                      ),
+                    );
+                  }).toList(),
+                )
               ],
             );
+    });
+  }
+
+  Widget getSizeInfoWidget(String size) {
+    return Obx(() {
+      switch (size) {
+        case "S":
+          return Column(
+            children: [
+              Text(
+                "H: ${createNeonController.textHeight.value.toStringAsFixed(2)}cm / ${(createNeonController.textHeight.value / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+              Text(
+                "W: ${createNeonController.textWidth.value.toStringAsFixed(2)}cm / ${(createNeonController.textWidth.value / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+            ],
+          );
+        case "M":
+          double height = createNeonController.textHeight.value + 2.5;
+          double width = createNeonController.textWidth.value + 2.5;
+          return Column(
+            children: [
+              Text(
+                "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+              Text(
+                "W: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+            ],
+          );
+        case "L":
+          double height = createNeonController.textHeight.value + 5;
+          double width = createNeonController.textWidth.value + 5;
+          return Column(
+            children: [
+              Text(
+                "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+              Text(
+                "W: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+            ],
+          );
+        case "XL":
+          double height = createNeonController.textHeight.value + 7.5;
+          double width = createNeonController.textWidth.value + 7.5;
+          return Column(
+            children: [
+              Text(
+                "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+              Text(
+                "W: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+            ],
+          );
+        case "XXL":
+          double height = createNeonController.textHeight.value + 10;
+          double width = createNeonController.textWidth.value + 10;
+          return Column(
+            children: [
+              Text(
+                "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+              Text(
+                "W: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+            ],
+          );
+        case "Custom":
+          double height = createNeonController.textHeight.value + 12.5;
+          double width = createNeonController.textHeight.value + 12.5;
+          return Column(
+            children: [
+              Text(
+                "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+              Text(
+                "W: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+            ],
+          );
+        default:
+          return Column(
+            children: [
+              Text(
+                "H: ${createNeonController.textHeight.value.toStringAsFixed(2)}cm / ${(createNeonController.textHeight.value / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+              Text(
+                "W: ${createNeonController.textWidth.value.toStringAsFixed(2)}cm / ${(createNeonController.textWidth.value / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+            ],
+          );
+      }
     });
   }
 }

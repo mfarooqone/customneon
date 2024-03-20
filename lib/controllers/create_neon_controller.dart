@@ -179,9 +179,8 @@ class CreateNeonController extends GetxController {
   ///
   ///
   ///
-  double textHeight = 0;
-  double textWidth = 0;
-  Size? tSize;
+  RxDouble textHeight = 0.0.obs;
+  RxDouble textWidth = 0.0.obs;
 
   ///
   ///
@@ -190,6 +189,7 @@ class CreateNeonController extends GetxController {
     required TextStyle style,
     required BuildContext context,
   }) {
+    isLoading.value = true;
     final double textScaleFactor = context != null
         ? MediaQuery.of(context).textScaleFactor
         : WidgetsBinding.instance.window.textScaleFactor;
@@ -206,9 +206,15 @@ class CreateNeonController extends GetxController {
     Size size = textPainter.size;
 
     ///
-    textWidth = size.width;
+    textWidth.value = size.width;
+    textHeight.value = size.height;
 
     ///
-    textHeight = size.height;
+
+    isLoading.value = false;
   }
+
+  ///
+  ///
+  ///
 }

@@ -87,6 +87,21 @@ class _SelectFontState extends State<SelectFont> {
                     createNeonController.isLoading.value = true;
                     createNeonController.selectedFont.value =
                         createNeonController.fontNames[index];
+
+                    ///
+                    createNeonController.calculateTextSize(
+                      text: createNeonController.neonText.value,
+                      style: TextStyle(
+                        fontFamily: createNeonController.selectedFont.value,
+                      ),
+                      context: context,
+                    );
+
+                    print(
+                        'height ${createNeonController.textHeight} and width ${createNeonController.textWidth}');
+
+                    ///
+                    ///
                     createNeonController.isLoading.value = false;
                   },
                   child: Container(

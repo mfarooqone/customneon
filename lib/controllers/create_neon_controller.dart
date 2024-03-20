@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, unnecessary_null_comparison
+
 import 'package:customneon/utills/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,8 +10,13 @@ class CreateNeonController extends GetxController {
   RxBool isRemoteDimmer = true.obs;
   RxBool isOutdoor = true.obs;
   RxBool showNeon = true.obs;
+
   RxString selectedTextAlign = "center".obs;
   RxString selectedFont = "Fribash".obs;
+  RxString neonText = "Hi".obs;
+
+  ///
+
   Color selectedColor = AppColors.orange;
   Color selectedBackBoardColor = Colors.transparent;
   RxString selectedSize = "".obs;
@@ -168,4 +175,40 @@ class CreateNeonController extends GetxController {
     "JAPAN 100V",
     "OTHER: Plaase specify below.",
   ];
+
+  ///
+  ///
+  ///
+  double textHeight = 0;
+  double textWidth = 0;
+  Size? tSize;
+
+  ///
+  ///
+  void calculateTextSize({
+    required String text,
+    required TextStyle style,
+    required BuildContext context,
+  }) {
+    final double textScaleFactor = context != null
+        ? MediaQuery.of(context).textScaleFactor
+        : WidgetsBinding.instance.window.textScaleFactor;
+
+    final TextDirection textDirection =
+        context != null ? Directionality.of(context) : TextDirection.ltr;
+
+    final TextPainter textPainter = TextPainter(
+      text: TextSpan(text: text, style: style),
+      textDirection: textDirection,
+      textScaleFactor: textScaleFactor,
+    )..layout(minWidth: 0, maxWidth: double.infinity);
+
+    Size size = textPainter.size;
+
+    ///
+    textWidth = size.width;
+
+    ///
+    textHeight = size.height;
+  }
 }

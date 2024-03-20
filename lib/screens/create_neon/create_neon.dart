@@ -15,7 +15,6 @@ import 'package:customneon/utills/image_path.dart';
 import 'package:customneon/widgets/adapter_dropdown.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -303,13 +302,24 @@ class _CreateNeonState extends State<CreateNeon> {
                                           maxLines: null,
                                           onChanged: (value) {
                                             setState(() {
-                                              size =
-                                                  txtKey.currentContext!.size!;
-                                              if (kDebugMode) {
-                                                print(
-                                                    'height ${size.height} and width ${size.width}');
-                                              }
-                                              // }
+                                              createNeonController
+                                                  .neonText.value = value;
+
+                                              ///
+                                              createNeonController
+                                                  .calculateTextSize(
+                                                text: createNeonController
+                                                    .neonText.value,
+                                                style: TextStyle(
+                                                  fontFamily:
+                                                      createNeonController
+                                                          .selectedFont.value,
+                                                ),
+                                                context: context,
+                                              );
+
+                                              print(
+                                                  'height ${createNeonController.textHeight} and width ${createNeonController.textWidth}');
                                             });
                                           },
                                         ),

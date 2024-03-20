@@ -1,9 +1,12 @@
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/screens/create_neon/backboard_color.dart';
 import 'package:customneon/screens/create_neon/backboard_style_widget.dart';
+import 'package:customneon/screens/create_neon/choose_color_widget.dart';
 import 'package:customneon/screens/create_neon/choose_size_widget.dart';
 import 'package:customneon/screens/create_neon/location.dart';
 import 'package:customneon/screens/create_neon/remote_dimmer.dart';
+import 'package:customneon/screens/create_neon/select_font.dart';
+import 'package:customneon/screens/create_neon/text_align_widget.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/widgets/adapter_dropdown.dart';
@@ -104,25 +107,25 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                       ///
                       ///
                       ///
-                      // SizedBox(height: 3.h),
+                      SizedBox(height: 3.h),
 
-                      // const SelectFont(),
+                      const SelectFont(),
 
-                      // SizedBox(height: 3.h),
+                      SizedBox(height: 3.h),
 
-                      // const TextAlignWidget(),
+                      const TextAlignWidget(),
 
-                      // SizedBox(height: 3.h),
+                      SizedBox(height: 3.h),
 
-                      // ///
-                      // ///
-                      // ///
-                      // const ChooseColorWidget(),
+                      ///
+                      ///
+                      ///
+                      const ChooseColorWidget(),
 
-                      // ///
-                      // ///
-                      // ///
-                      // SizedBox(height: 3.h),
+                      ///
+                      ///
+                      ///
+                      SizedBox(height: 3.h),
 
                       ///
                       ///

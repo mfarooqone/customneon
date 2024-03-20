@@ -55,7 +55,7 @@ class _UserScreenState extends State<UserScreen> {
                   SizedBox(
                     height: 5.h,
                   ),
-                   HeaderDesign(),
+                  HeaderDesign(),
                   SizedBox(
                     height: 10.h,
                   ),

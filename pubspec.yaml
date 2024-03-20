@@ -98,21 +98,12 @@ flutter:
     - family: Architex
       fonts:
         - asset: assets/fonts/Architex.otf
-    - family: Boring
-      fonts:
-        - asset: assets/fonts/Boring.otf
-    - family: CalSans
-      fonts:
-        - asset: assets/fonts/CalSans.otf
     - family: Fribash
       fonts:
         - asset: assets/fonts/Fribash.otf
     - family: HighSchool
       fonts:
         - asset: assets/fonts/HighSchool.otf
-    - family: Juliagar
-      fonts:
-        - asset: assets/fonts/Juliagar.otf
     - family: Library
       fonts:
         - asset: assets/fonts/Library.otf
@@ -152,24 +143,12 @@ flutter:
     - family: Simple
       fonts:
         - asset: assets/fonts/Simple.otf
-    - family: Stint
-      fonts:
-        - asset: assets/fonts/StintUltra.otf
-    - family: Stretcher
-      fonts:
-        - asset: assets/fonts/Stretcher.otf
     - family: Style
       fonts:
         - asset: assets/fonts/Style.otf
     - family: TwinkleStar
       fonts:
         - asset: assets/fonts/TwinkleStar.otf
-    - family: ViuCobacoba
-      fonts:
-        - asset: assets/fonts/ViuCobacoba.otf
-    - family: Westgate
-      fonts:
-        - asset: assets/fonts/Westgate.otf
     
     
   #

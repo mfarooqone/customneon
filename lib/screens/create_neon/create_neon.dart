@@ -76,7 +76,7 @@ class _CreateNeonState extends State<CreateNeon> {
                         ///
                         ///
                         ///
-                         HeaderDesign(),
+                        HeaderDesign(),
 
                         ///
                         ///
@@ -159,6 +159,7 @@ class _CreateNeonState extends State<CreateNeon> {
                                                     : TextAlign.center,
                                         style: AppTextStyle.white4.copyWith(
                                           fontSize: 20.sp,
+                                          fontWeight: FontWeight.w800,
                                           color: !createNeonController
                                                   .showNeon.value
                                               ? createNeonController

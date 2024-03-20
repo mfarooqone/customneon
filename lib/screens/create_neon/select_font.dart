@@ -101,7 +101,7 @@ class _SelectFontState extends State<SelectFont> {
                         )),
                     child: Text(
                       createNeonController.fontNames[index],
-                      style: AppTextStyle.white4.copyWith(
+                      style: AppTextStyle.white3.copyWith(
                         fontFamily: createNeonController.fontNames[index],
                       ),
                     ),

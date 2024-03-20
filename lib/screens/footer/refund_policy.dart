@@ -19,7 +19,7 @@ class RefundPolicy extends StatelessWidget {
             SizedBox(
               height: 5.h,
             ),
-            const HeaderDesign(),
+             HeaderDesign(),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
               child: Column(

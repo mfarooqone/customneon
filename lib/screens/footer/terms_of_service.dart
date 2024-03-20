@@ -19,7 +19,7 @@ class TermsOfService extends StatelessWidget {
             SizedBox(
               height: 5.h,
             ),
-            const HeaderDesign(),
+             HeaderDesign(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.h),
               child: Column(

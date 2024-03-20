@@ -48,7 +48,7 @@ class _FAQsState extends State<FAQs> {
             SizedBox(
               height: 5.h,
             ),
-            const HeaderDesign(),
+             HeaderDesign(),
             SizedBox(
               height: 10.h,
             ),

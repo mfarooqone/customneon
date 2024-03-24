@@ -1,22 +1,18 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:convert';
-
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/models/user_model.dart';
-import 'package:customneon/network_client/error_handling.dart';
+import 'package:customneon/network_client/network_client.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
-import 'package:customneon/utills/app_consts.dart';
-import 'package:customneon/utills/app_snackbar.dart';
+import 'package:customneon/utills/preference_labels.dart';
 import 'package:customneon/utills/show_messages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:http/http.dart' as http;
 
 class AuthController extends GetxController {
   final FirebaseAuth auth = FirebaseAuth.instance;
@@ -45,18 +41,24 @@ class AuthController extends GetxController {
       ///
 
       Get.to(() => SigninView());
-      AppSnackBar.showSnackBar(
-          "Success", "You have successfully signup to your account", context);
+      showSuccessMessage(
+          "Success: You have successfully signup to your account");
+
       isLoading.value = false;
       return true;
     } on FirebaseAuthException catch (e) {
+      ///
+      final AppPreferencesController prefs = Get.find();
+      await prefs.setBool(key: AppPreferencesLabels.isLogedin, value: false);
+
+      ///
       isLoading.value = false;
-      AppSnackBar.showSnackBar("Failed", "${e.message}", context);
+      showErrorMessage("Failed:  ${e.message}");
+
       return false;
     } catch (e) {
       isLoading.value = false;
-      AppSnackBar.showSnackBar(
-          "Failed", "Unexpected error during sign-in: $e", context);
+      showErrorMessage("Failed: Unexpected error during sign-in: $e");
       return false;
     }
   }
@@ -66,13 +68,16 @@ class AuthController extends GetxController {
       isLoading.value = true;
 
       final userCredential = await auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+          email: email, password: password);
 
       if (userCredential.user != null) {
+        await signInUserWithDB(
+          context: context,
+          email: email,
+          password: password,
+        );
         final AppPreferencesController prefs = Get.find();
-        await prefs.setBool(key: "isLogedIn", value: true);
+        await prefs.setBool(key: AppPreferencesLabels.isLogedin, value: true);
 
         UserModel userModel = UserModel(
           displayName: userCredential.user!.displayName ?? "",
@@ -84,8 +89,7 @@ class AuthController extends GetxController {
         ///
 
         Get.to(() => const UserScreen());
-        AppSnackBar.showSnackBar("Success",
-            "You have successfully sign in to your account", context);
+        showSuccessMessage("You have successfully sign in to your account");
         isLoading.value = false;
         if (kDebugMode) {
           print(userCredential.user);
@@ -99,16 +103,16 @@ class AuthController extends GetxController {
     } on FirebaseAuthException catch (e) {
       ///
       final AppPreferencesController prefs = Get.find();
-      await prefs.setBool(key: "isLogedIn", value: false);
+      await prefs.setBool(key: AppPreferencesLabels.isLogedin, value: false);
 
       ///
       isLoading.value = false;
-      AppSnackBar.showSnackBar("Failed", "${e.message}", context);
+      showErrorMessage("Failed:  ${e.message}");
+
       return false;
     } catch (e) {
       isLoading.value = false;
-      AppSnackBar.showSnackBar(
-          "Failed", "Unexpected error during sign-in: $e", context);
+      showErrorMessage("Failed: Unexpected error during sign-in: $e");
       return false;
     }
   }
@@ -127,7 +131,7 @@ class AuthController extends GetxController {
     GoogleSignInAccount? user = await googleSignIn.signIn();
     if (user != null) {
       final AppPreferencesController prefs = Get.find();
-      await prefs.setBool(key: "isLogedIn", value: true);
+      await prefs.setBool(key: AppPreferencesLabels.isLogedin, value: true);
 
       UserModel userModel = UserModel(
         displayName: user.displayName ?? "",
@@ -141,8 +145,9 @@ class AuthController extends GetxController {
       ///
 
       Get.to(() => const UserScreen());
-      AppSnackBar.showSnackBar(
-          "Success", "You have successfully sign in to your account", context);
+      showSuccessMessage(
+          "Success: You have successfully sign in to your account");
+
       isLoading.value = false;
 
       ///
@@ -154,7 +159,7 @@ class AuthController extends GetxController {
       }
     } else {
       isLoading.value = false;
-      AppSnackBar.showSnackBar("Error", "Something went wrong", context);
+      showErrorMessage("Failed: Something went wrong");
     }
   }
 
@@ -162,61 +167,26 @@ class AuthController extends GetxController {
   ///
   ///
   ///
-  void signInUser({
+  Future<void> signInUserWithDB({
     required BuildContext context,
     required String email,
     required String password,
   }) async {
-    try {
-      http.Response res = await http.post(
-        Uri.parse('${AppConsts.baseUrl}/api/signin'),
-        body: jsonEncode({
-          'email': email,
-          'password': password,
-        }),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-      );
-      httpErrorHandle(
-        response: res,
-        context: context,
-        onSuccess: () async {
-          final AppPreferencesController prefs = Get.find();
-          await prefs.setString(
-              key: 'x-auth-token', value: jsonDecode(res.body)['token']);
-        },
-      );
-    } catch (e) {
-      print(e);
-      showErrorMessage(e.toString());
+    final result = await Get.find<NetworkClient>().post(
+      "/signin",
+      data: {
+        'email': email,
+        'password': password,
+      },
+      sendUserAuth: true,
+    );
+    if (result.isSuccess) {
+      isLoading.value = false;
+    } else {
+      showErrorMessage(result.message!);
+      isLoading.value = false;
     }
   }
-  // Future<void> loginWithAPI({
-  //   required String email,
-  //   required String password,
-  // }) async {
-  //   isLoading.value = true;
-
-  //   var data = {
-  //     "email": "farooq@gmail.com",
-  //     "password": "123",
-  //   };
-
-  //   print(data);
-
-  //   http.Response res = await http.post(
-  //     Uri.parse("http://192.168.100.21:5001/api/signin"),
-  //     body: jsonEncode(data),
-  //     headers: <String, String>{
-  //       'Content-Type': 'application/json; charset=UTF-8',
-  //     },
-  //   );
-
-  //   print(res.body); // Print response body for debugging
-
-  //   isLoading.value = false;
-  // }
 
   ///
   ///
@@ -226,7 +196,7 @@ class AuthController extends GetxController {
     auth.currentUser?.delete();
     Get.deleteAll();
     final AppPreferencesController prefs = Get.find();
-    await prefs.setBool(key: "isLogedIn", value: false);
+    await prefs.setBool(key: AppPreferencesLabels.isLogedin, value: false);
     prefs.clearData();
     Get.offAll(() => const HomePage());
   }

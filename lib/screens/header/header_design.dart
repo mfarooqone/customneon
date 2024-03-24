@@ -4,6 +4,7 @@ import 'package:customneon/screens/footer/contact_us.dart';
 import 'package:customneon/screens/footer/faqs.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:customneon/utills/app_text_style.dart';
+import 'package:customneon/utills/preference_labels.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -88,7 +89,7 @@ class _HeaderDesignState extends State<HeaderDesign> {
             children: [
               IconButton(
                 onPressed: () async {
-                  bool isLogedIn = await prefs.getBool(key: "isLogedIn");
+                  bool isLogedIn = await prefs.getBool(key: AppPreferencesLabels.isLogedin);
 
                   isLogedIn
                       ? Get.to(() => const UserScreen())

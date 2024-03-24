@@ -3,8 +3,8 @@ import 'package:customneon/screens/auth_view/signup_view.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
 import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/utills/app_colors.dart';
-import 'package:customneon/utills/app_snackbar.dart';
 import 'package:customneon/utills/app_text_style.dart';
+import 'package:customneon/utills/show_messages.dart';
 import 'package:customneon/widgets/button_loader.dart';
 import 'package:customneon/widgets/primary_button.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
@@ -97,16 +97,14 @@ class SigninView extends StatelessWidget {
                               title: "Sign in with Email",
                               onPressed: () {
                                 if (emailController.text.isEmpty) {
-                                  AppSnackBar.showSnackBar("Email!",
-                                      "Please enter your email", context);
+                                  showErrorMessage(
+                                      "Email!: Please enter your email");
                                 } else if (passwordController.text.isEmpty) {
-                                  AppSnackBar.showSnackBar("Password!!",
-                                      "Please enter your password", context);
+                                  showErrorMessage(
+                                      "Password!: Please enter your password");
                                 } else if (passwordController.text.length < 8) {
-                                  AppSnackBar.showSnackBar(
-                                      "Password!!",
-                                      "Password must be 8 chardcter long",
-                                      context);
+                                  showErrorMessage(
+                                      "Password!: Password must be 8 chardcter long");
                                 } else {
                                   authController.signin(emailController.text,
                                       passwordController.text, context);

@@ -9,7 +9,6 @@ import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
-import 'package:customneon/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -88,18 +87,6 @@ class _CreateNeonState extends State<CreateNeon> {
                                 .copyWith(color: AppColors.orange),
                           ),
                         ),
-                        Align(
-                            alignment: Alignment.center,
-                            child: PrimaryButton(
-                              title: "api login",
-                              onPressed: () {
-                                authController.signInUser(
-                                  context: context,
-                                  email: "farooq123@gmail.com",
-                                  password: "123",
-                                );
-                              },
-                            )),
 
                         ///
                         ///

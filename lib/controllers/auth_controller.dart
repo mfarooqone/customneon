@@ -36,6 +36,13 @@ class AuthController extends GetxController {
       ///
       userCredential.user?.updateDisplayName(displayName);
 
+      signUpUserWithDB(
+        context: context,
+        email: email,
+        password: password,
+        name: displayName,
+      );
+
       ///
       ///
       ///
@@ -63,7 +70,8 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<bool> signin(String email, String password, context) async {
+  Future<bool> signinWithFirebase(
+      String email, String password, context) async {
     try {
       isLoading.value = true;
 
@@ -130,6 +138,12 @@ class AuthController extends GetxController {
     ///
     GoogleSignInAccount? user = await googleSignIn.signIn();
     if (user != null) {
+      await signInUserWithDB(
+        context: context,
+        email: user.email,
+        password: "12345678",
+      );
+
       final AppPreferencesController prefs = Get.find();
       await prefs.setBool(key: AppPreferencesLabels.isLogedin, value: true);
 
@@ -139,8 +153,6 @@ class AuthController extends GetxController {
         photoUrl: user.photoUrl ?? "",
       );
       await prefs.saveUser(userModel);
-
-      // await prefs.setString(key: "authToken", value: "");
 
       ///
 
@@ -164,6 +176,32 @@ class AuthController extends GetxController {
   }
 
   ///
+  ///
+  ///
+  ///
+  Future<void> signUpUserWithDB({
+    required BuildContext context,
+    required String email,
+    required String password,
+    required String name,
+  }) async {
+    final result = await Get.find<NetworkClient>().post(
+      "/signup",
+      data: {
+        "name": name,
+        "email": email,
+        "password": password,
+      },
+      sendUserAuth: true,
+    );
+    if (result.isSuccess) {
+      isLoading.value = false;
+    } else {
+      showErrorMessage(result.message!);
+      isLoading.value = false;
+    }
+  }
+
   ///
   ///
   ///

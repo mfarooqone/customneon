@@ -106,8 +106,11 @@ class SigninView extends StatelessWidget {
                                   showErrorMessage(
                                       "Password!: Password must be 8 chardcter long");
                                 } else {
-                                  authController.signin(emailController.text,
-                                      passwordController.text, context);
+                                  authController.signinWithFirebase(
+                                    emailController.text,
+                                    passwordController.text,
+                                    context,
+                                  );
                                 }
                               },
                             ),

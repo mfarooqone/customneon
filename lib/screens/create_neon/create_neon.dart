@@ -30,13 +30,15 @@ class _CreateNeonState extends State<CreateNeon> {
 
   @override
   void initState() {
-    createNeonController.calculateTextSize(
-      text: 'Hi',
-      style: TextStyle(
-        fontFamily: createNeonController.selectedFont.value,
-      ),
-      context: Get.context!,
-    );
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      createNeonController.calculateTextSize(
+        text: 'Hi',
+        style: TextStyle(
+          fontFamily: createNeonController.selectedFont.value,
+        ),
+        context: Get.context!,
+      );
+    });
     super.initState();
   }
 

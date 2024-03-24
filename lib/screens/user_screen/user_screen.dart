@@ -70,7 +70,7 @@ class _UserScreenState extends State<UserScreen> {
                     height: 5.h,
                   ),
                   if (storedUser?.photoUrl != null &&
-                      storedUser!.photoUrl.isNotEmpty)
+                      storedUser!.photoUrl!.isNotEmpty)
                     Container(
                         width: 10.w,
                         height: 10.w,
@@ -80,7 +80,7 @@ class _UserScreenState extends State<UserScreen> {
                         ),
                         clipBehavior: Clip.hardEdge,
                         child: Image.network(
-                          storedUser!.photoUrl,
+                          storedUser!.photoUrl!,
                           fit: BoxFit.contain,
                         )),
                   Column(
@@ -98,8 +98,7 @@ class _UserScreenState extends State<UserScreen> {
                       SizedBox(
                         height: 1.h,
                       ),
-                      containerWidget(
-                          storedUser?.displayName ?? "No Name Found"),
+                      containerWidget(storedUser?.name ?? "No Name Found"),
                       SizedBox(
                         height: 3.h,
                       ),
@@ -151,22 +150,6 @@ class _UserScreenState extends State<UserScreen> {
                       SizedBox(
                         height: 2.h,
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 4,
-                        child: MaterialButton(
-                          color: AppColors.orange,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(1.h)),
-                          height: 8.2.h,
-                          onPressed: () {
-                            authController.logout();
-                          },
-                          child: Text(
-                            "Logout",
-                            style: AppTextStyle.white3.copyWith(fontSize: 4.sp),
-                          ),
-                        ),
-                      )
 
                       ///
                     ],

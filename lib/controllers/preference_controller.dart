@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppPreferencesController extends GetxController {
-
-  
   ///
 
   Future<void> clearData() async {

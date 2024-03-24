@@ -102,14 +102,11 @@ class SigninView extends StatelessWidget {
                                 } else if (passwordController.text.isEmpty) {
                                   showErrorMessage(
                                       "Password!: Please enter your password");
-                                } else if (passwordController.text.length < 8) {
-                                  showErrorMessage(
-                                      "Password!: Password must be 8 chardcter long");
                                 } else {
-                                  authController.signinWithFirebase(
-                                    emailController.text,
-                                    passwordController.text,
-                                    context,
+                                  authController.signInUserWithDB(
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                    context: context,
                                   );
                                 }
                               },
@@ -141,7 +138,7 @@ class SigninView extends StatelessWidget {
                                 height: 4.w,
                               ),
                               onPressed: () {
-                                authController.googleSignIn(context);
+                                authController.googleSignIn();
                               },
                             ),
                     ),

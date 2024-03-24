@@ -135,11 +135,11 @@ class SignupView extends StatelessWidget {
 
                                   ///
                                   else {
-                                    authController.signup(
+                                    authController.signUpUserWithDB(
                                       context: context,
                                       email: emailController.text,
                                       password: passwordController.text,
-                                      displayName:
+                                      name:
                                           "${firstNameController.text} ${lastNameController.text}",
                                     );
                                   }
@@ -162,7 +162,7 @@ class SignupView extends StatelessWidget {
                               )
                             : PrimaryButton(
                                 title: "Sign up with Google",
-                                backgroundColor: AppColors.black,
+                                backgroundColor: AppColors.white,
                                 titleStyle: AppTextStyle.white2
                                     .copyWith(color: AppColors.black),
                                 isLeadingWidget: true,
@@ -172,7 +172,7 @@ class SignupView extends StatelessWidget {
                                   height: 4.w,
                                 ),
                                 onPressed: () {
-                                  authController.googleSignIn(context);
+                                  authController.googleSignIn();
                                 },
                               ),
                       ),

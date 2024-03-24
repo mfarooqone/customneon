@@ -31,7 +31,7 @@ class SigninView extends StatelessWidget {
                 SizedBox(
                   height: 5.h,
                 ),
-                 HeaderDesign(),
+                HeaderDesign(),
                 SizedBox(
                   height: 12.h,
                 ),
@@ -75,9 +75,9 @@ class SigninView extends StatelessWidget {
                       height: 2.h,
                     ),
                     Text("Forgot your password?",
-                          textAlign: TextAlign.start,
-                          style: AppTextStyle.white2
-                              .copyWith(fontWeight: FontWeight.w400)),
+                        textAlign: TextAlign.start,
+                        style: AppTextStyle.white2
+                            .copyWith(fontWeight: FontWeight.w400)),
                   ],
                 ),
                 SizedBox(
@@ -130,7 +130,9 @@ class SigninView extends StatelessWidget {
                             )
                           : PrimaryButton(
                               title: "Sign in with Google",
-                              backgroundColor: AppColors.black,
+                              backgroundColor: AppColors.white,
+                              titleStyle: AppTextStyle.white2
+                                  .copyWith(color: AppColors.black),
                               isLeadingWidget: true,
                               leadingWidget: Image.asset(
                                 "assets/google_icon.png",

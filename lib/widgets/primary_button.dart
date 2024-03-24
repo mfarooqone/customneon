@@ -10,6 +10,7 @@ class PrimaryButton extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
   final String title;
+  final TextStyle? titleStyle;
   final VoidCallback onPressed;
   final bool enabled;
   final Color? backgroundColor;
@@ -34,6 +35,7 @@ class PrimaryButton extends StatelessWidget {
     this.fontSize,
     this.leadingWidget,
     this.isLeadingWidget = false,
+    this.titleStyle,
   }) : super(key: key);
 
   @override
@@ -63,7 +65,7 @@ class PrimaryButton extends StatelessWidget {
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: AppTextStyle.white2,
+                  style: titleStyle ?? AppTextStyle.white2,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),

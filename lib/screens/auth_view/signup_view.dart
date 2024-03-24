@@ -37,7 +37,7 @@ class SignupView extends StatelessWidget {
                   SizedBox(
                     height: 5.h,
                   ),
-                   HeaderDesign(),
+                  HeaderDesign(),
                   SizedBox(
                     height: 12.h,
                   ),
@@ -167,6 +167,8 @@ class SignupView extends StatelessWidget {
                             : PrimaryButton(
                                 title: "Sign up with Google",
                                 backgroundColor: AppColors.black,
+                                titleStyle: AppTextStyle.white2
+                                    .copyWith(color: AppColors.black),
                                 isLeadingWidget: true,
                                 leadingWidget: Image.asset(
                                   "assets/google_icon.png",

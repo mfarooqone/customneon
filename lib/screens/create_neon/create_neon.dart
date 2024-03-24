@@ -1,4 +1,5 @@
 import 'package:before_after_image_slider_nullsafty/before_after_image_slider_nullsafty.dart';
+import 'package:customneon/controllers/auth_controller.dart';
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/create_neon/create_your_neon_design.dart';
@@ -8,6 +9,7 @@ import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
+import 'package:customneon/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -23,6 +25,7 @@ class CreateNeon extends StatefulWidget {
 class _CreateNeonState extends State<CreateNeon> {
   final CreateNeonController createNeonController =
       Get.put(CreateNeonController());
+  final AuthController authController = Get.put(AuthController());
 
   final AppPreferencesController prefs = Get.find();
 
@@ -85,6 +88,18 @@ class _CreateNeonState extends State<CreateNeon> {
                                 .copyWith(color: AppColors.orange),
                           ),
                         ),
+                        Align(
+                            alignment: Alignment.center,
+                            child: PrimaryButton(
+                              title: "api login",
+                              onPressed: () {
+                                authController.signInUser(
+                                  context: context,
+                                  email: "farooq123@gmail.com",
+                                  password: "123",
+                                );
+                              },
+                            )),
 
                         ///
                         ///

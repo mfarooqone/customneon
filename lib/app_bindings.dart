@@ -6,6 +6,19 @@ import 'package:get/get.dart';
 BindingsBuilder createBindings(BuildContext context) {
   return BindingsBuilder(() {
     Get.put(AppPreferencesController(), permanent: true);
+
+    Get.put(AppPreferencesController(), permanent: true);
+    // Get.put<NetworkClient>(
+    //   NetworkClient(
+    //     getUserAuthToken: () async {
+    //       final preference = Get.put(AppPreferencesController());
+    //       String? authToken = await preference.getString(key: "authToken");
+    //       return authToken;
+    //     },
+    //   ),
+    //   permanent: true,
+    // );
+
     Get.put(AuthController(), permanent: true);
   });
 }

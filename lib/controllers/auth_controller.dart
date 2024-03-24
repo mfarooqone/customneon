@@ -1,16 +1,22 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:convert';
+
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/models/user_model.dart';
+import 'package:customneon/network_client/error_handling.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
+import 'package:customneon/utills/app_consts.dart';
 import 'package:customneon/utills/app_snackbar.dart';
+import 'package:customneon/utills/show_messages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:http/http.dart' as http;
 
 class AuthController extends GetxController {
   final FirebaseAuth auth = FirebaseAuth.instance;
@@ -130,6 +136,8 @@ class AuthController extends GetxController {
       );
       await prefs.saveUser(userModel);
 
+      // await prefs.setString(key: "authToken", value: "");
+
       ///
 
       Get.to(() => const UserScreen());
@@ -149,6 +157,66 @@ class AuthController extends GetxController {
       AppSnackBar.showSnackBar("Error", "Something went wrong", context);
     }
   }
+
+  ///
+  ///
+  ///
+  ///
+  void signInUser({
+    required BuildContext context,
+    required String email,
+    required String password,
+  }) async {
+    try {
+      http.Response res = await http.post(
+        Uri.parse('${AppConsts.baseUrl}/api/signin'),
+        body: jsonEncode({
+          'email': email,
+          'password': password,
+        }),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      );
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () async {
+          final AppPreferencesController prefs = Get.find();
+          await prefs.setString(
+              key: 'x-auth-token', value: jsonDecode(res.body)['token']);
+        },
+      );
+    } catch (e) {
+      print(e);
+      showErrorMessage(e.toString());
+    }
+  }
+  // Future<void> loginWithAPI({
+  //   required String email,
+  //   required String password,
+  // }) async {
+  //   isLoading.value = true;
+
+  //   var data = {
+  //     "email": "farooq@gmail.com",
+  //     "password": "123",
+  //   };
+
+  //   print(data);
+
+  //   http.Response res = await http.post(
+  //     Uri.parse("http://192.168.100.21:5001/api/signin"),
+  //     body: jsonEncode(data),
+  //     headers: <String, String>{
+  //       'Content-Type': 'application/json; charset=UTF-8',
+  //     },
+  //   );
+
+  //   print(res.body); // Print response body for debugging
+
+  //   isLoading.value = false;
+  // }
 
   ///
   ///

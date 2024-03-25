@@ -46,8 +46,16 @@ class CartController extends GetxController {
     if (index != -1 && index < createNeonController.neonColorList.length) {
       return createNeonController.neonColorList[index];
     } else {
-      // Return a default color or handle the case as per your requirement
-      return Colors.black; // for example
+      return Colors.black;
+    }
+  }
+
+  Color getColorFromBackboardName({required String colorName}) {
+    int index = createNeonController.backBoardColorNames.indexOf(colorName);
+    if (index != -1 && index < createNeonController.backBoardColorList.length) {
+      return createNeonController.backBoardColorList[index];
+    } else {
+      return Colors.black;
     }
   }
 }

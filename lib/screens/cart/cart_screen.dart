@@ -1,4 +1,4 @@
-import 'package:customneon/controllers/create_neon_controller.dart';
+import 'package:customneon/controllers/cart_controller.dart';
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/models/user_model.dart';
 import 'package:customneon/utills/image_path.dart';
@@ -13,8 +13,8 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  final CreateNeonController createNeonController =
-      Get.put(CreateNeonController());
+  final CartController cartController = Get.put(CartController());
+
   UserModel? storedUser;
   @override
   void initState() {
@@ -25,7 +25,9 @@ class _CartScreenState extends State<CartScreen> {
   }
 
   void getUser() async {
+    cartController.isLoading.value = true;
     storedUser = await AppPreferencesController.getUser();
+    cartController.isLoading.value = false;
   }
 
   @override

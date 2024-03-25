@@ -2,7 +2,9 @@
 
 import 'dart:ui' as ui;
 
+import 'package:customneon/network_client/network_client.dart';
 import 'package:customneon/utills/app_colors.dart';
+import 'package:customneon/utills/show_messages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,6 +18,7 @@ class CreateNeonController extends GetxController {
   RxString selectedTextAlign = "center".obs;
   RxString selectedFont = "Fribash".obs;
   RxString neonText = "Hi".obs;
+  RxString totalPrice = "0".obs;
 
   ///
 
@@ -24,7 +27,6 @@ class CreateNeonController extends GetxController {
   RxString selectedSize = "S".obs;
   RxString selectedBackBoardStyle = "".obs;
   RxString selectedAdapter = "USA / CANADA 120V".obs;
-  RxDouble totalAmount = 0.1.obs;
 
   onToggle(index) {
     if (index == 0) {
@@ -238,4 +240,88 @@ class CreateNeonController extends GetxController {
   ///
   ///
   ///
+  ///
+  ///
+  ///
+  String getPriceInfo(String size) {
+    isLoading.value = true;
+    double height, width;
+    switch (size) {
+      case "S":
+        height = textHeight.value;
+        width = textWidth.value;
+        break;
+      case "M":
+        height = textHeight.value + 2.5;
+        width = textWidth.value + 2.5;
+        break;
+      case "L":
+        height = textHeight.value + 5;
+        width = textWidth.value + 5;
+        break;
+      case "XL":
+        height = textHeight.value + 7.5;
+        width = textWidth.value + 7.5;
+        break;
+      case "XXL":
+        height = textHeight.value + 10;
+        width = textWidth.value + 10;
+        break;
+      case "Custom":
+        height = textHeight.value + 12.5;
+        width = textWidth.value + 12.5;
+        break;
+      default:
+        height = textHeight.value;
+        width = textWidth.value;
+    }
+
+    double value = (height * width) / 6;
+    totalPrice.value = value.toStringAsFixed(2);
+
+    isLoading.value = false;
+
+    return totalPrice.value;
+  }
+
+  ///
+  ///
+  ///
+  Future<void> addToCart({
+    required String description,
+  }) async {
+    isLoading.value = true;
+    var data = {
+      "cart": [
+        {
+          "neon": neonText,
+          "price": totalPrice.value,
+          "fontstyle": selectedFont.value,
+          "align": selectedTextAlign.value,
+          "color": getColorName(selectedColor: selectedColor),
+          "size": selectedSize.value,
+          "height": textHeight.value.toString(),
+          "width": textWidth.value.toString(),
+          "backboardcolor":
+              getBackBoardColorName(selectedColor: selectedBackBoardColor),
+          "backboardstyle": selectedBackBoardStyle.value,
+          "location": isOutdoor.value ? "outdoor" : "indoor",
+          "adaptertype": selectedAdapter.value,
+          "remote": isRemoteDimmer.value ? "yes" : "no",
+          "description": description,
+        }
+      ]
+    };
+    final result = await Get.find<NetworkClient>().post(
+      "/user/{userid}/cart",
+      data: data,
+      sendUserAuth: true,
+    );
+    if (result.isSuccess) {
+      isLoading.value = false;
+    } else {
+      showErrorMessage(result.message!);
+      isLoading.value = false;
+    }
+  }
 }

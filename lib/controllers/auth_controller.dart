@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, library_prefixes
 
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/models/user_model.dart';

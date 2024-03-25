@@ -11,6 +11,7 @@ import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/widgets/adapter_dropdown.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
+import 'package:customneon/widgets/primary_button.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,7 +31,8 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
 
   ///
   ///
-  final TextEditingController textEditingController = TextEditingController();
+  final TextEditingController neonController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
 
   @override
   void initState() {
@@ -68,7 +70,7 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                       ///
                       PrimaryTextField(
                         heading: "Write your text",
-                        controller: textEditingController,
+                        controller: neonController,
                         hintText: "Hi",
                         maxLines: null,
                         onChanged: (value) {
@@ -81,6 +83,10 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                             ),
                             context: context,
                           );
+                          createNeonController.getPriceInfo(
+                              createNeonController.selectedSize.value);
+
+                          ///
                           createNeonController.isLoading.value = true;
                           createNeonController.isLoading.value = false;
 
@@ -90,7 +96,7 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                       ),
 
                       ///
-                      if (textEditingController.text.length <= 1)
+                      if (neonController.text.length <= 1)
                         Container(
                           width: MediaQuery.of(context).size.width,
                           color: AppColors.orange,
@@ -186,33 +192,12 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                       ///
                       ///
                       ///
-                      Text(
-                        'Additional Requirements',
-                        style: AppTextStyle.white3,
-                      ),
-                      Text(
-                        'Specify further requirements on your custom neon.',
-                        style:
-                            AppTextStyle.white1.copyWith(color: AppColors.grey),
-                      ),
-                      Text(
-                        'Specify further requirements on your custom neon.',
-                        style:
-                            AppTextStyle.white1.copyWith(color: AppColors.grey),
-                      ),
-
-                      ///
-                      ///
-                      ///
-
-                      SizedBox(height: 1.h),
-
-                      ///
-                      ///
-                      ///
                       PrimaryTextField(
-                        controller: textEditingController,
-                        maxLines: null,
+                        heading: "Additional Requirements",
+                        controller: descriptionController,
+                        hintText:
+                            "Specify further requirements on your custom neon.",
+                        maxLines: 5,
                         onChanged: (value) {
                           setState(() {});
                         },
@@ -239,7 +224,7 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    '\$${createNeonController.totalAmount.value}',
+                                    '\$${createNeonController.totalPrice.value}',
                                     style: AppTextStyle.white3.copyWith(
                                         color: Colors.green,
                                         fontWeight: FontWeight.bold),
@@ -251,7 +236,7 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                                 ],
                               ),
                               SizedBox(height: 1.h),
-                              if (textEditingController.text.length <= 1)
+                              if (neonController.text.length <= 1)
                                 Padding(
                                   padding:
                                       EdgeInsets.symmetric(horizontal: 1.w),
@@ -266,18 +251,15 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                               ///
                               ///
                               ///
-                              Container(
-                                height: 8.h,
-                                width: MediaQuery.of(context).size.width,
-                                color: AppColors.orange,
-                                child: Center(
-                                  child: Text(
-                                    'Finalize and Review',
-                                    style: AppTextStyle.white4,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ),
+                              ///
+                              PrimaryButton(
+                                title: "Finalize and Review",
+                                onPressed: () {
+                                  createNeonController.addToCart(
+                                    description: descriptionController.text,
+                                  );
+                                },
+                              )
                             ],
                           ),
                         ),

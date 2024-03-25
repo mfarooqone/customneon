@@ -1,6 +1,7 @@
 import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
+import 'package:customneon/screens/cart/cart_screen.dart';
 import 'package:customneon/screens/create_neon/backboard_color.dart';
 import 'package:customneon/screens/create_neon/backboard_style_widget.dart';
 import 'package:customneon/screens/create_neon/choose_color_widget.dart';
@@ -262,7 +263,11 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                                   bool isLogedIn = await prefs.getBool(
                                       key: AppPreferencesLabels.isLogedin);
                                   if (isLogedIn) {
-                                    await createNeonController.addToCart();
+                                    await createNeonController
+                                        .addToCart()
+                                        .then((value) => Get.to(
+                                              () => const CartScreen(),
+                                            ));
                                   } else {
                                     Get.to(() => SigninView());
                                   }

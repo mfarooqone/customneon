@@ -1,4 +1,6 @@
 import 'package:customneon/controllers/create_neon_controller.dart';
+import 'package:customneon/controllers/preference_controller.dart';
+import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/create_neon/backboard_color.dart';
 import 'package:customneon/screens/create_neon/backboard_style_widget.dart';
 import 'package:customneon/screens/create_neon/choose_color_widget.dart';
@@ -9,6 +11,7 @@ import 'package:customneon/screens/create_neon/select_font.dart';
 import 'package:customneon/screens/create_neon/text_align_widget.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
+import 'package:customneon/utills/preference_labels.dart';
 import 'package:customneon/widgets/adapter_dropdown.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:customneon/widgets/primary_button.dart';
@@ -28,6 +31,7 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
   ///
   final CreateNeonController createNeonController =
       Get.put(CreateNeonController());
+  final AppPreferencesController prefs = Get.find();
 
   ///
   ///
@@ -83,8 +87,6 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                             ),
                             context: context,
                           );
-                          createNeonController.getPriceInfo(
-                              createNeonController.selectedSize.value);
 
                           ///
                           createNeonController.isLoading.value = true;
@@ -199,7 +201,9 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                             "Specify further requirements on your custom neon.",
                         maxLines: 5,
                         onChanged: (value) {
-                          setState(() {});
+                          setState(() {
+                            createNeonController.descriptionText.value = value;
+                          });
                         },
                       ),
 
@@ -254,10 +258,14 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                               ///
                               PrimaryButton(
                                 title: "Finalize and Review",
-                                onPressed: () {
-                                  createNeonController.addToCart(
-                                    description: descriptionController.text,
-                                  );
+                                onPressed: () async {
+                                  bool isLogedIn = await prefs.getBool(
+                                      key: AppPreferencesLabels.isLogedin);
+                                  if (isLogedIn) {
+                                    await createNeonController.addToCart();
+                                  } else {
+                                    Get.to(() => SigninView());
+                                  }
                                 },
                               )
                             ],

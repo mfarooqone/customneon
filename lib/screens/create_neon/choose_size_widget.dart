@@ -61,6 +61,14 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
                     return InkWell(
                       onTap: () {
                         createNeonController.selectedSize.value = e;
+
+                        createNeonController.calculateTextSize(
+                          text: createNeonController.neonText.value,
+                          style: TextStyle(
+                            fontFamily: createNeonController.selectedFont.value,
+                          ),
+                          context: context,
+                        );
                         createNeonController.isLoading.value = true;
                         createNeonController.isLoading.value = false;
                       },

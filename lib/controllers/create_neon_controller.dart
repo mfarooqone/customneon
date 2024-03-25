@@ -1,7 +1,10 @@
 // ignore_for_file: deprecated_member_use, unnecessary_null_comparison
 
+import 'dart:developer';
 import 'dart:ui' as ui;
 
+import 'package:customneon/controllers/preference_controller.dart';
+import 'package:customneon/models/user_model.dart';
 import 'package:customneon/network_client/network_client.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/show_messages.dart';
@@ -18,6 +21,7 @@ class CreateNeonController extends GetxController {
   RxString selectedTextAlign = "center".obs;
   RxString selectedFont = "Fribash".obs;
   RxString neonText = "Hi".obs;
+  RxString descriptionText = "".obs;
   RxString totalPrice = "0".obs;
 
   ///
@@ -123,10 +127,10 @@ class CreateNeonController extends GetxController {
   ];
   List<String> backBoardColorNames = [
     "Clear",
-    "White (+\$10.00)",
-    "Black (+\$10.00)",
-    "Silver (+\$20.00)",
-    "Gold (+\$20.00)",
+    "White",
+    "Black",
+    "Silver",
+    "Gold",
   ];
 
   String getBackBoardColorName({required Color selectedColor}) {
@@ -145,21 +149,18 @@ class CreateNeonController extends GetxController {
   ///
   ///
 
-  List<String> sizeNames = [
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "Custom",
-  ];
+  List<String> sizeNames = ["S", "M", "L", "XL", "XXL", "Custom"];
+
+  ///
   List<String> backBoardsNames = [
-    "Cut to shape: Hang / Wall-mount",
-    "Cut to letter: Hang / Wall-mount",
-    "Invisible Backboard: Wall-mount",
-    "Cut to rectangle (+\$20.00): Hang / Wall-mount",
-    "Stand (+\$30.00)",
+    "Cut to shape",
+    "Cut to letter",
+    "Invisible Backboard",
+    "Cut to rectangle",
+    "Stand",
   ];
+
+  ///
   List<String> backBoardsSubTitles = [
     "The backboard will be shaped in line with the letters. Compared to the cut-to-letter backing, it provides greater support to the neon sign while also lending a stylish and modern appearance.",
     "The backboard will closely follow the pattern of the preferred font size and style. It provides a minimalistic appearance, making it perfect for interior decoration.",
@@ -233,6 +234,7 @@ class CreateNeonController extends GetxController {
     textWidth.value = textWidth.value * 6.5;
 
     ///
+    getPriceInfo(selectedSize.value);
 
     isLoading.value = false;
   }
@@ -287,14 +289,12 @@ class CreateNeonController extends GetxController {
   ///
   ///
   ///
-  Future<void> addToCart({
-    required String description,
-  }) async {
+  Future<void> addToCart() async {
     isLoading.value = true;
     var data = {
       "cart": [
         {
-          "neon": neonText,
+          "neon": neonText.value,
           "price": totalPrice.value,
           "fontstyle": selectedFont.value,
           "align": selectedTextAlign.value,
@@ -308,12 +308,17 @@ class CreateNeonController extends GetxController {
           "location": isOutdoor.value ? "outdoor" : "indoor",
           "adaptertype": selectedAdapter.value,
           "remote": isRemoteDimmer.value ? "yes" : "no",
-          "description": description,
+          "description": descriptionText.value,
         }
       ]
     };
+
+    log(data.toString());
+
+    UserModel? storedUser = await AppPreferencesController.getUser();
+
     final result = await Get.find<NetworkClient>().post(
-      "/user/{userid}/cart",
+      "/user/${storedUser!.id!}/cart",
       data: data,
       sendUserAuth: true,
     );

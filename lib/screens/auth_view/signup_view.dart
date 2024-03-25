@@ -37,7 +37,7 @@ class SignupView extends StatelessWidget {
                   SizedBox(
                     height: 5.h,
                   ),
-                  HeaderDesign(),
+                  const HeaderDesign(),
                   SizedBox(
                     height: 12.h,
                   ),

@@ -319,7 +319,7 @@ class CreateNeonController extends GetxController {
     UserModel? storedUser = await AppPreferencesController.getUser();
 
     final result = await Get.find<NetworkClient>().post(
-      "/user/${storedUser!.id!}/cart",
+      "/user/${storedUser!.sId!}/cart",
       data: data,
       sendUserAuth: true,
     );

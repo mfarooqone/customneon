@@ -17,7 +17,7 @@ class PaymentMethods extends StatelessWidget {
             SizedBox(
               height: 5.h,
             ),
-             HeaderDesign(),
+            const HeaderDesign(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.h),
               child: Column(

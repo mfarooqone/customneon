@@ -1,5 +1,6 @@
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
+import 'package:customneon/screens/cart/cart_screen.dart';
 import 'package:customneon/screens/footer/contact_us.dart';
 import 'package:customneon/screens/footer/faqs.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
@@ -13,7 +14,7 @@ import 'package:sizer/sizer.dart';
 import '../homepage/homepage.dart';
 
 class HeaderDesign extends StatefulWidget {
-  HeaderDesign({Key? key}) : super(key: key);
+  const HeaderDesign({Key? key}) : super(key: key);
 
   @override
   State<HeaderDesign> createState() => _HeaderDesignState();
@@ -89,7 +90,8 @@ class _HeaderDesignState extends State<HeaderDesign> {
             children: [
               IconButton(
                 onPressed: () async {
-                  bool isLogedIn = await prefs.getBool(key: AppPreferencesLabels.isLogedin);
+                  bool isLogedIn =
+                      await prefs.getBool(key: AppPreferencesLabels.isLogedin);
 
                   isLogedIn
                       ? Get.to(() => const UserScreen())
@@ -102,7 +104,9 @@ class _HeaderDesignState extends State<HeaderDesign> {
 
               ///
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => const CartScreen());
+                },
                 icon: const Icon(
                   PhosphorIconsBold.shoppingCart,
                 ),
@@ -143,7 +147,7 @@ class _HeaderDesignState extends State<HeaderDesign> {
       position: RelativeRect.fromLTRB(
           offset.dx, offset.dy + 30, offset.dx + 100, offset.dy + 30 + 50),
       items: <PopupMenuEntry>[
-         PopupMenuItem(
+        PopupMenuItem(
           value: 'Option 1',
           child: Text(
             'Neon Sign Gallery',
@@ -172,14 +176,14 @@ class _HeaderDesignState extends State<HeaderDesign> {
                 style: AppTextStyle.white2,
               )),
         ),
-         PopupMenuItem(
+        PopupMenuItem(
           value: 'Option 3',
           child: Text(
             'Neon Sign Colors',
             style: AppTextStyle.white2,
           ),
         ),
-         PopupMenuItem(
+        PopupMenuItem(
           value: 'Option 3',
           child: Text(
             'Backboards',

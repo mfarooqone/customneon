@@ -48,7 +48,7 @@ class _FAQsState extends State<FAQs> {
             SizedBox(
               height: 5.h,
             ),
-             HeaderDesign(),
+            const HeaderDesign(),
             SizedBox(
               height: 10.h,
             ),
@@ -129,8 +129,7 @@ class _FAQsState extends State<FAQs> {
                 ),
                 if (_selectedIndex != -1)
                   Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 10.h),
+                    padding: EdgeInsets.symmetric(horizontal: 10.h),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

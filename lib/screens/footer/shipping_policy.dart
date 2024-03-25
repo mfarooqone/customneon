@@ -18,7 +18,7 @@ class ShippingPolicy extends StatelessWidget {
             SizedBox(
               height: 5.h,
             ),
-             HeaderDesign(),
+            const HeaderDesign(),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
               child: Column(

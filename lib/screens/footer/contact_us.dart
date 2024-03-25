@@ -32,7 +32,7 @@ class _ContactUsState extends State<ContactUs> {
             SizedBox(
               height: 5.h,
             ),
-             HeaderDesign(),
+            const HeaderDesign(),
             SizedBox(
               height: 8.h,
             ),

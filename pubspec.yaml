@@ -45,6 +45,7 @@ dependencies:
   before_after_image_slider_nullsafty: ^1.0.1
   http: ^1.2.1
   dio: ^5.4.1
+  modal_progress_hud_nsn: ^0.5.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

@@ -13,6 +13,7 @@ import 'package:get/get.dart';
 
 class CreateNeonController extends GetxController {
   RxBool isLoading = false.obs;
+  RxBool isAddingToCart = false.obs;
   RxBool showFonts = false.obs;
   RxBool isRemoteDimmer = true.obs;
   RxBool isOutdoor = true.obs;
@@ -290,7 +291,7 @@ class CreateNeonController extends GetxController {
   ///
   ///
   Future<void> addToCart() async {
-    isLoading.value = true;
+    isAddingToCart.value = true;
     var data = {
       "cart": [
         {
@@ -323,9 +324,27 @@ class CreateNeonController extends GetxController {
       sendUserAuth: true,
     );
     if (result.isSuccess) {
+      neonText.value = "";
+      totalPrice.value = "";
+      selectedFont.value = "Fribash";
+      selectedTextAlign.value = "center";
+      selectedColor = AppColors.orange;
+      selectedSize.value = "S";
+      textHeight.value = 0.0;
+      textWidth.value = 0.0;
+      selectedBackBoardColor = Colors.transparent;
+      selectedBackBoardStyle.value = "";
+      isOutdoor.value = false;
+      selectedAdapter.value = "USA / CANADA 120V";
+      isRemoteDimmer.value = true;
+      descriptionText.value = "";
+
+      isAddingToCart.value = false;
+      isLoading.value = true;
       isLoading.value = false;
     } else {
       showErrorMessage(result.message!);
+      isAddingToCart.value = false;
       isLoading.value = false;
     }
   }

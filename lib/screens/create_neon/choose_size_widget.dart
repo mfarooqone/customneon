@@ -126,52 +126,7 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
             ],
           );
         case "M":
-          double height = createNeonController.textHeight.value + 2.5;
-          double width = createNeonController.textWidth.value + 2.5;
-          return Column(
-            children: [
-              Text(
-                "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in",
-                style: AppTextStyle.white1,
-              ),
-              Text(
-                "W: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
-                style: AppTextStyle.white1,
-              ),
-            ],
-          );
-        case "L":
           double height = createNeonController.textHeight.value + 5;
-          double width = createNeonController.textWidth.value + 5;
-          return Column(
-            children: [
-              Text(
-                "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in",
-                style: AppTextStyle.white1,
-              ),
-              Text(
-                "W: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
-                style: AppTextStyle.white1,
-              ),
-            ],
-          );
-        case "XL":
-          double height = createNeonController.textHeight.value + 7.5;
-          double width = createNeonController.textWidth.value + 7.5;
-          return Column(
-            children: [
-              Text(
-                "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in",
-                style: AppTextStyle.white1,
-              ),
-              Text(
-                "W: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
-                style: AppTextStyle.white1,
-              ),
-            ],
-          );
-        case "XXL":
-          double height = createNeonController.textHeight.value + 10;
           double width = createNeonController.textWidth.value + 10;
           return Column(
             children: [
@@ -185,9 +140,54 @@ class _ChooseSizeWidgetState extends State<ChooseSizeWidget> {
               ),
             ],
           );
+        case "L":
+          double height = createNeonController.textHeight.value + 10;
+          double width = createNeonController.textWidth.value + 20;
+          return Column(
+            children: [
+              Text(
+                "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+              Text(
+                "W: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+            ],
+          );
+        case "XL":
+          double height = createNeonController.textHeight.value + 15;
+          double width = createNeonController.textWidth.value + 30;
+          return Column(
+            children: [
+              Text(
+                "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+              Text(
+                "W: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+            ],
+          );
+        case "XXL":
+          double height = createNeonController.textHeight.value + 20;
+          double width = createNeonController.textWidth.value + 40;
+          return Column(
+            children: [
+              Text(
+                "H: ${height.toStringAsFixed(2)}cm / ${(height / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+              Text(
+                "W: ${width.toStringAsFixed(2)}cm / ${(width / 2.54).toStringAsFixed(2)}in",
+                style: AppTextStyle.white1,
+              ),
+            ],
+          );
         case "Custom":
-          double height = createNeonController.textHeight.value + 12.5;
-          double width = createNeonController.textHeight.value + 12.5;
+          double height = createNeonController.textHeight.value + 25;
+          double width = createNeonController.textHeight.value + 50;
           return Column(
             children: [
               Text(

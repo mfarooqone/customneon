@@ -8,7 +8,7 @@ class UserModel {
   String? password;
   String? address;
   String? type;
-  List<Cart>? cart;
+  List<CartModel>? cart;
   int? iV;
   String? photoUrl;
 
@@ -34,9 +34,9 @@ class UserModel {
     address = json['address'];
     type = json['type'];
     if (json['cart'] != null) {
-      cart = <Cart>[];
+      cart = <CartModel>[];
       json['cart'].forEach((v) {
-        cart!.add(Cart.fromJson(v));
+        cart!.add(CartModel.fromJson(v));
       });
     }
     iV = json['__v'];

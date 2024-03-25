@@ -1,4 +1,4 @@
-class Cart {
+class CartModel {
   String? id;
   String? neon;
   String? price;
@@ -15,7 +15,7 @@ class Cart {
   String? remote;
   String? description;
 
-  Cart(
+  CartModel(
       {this.id,
       this.neon,
       this.price,
@@ -32,7 +32,7 @@ class Cart {
       this.remote,
       this.description});
 
-  Cart.fromJson(Map<String, dynamic> json) {
+  CartModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     neon = json['neon'];
     price = json['price'];

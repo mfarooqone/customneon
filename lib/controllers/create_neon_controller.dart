@@ -232,7 +232,7 @@ class CreateNeonController extends GetxController {
     ///
     ///
     textHeight.value = textHeight.value * 4;
-    textWidth.value = textWidth.value * 6.5;
+    textWidth.value = textWidth.value * 4.5;
 
     ///
     getPriceInfo(selectedSize.value);

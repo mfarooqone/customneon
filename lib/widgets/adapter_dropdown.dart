@@ -39,7 +39,7 @@ class _AdapterDropDownState extends State<AdapterDropDown> {
                     value: item,
                     child: Text(
                       item,
-                      style: AppTextStyle.white3,
+                      style: AppTextStyle.white2,
                     ),
                   ))
               .toList(),
@@ -77,7 +77,7 @@ class _AdapterDropDownState extends State<AdapterDropDown> {
     //               value: value,
     //               child: Text(
     //                 value,
-    //                 style: AppTextStyle.white3,
+    //                 style: AppTextStyle.white2,
     //               ),
     //             );
     //           }).toList(),

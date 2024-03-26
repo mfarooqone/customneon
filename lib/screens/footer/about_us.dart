@@ -24,7 +24,7 @@ class AboutUs extends StatelessWidget {
                 children: [
                   Text(
                     "Our Story",
-                    style: AppTextStyle.white3.copyWith(
+                    style: AppTextStyle.white2.copyWith(
                       color: AppColors.white,
                       fontSize: 8.sp,
                     ),
@@ -95,7 +95,7 @@ class AboutUs extends StatelessWidget {
   Widget autoText(String text) {
     return Text(
       text,
-      style: AppTextStyle.white3,
+      style: AppTextStyle.white2,
     );
   }
 }

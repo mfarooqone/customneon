@@ -370,14 +370,14 @@ class PrivacyPolicy extends StatelessWidget {
     return Text(
       text,
       style:
-          AppTextStyle.white3.copyWith(color: AppColors.white, fontSize: 8.sp),
+          AppTextStyle.white2.copyWith(color: AppColors.white, fontSize: 8.sp),
     );
   }
 
   Widget autoText(String text) {
     return Text(
       text,
-      style: AppTextStyle.white3,
+      style: AppTextStyle.white2,
     );
   }
 }

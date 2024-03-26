@@ -27,7 +27,7 @@ class _RemoteDimmerWidgetState extends State<RemoteDimmerWidget> {
               children: [
                 Text(
                   'Free Remote and Dimmer',
-                  style: AppTextStyle.white3,
+                  style: AppTextStyle.white2,
                 ),
 
                 Text(
@@ -63,7 +63,7 @@ class _RemoteDimmerWidgetState extends State<RemoteDimmerWidget> {
                             padding: EdgeInsets.symmetric(vertical: 2.h),
                             child: Text(
                               "Yes",
-                              style: AppTextStyle.white3,
+                              style: AppTextStyle.white2,
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -99,7 +99,7 @@ class _RemoteDimmerWidgetState extends State<RemoteDimmerWidget> {
                             padding: EdgeInsets.symmetric(vertical: 2.h),
                             child: Text(
                               "No",
-                              style: AppTextStyle.white3,
+                              style: AppTextStyle.white2,
                               textAlign: TextAlign.center,
                             ),
                           ),

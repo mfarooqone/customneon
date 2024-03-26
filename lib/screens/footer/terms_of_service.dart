@@ -27,7 +27,7 @@ class TermsOfService extends StatelessWidget {
                 children: [
                   Text(
                     "Terms of service",
-                    style: AppTextStyle.white3
+                    style: AppTextStyle.white2
                         .copyWith(color: AppColors.white, fontSize: 8.sp),
                   ),
                   SizedBox(
@@ -316,7 +316,7 @@ class TermsOfService extends StatelessWidget {
   Widget autoText(String text) {
     return Text(
       text,
-      style: AppTextStyle.white3,
+      style: AppTextStyle.white2,
     );
   }
 }

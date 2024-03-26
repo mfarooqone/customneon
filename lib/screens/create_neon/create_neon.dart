@@ -85,7 +85,7 @@ class _CreateNeonState extends State<CreateNeon> {
                       child: Text(
                         'CREATE YOUR OWN NEON SIGN',
                         maxLines: 1,
-                        style: AppTextStyle.white3
+                        style: AppTextStyle.white2
                             .copyWith(color: AppColors.orange),
                       ),
                     ),
@@ -98,7 +98,7 @@ class _CreateNeonState extends State<CreateNeon> {
                       child: Text(
                         'Design your neon sign with our online custom tool',
                         maxLines: 1,
-                        style: AppTextStyle.white3,
+                        style: AppTextStyle.white2,
                       ),
                     ),
                     SizedBox(height: 6.h),
@@ -226,7 +226,7 @@ class _CreateNeonState extends State<CreateNeon> {
                                         EdgeInsets.only(top: 2.h, right: 2.h),
                                     child: Text(
                                       '\$${createNeonController.totalPrice.value}',
-                                      style: AppTextStyle.white3.copyWith(
+                                      style: AppTextStyle.white2.copyWith(
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -317,7 +317,7 @@ class _CreateNeonState extends State<CreateNeon> {
                               padding: EdgeInsets.only(top: 1.h),
                               child: Text(
                                 'Carbon neutral shipping on all orders',
-                                style: AppTextStyle.white3,
+                                style: AppTextStyle.white2,
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -346,17 +346,17 @@ class _CreateNeonState extends State<CreateNeon> {
                             children: [
                               Text(
                                 'Expedited Free Shipping',
-                                style: AppTextStyle.white3,
+                                style: AppTextStyle.white2,
                                 textAlign: TextAlign.center,
                               ),
                               Text(
                                 'Order today for your item(s) to dispatch by Dec 22.',
-                                style: AppTextStyle.white3,
+                                style: AppTextStyle.white2,
                                 textAlign: TextAlign.center,
                               ),
                               Text(
                                 "You'll receive your package between Dec 21 and Jan 05",
-                                style: AppTextStyle.white3,
+                                style: AppTextStyle.white2,
                                 textAlign: TextAlign.center,
                               ),
                             ],
@@ -579,7 +579,7 @@ class _CreateNeonState extends State<CreateNeon> {
           ///
           Text(
             title,
-            style: AppTextStyle.white3.copyWith(
+            style: AppTextStyle.white2.copyWith(
               color: AppColors.orange,
               fontWeight: FontWeight.w600,
             ),

@@ -39,7 +39,7 @@ class _ContactUsState extends State<ContactUs> {
             Center(
               child: Text(
                 "Contact Us",
-                style: AppTextStyle.white3.copyWith(fontSize: 10.sp),
+                style: AppTextStyle.white2.copyWith(fontSize: 10.sp),
               ),
             ),
             SizedBox(

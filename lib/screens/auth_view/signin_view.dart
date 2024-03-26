@@ -46,7 +46,7 @@ class SigninView extends StatelessWidget {
                 Wrap(
                   children: [
                     Text("Don't have an account yet?",
-                        style: AppTextStyle.white3.copyWith(
+                        style: AppTextStyle.white2.copyWith(
                             color: AppColors.grey,
                             fontSize: 5.sp,
                             fontWeight: FontWeight.w400)),
@@ -55,7 +55,7 @@ class SigninView extends StatelessWidget {
                         Get.to(() => SignupView());
                       },
                       child: Text(" Create account",
-                          style: AppTextStyle.white3.copyWith(
+                          style: AppTextStyle.white2.copyWith(
                               fontSize: 5.sp, fontWeight: FontWeight.w400)),
                     ),
                   ],

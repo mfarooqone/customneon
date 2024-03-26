@@ -55,7 +55,7 @@ class _FAQsState extends State<FAQs> {
             Center(
               child: Text(
                 "FREQUENTLY ASKED QUESTIONS",
-                style: AppTextStyle.white3
+                style: AppTextStyle.white2
                     .copyWith(color: AppColors.white, fontSize: 8.sp),
               ),
             ),
@@ -123,7 +123,7 @@ class _FAQsState extends State<FAQs> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       _selectedIndex == -1 ? "" : faqTexts[_selectedIndex],
-                      style: AppTextStyle.white3.copyWith(color: Colors.white),
+                      style: AppTextStyle.white2.copyWith(color: Colors.white),
                     ),
                   ),
                 ),
@@ -176,7 +176,7 @@ class _FAQsState extends State<FAQs> {
           child: Center(
               child: Text(
             faqTexts[index],
-            style: AppTextStyle.white3.copyWith(
+            style: AppTextStyle.white2.copyWith(
                 color: _selectedIndex == index ? Colors.white : Colors.white),
           )),
         ),

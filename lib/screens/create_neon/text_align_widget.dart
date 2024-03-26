@@ -25,7 +25,7 @@ class _TextAlignWidgetState extends State<TextAlignWidget> {
           Text(
             'Text Align',
             maxLines: 1,
-            style: AppTextStyle.white3,
+            style: AppTextStyle.white2,
           ),
           SizedBox(height: 1.h),
           Row(

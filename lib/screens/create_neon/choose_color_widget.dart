@@ -27,7 +27,7 @@ class _ChooseColorWidgetState extends State<ChooseColorWidget> {
               children: [
                 Text(
                   'Choose a colour',
-                  style: AppTextStyle.white3,
+                  style: AppTextStyle.white2,
                 ),
                 Text(
                   'Minimum height required for Magic LED Neon Sign: 7cm. If color options for Magic LED Neon Sign are unavailable, please choose a larger sign size.',
@@ -37,7 +37,7 @@ class _ChooseColorWidgetState extends State<ChooseColorWidget> {
                 Text(
                   createNeonController.getColorName(
                       selectedColor: createNeonController.selectedColor),
-                  style: AppTextStyle.white3,
+                  style: AppTextStyle.white2,
                 ),
 
                 ///

@@ -176,7 +176,7 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                       ///
                       Text(
                         'Power Adapter',
-                        style: AppTextStyle.white3,
+                        style: AppTextStyle.white2,
                       ),
                       const AdapterDropDown(),
 
@@ -230,7 +230,7 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                                 children: [
                                   Text(
                                     '\$${createNeonController.totalPrice.value}',
-                                    style: AppTextStyle.white3.copyWith(
+                                    style: AppTextStyle.white2.copyWith(
                                         color: Colors.green,
                                         fontWeight: FontWeight.bold),
                                   ),

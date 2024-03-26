@@ -41,7 +41,7 @@ class FooterDesign extends StatelessWidget {
                       children: [
                         Text(
                           "Support",
-                          style: AppTextStyle.white3,
+                          style: AppTextStyle.white2,
                         ),
                         SizedBox(height: 2.5.h),
                         GestureDetector(
@@ -116,7 +116,7 @@ class FooterDesign extends StatelessWidget {
                       children: [
                         Text(
                           "Information",
-                          style: AppTextStyle.white3,
+                          style: AppTextStyle.white2,
                         ),
                         SizedBox(
                           height: 2.5.h,

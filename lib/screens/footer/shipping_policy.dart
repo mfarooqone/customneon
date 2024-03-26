@@ -26,7 +26,7 @@ class ShippingPolicy extends StatelessWidget {
                 children: [
                   Text(
                     "Shipping Policy",
-                    style: AppTextStyle.white3
+                    style: AppTextStyle.white2
                         .copyWith(color: AppColors.white, fontSize: 8.sp),
                   ),
                   SizedBox(
@@ -106,7 +106,7 @@ class ShippingPolicy extends StatelessWidget {
   Widget autoText(String text) {
     return Text(
       text,
-      style: AppTextStyle.white3,
+      style: AppTextStyle.white2,
     );
   }
 }

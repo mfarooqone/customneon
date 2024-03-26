@@ -62,7 +62,7 @@ class _UserScreenState extends State<UserScreen> {
                   Center(
                     child: Text(
                       "Account Details",
-                      style: AppTextStyle.white3
+                      style: AppTextStyle.white2
                           .copyWith(color: AppColors.white, fontSize: 8.sp),
                     ),
                   ),

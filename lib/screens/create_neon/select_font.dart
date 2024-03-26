@@ -25,7 +25,7 @@ class _SelectFontState extends State<SelectFont> {
           Text(
             'Choose a font',
             maxLines: 1,
-            style: AppTextStyle.white3,
+            style: AppTextStyle.white2,
           ),
           SizedBox(height: 1.h),
           InkWell(
@@ -49,7 +49,7 @@ class _SelectFontState extends State<SelectFont> {
                     Expanded(
                       child: Text(
                         createNeonController.selectedFont.value,
-                        style: AppTextStyle.white3,
+                        style: AppTextStyle.white2,
                       ),
                     ),
                     SizedBox(width: 1.w),
@@ -116,7 +116,7 @@ class _SelectFontState extends State<SelectFont> {
                         )),
                     child: Text(
                       createNeonController.fontNames[index],
-                      style: AppTextStyle.white3.copyWith(
+                      style: AppTextStyle.white2.copyWith(
                         fontFamily: createNeonController.fontNames[index],
                       ),
                     ),

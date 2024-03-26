@@ -120,7 +120,7 @@ class CreateNeonController extends GetxController {
   ///
   ///
   List<Color> backBoardColorList = [
-    Colors.transparent,
+    Colors.white60,
     AppColors.white,
     AppColors.black,
     AppColors.silver,

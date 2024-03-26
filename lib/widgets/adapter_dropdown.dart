@@ -29,10 +29,7 @@ class _AdapterDropDownState extends State<AdapterDropDown> {
           isExpanded: true,
           hint: Text(
             'Select Item',
-            style: TextStyle(
-              fontSize: 14,
-              color: Theme.of(context).hintColor,
-            ),
+            style: AppTextStyle.white2,
           ),
           items: createNeonController.adapterList
               .map((String item) => DropdownMenuItem<String>(
@@ -52,40 +49,5 @@ class _AdapterDropDownState extends State<AdapterDropDown> {
         ),
       ),
     );
-
-    // ListView(
-    //   shrinkWrap: true,
-    //   children: [
-    //     Container(
-    //       decoration: BoxDecoration(
-    //         border: Border.all(
-    //           color: AppColors.lightGrey,
-    //         ),
-    //         borderRadius: BorderRadius.circular(1.0.h),
-    //       ),
-    //       child: IntrinsicWidth(
-    //         child: DropdownButton<String>(
-    //           value: createNeonController.selectedAdapter.value,
-    //           onChanged: (String? newValue) {
-    //             setState(() {
-    //               createNeonController.selectedAdapter.value = newValue!;
-    //             });
-    //           },
-    //           items: createNeonController.adapterList
-    //               .map<DropdownMenuItem<String>>((String value) {
-    //             return DropdownMenuItem<String>(
-    //               value: value,
-    //               child: Text(
-    //                 value,
-    //                 style: AppTextStyle.white2,
-    //               ),
-    //             );
-    //           }).toList(),
-    //           underline: Container(),
-    //         ),
-    //       ),
-    //     ),
-    //   ],
-    // );
   }
 }

@@ -45,6 +45,39 @@ class _LocationWidgetState extends State<LocationWidget> {
                     Expanded(
                       child: InkWell(
                         onTap: () {
+                          createNeonController.isOutdoor.value = false;
+                          createNeonController.isLoading.value = true;
+                          createNeonController.isLoading.value = false;
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(0.5.h),
+                            border: Border.all(
+                              color: !createNeonController.isOutdoor.value
+                                  ? AppColors.orange
+                                  : Colors.grey,
+                              width: 0.1.h,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 2.h),
+                            child: Text(
+                              "Indoor",
+                              style: AppTextStyle.white2,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    ///
+                    SizedBox(
+                      width: 1.w,
+                    ),
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
                           createNeonController.isOutdoor.value = true;
                           createNeonController.isLoading.value = true;
                           createNeonController.isLoading.value = false;
@@ -72,39 +105,6 @@ class _LocationWidgetState extends State<LocationWidget> {
                     ),
 
                     ///
-                    SizedBox(
-                      width: 1.w,
-                    ),
-
-                    ///
-                    Expanded(
-                      child: InkWell(
-                        onTap: () {
-                          createNeonController.isOutdoor.value = false;
-                          createNeonController.isLoading.value = true;
-                          createNeonController.isLoading.value = false;
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(0.5.h),
-                            border: Border.all(
-                              color: !createNeonController.isOutdoor.value
-                                  ? AppColors.orange
-                                  : Colors.grey,
-                              width: 0.1.h,
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 2.h),
-                            child: Text(
-                              "Indoor",
-                              style: AppTextStyle.white2,
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
                   ],
                 ),
               ],

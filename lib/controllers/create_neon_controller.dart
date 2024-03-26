@@ -15,8 +15,8 @@ class CreateNeonController extends GetxController {
   RxBool isLoading = false.obs;
   RxBool isAddingToCart = false.obs;
   RxBool showFonts = false.obs;
-  RxBool isRemoteDimmer = true.obs;
-  RxBool isOutdoor = true.obs;
+  RxBool isRemoteDimmer = false.obs;
+  RxBool isOutdoor = false.obs;
   RxBool showNeon = true.obs;
 
   RxString selectedTextAlign = "center".obs;
@@ -30,7 +30,7 @@ class CreateNeonController extends GetxController {
   Color selectedColor = AppColors.orange;
   Color selectedBackBoardColor = Colors.transparent;
   RxString selectedSize = "S".obs;
-  RxString selectedBackBoardStyle = "".obs;
+  RxString selectedBackBoardStyle = "Cut to shape".obs;
   RxString selectedAdapter = "USA / CANADA 120V".obs;
 
   onToggle(index) {
@@ -326,17 +326,17 @@ class CreateNeonController extends GetxController {
     if (result.isSuccess) {
       neonText.value = "";
       totalPrice.value = "";
-      selectedFont.value = "Fribash";
-      selectedTextAlign.value = "center";
-      selectedColor = AppColors.orange;
-      selectedSize.value = "S";
       textHeight.value = 0.0;
       textWidth.value = 0.0;
-      selectedBackBoardColor = Colors.transparent;
-      selectedBackBoardStyle.value = "";
+      selectedFont.value = fontNames[4];
+      selectedTextAlign.value = "center";
+      selectedColor = neonColorList[0];
+      selectedSize.value = sizeNames[0];
+      selectedBackBoardColor = backBoardColorList[0];
+      selectedBackBoardStyle.value = backBoardsNames[0];
       isOutdoor.value = false;
-      selectedAdapter.value = "USA / CANADA 120V";
-      isRemoteDimmer.value = true;
+      selectedAdapter.value = adapterList[0];
+      isRemoteDimmer.value = false;
       descriptionText.value = "";
 
       isAddingToCart.value = false;

@@ -261,6 +261,7 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                               PrimaryButton(
                                 title: "Finalize and Review",
                                 onPressed: () async {
+                                  // if (validate()) {
                                   bool isLogedIn = await prefs.getBool(
                                       key: AppPreferencesLabels.isLogedin);
                                   if (isLogedIn) {
@@ -274,6 +275,7 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                                         "Please login to add item to cart");
                                     Get.to(() => SigninView());
                                   }
+                                  // }
                                 },
                               )
                             ],
@@ -291,4 +293,32 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
             );
     });
   }
+
+  ///
+  ///
+  ///
+  // bool validate() {
+  //   if (eventNameController.text.isEmpty) {
+  //     showErrorMessage(context, "Please write Event name");
+  //     return false;
+  //   } else if (createEventStep1Controller.selectedCategory.value == "select") {
+  //     showErrorMessage(context, "Please select category");
+  //     return false;
+  //   } else if (createEventStep1Controller.selectedSession.value ==
+  //           createEventStep1Controller.sessionType[0] &&
+  //       locationController.text.isEmpty) {
+  //     showErrorMessage(context, "Please select location");
+  //     return false;
+  //   } else if (createEventStep1Controller.selectedSession.value ==
+  //           createEventStep1Controller.sessionType[0] &&
+  //       venueController.selectedVenueName.isEmpty) {
+  //     showErrorMessage(context, "Please select venue");
+  //     return false;
+  //   } else if (copyTimeController.eventSelectedDatesList.isEmpty) {
+  //     showErrorMessage(context, "Please select Dates");
+  //     return false;
+  //   } else {
+  //     return true;
+  //   }
+  // }
 }

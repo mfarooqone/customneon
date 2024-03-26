@@ -13,6 +13,7 @@ import 'package:customneon/screens/create_neon/text_align_widget.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/preference_labels.dart';
+import 'package:customneon/utills/show_messages.dart';
 import 'package:customneon/widgets/adapter_dropdown.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:customneon/widgets/primary_button.dart';
@@ -269,6 +270,8 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                                               () => const CartScreen(),
                                             ));
                                   } else {
+                                    showErrorMessage(
+                                        "Please login to add item to cart");
                                     Get.to(() => SigninView());
                                   }
                                 },

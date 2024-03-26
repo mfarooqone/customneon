@@ -11,7 +11,7 @@ import '../../utills/app_colors.dart';
 import '../../utills/app_text_style.dart';
 
 class PrivacyPolicy extends StatefulWidget {
-  static const routeName = '/policy/privacy';
+  static const routeName = '/policies/privacy-policy';
   const PrivacyPolicy({Key? key}) : super(key: key);
 
   @override

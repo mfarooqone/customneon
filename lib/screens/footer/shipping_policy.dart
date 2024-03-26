@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class ShippingPolicy extends StatelessWidget {
-  static const routeName = '/policy/shiping';
+  static const routeName = '/policies/shiping-policy';
   const ShippingPolicy({Key? key}) : super(key: key);
 
   @override

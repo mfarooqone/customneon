@@ -11,7 +11,7 @@ import 'package:sizer/sizer.dart';
 import '../../utills/app_colors.dart';
 
 class RefundPolicy extends StatefulWidget {
-  static const routeName = '/policy/refund';
+  static const routeName = '/policies/refund-policy';
   const RefundPolicy({Key? key}) : super(key: key);
 
   @override

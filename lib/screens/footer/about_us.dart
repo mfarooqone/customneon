@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class AboutUs extends StatelessWidget {
-  static const routeName = '/aboutus';
+  static const routeName = '/pages/about-us';
   const AboutUs({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {

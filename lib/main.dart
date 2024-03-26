@@ -6,8 +6,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 Future main() async {
+  setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
 
   if (kIsWeb) {
@@ -37,12 +39,11 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           theme: ThemeData(
-            scaffoldBackgroundColor: Colors.black,
-            iconTheme: IconThemeData(
-              color: AppColors.orange,
-            ),
-            brightness: Brightness.dark
-          ),
+              scaffoldBackgroundColor: Colors.black,
+              iconTheme: IconThemeData(
+                color: AppColors.orange,
+              ),
+              brightness: Brightness.dark),
           debugShowCheckedModeBanner: false,
           title: 'Custom Neon',
           home: const HomePage(),

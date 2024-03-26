@@ -56,7 +56,7 @@ class AuthController extends GetxController {
 
       ///
 
-      Get.to(() => const UserScreen());
+      Get.toNamed(UserScreen.routeName);
       showSuccessMessage("You have successfully sign in to your account");
 
       isLoading.value = false;
@@ -108,7 +108,7 @@ class AuthController extends GetxController {
 
       ///
 
-      Get.to(() => const UserScreen());
+      Get.toNamed(UserScreen.routeName);
       showSuccessMessage("You have successfully sign in to your account");
     } else {
       showErrorMessage(result.message!);
@@ -200,7 +200,7 @@ class AuthController extends GetxController {
 
       ///
 
-      Get.to(() => const UserScreen());
+      Get.toNamed(UserScreen.routeName);
       showSuccessMessage(
           "Success: You have successfully sign in to your account");
 
@@ -224,6 +224,6 @@ class AuthController extends GetxController {
     final AppPreferencesController prefs = Get.find();
     await prefs.setBool(key: AppPreferencesLabels.isLogedin, value: false);
     prefs.clearData();
-    Get.offAll(() => const HomePage());
+    Get.offNamed(HomePage.routeName);
   }
 }

@@ -8,6 +8,7 @@ import 'package:sizer/sizer.dart';
 import '../../utills/app_text_style.dart';
 
 class ContactUs extends StatefulWidget {
+  static const routeName = '/contactus';
   const ContactUs({Key? key}) : super(key: key);
 
   @override

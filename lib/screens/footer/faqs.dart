@@ -8,6 +8,7 @@ import '../../utills/app_colors.dart';
 import '../../utills/app_text_style.dart';
 
 class FAQs extends StatefulWidget {
+  static const routeName = '/faq';
   const FAQs({Key? key}) : super(key: key);
 
   @override

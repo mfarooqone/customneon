@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class AboutUs extends StatelessWidget {
+  static const routeName = '/aboutus';
   const AboutUs({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {

@@ -46,7 +46,7 @@ class FooterDesign extends StatelessWidget {
                         SizedBox(height: 2.5.h),
                         GestureDetector(
                             onTap: () {
-                              Get.to(() => TrackMyOrder());
+                              Get.toNamed(TrackMyOrder.routeName);
                             },
                             child: Text(
                               "Track My Order",
@@ -55,7 +55,7 @@ class FooterDesign extends StatelessWidget {
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
-                              Get.to(() => const ShippingPolicy());
+                              Get.toNamed(ShippingPolicy.routeName);
                             },
                             child: Text(
                               "Shipping Policy",
@@ -64,7 +64,7 @@ class FooterDesign extends StatelessWidget {
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
-                              Get.to(() => const RefundPolicy());
+                              Get.toNamed(RefundPolicy.routeName);
                             },
                             child: Text(
                               "Refund Policy",
@@ -73,7 +73,7 @@ class FooterDesign extends StatelessWidget {
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
-                              Get.to(() => const PrivacyPolicy());
+                              Get.toNamed(PrivacyPolicy.routeName);
                             },
                             child: Text(
                               "Privacy Policy",
@@ -82,7 +82,7 @@ class FooterDesign extends StatelessWidget {
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
-                              Get.to(() => const TermsOfService());
+                              Get.toNamed(TermsOfService.routeName);
                             },
                             child: Text(
                               "Terms of Service",
@@ -91,7 +91,7 @@ class FooterDesign extends StatelessWidget {
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
-                              Get.to(() => const FAQs());
+                              Get.toNamed(FAQs.routeName);
                             },
                             child: Text(
                               "FAQs",
@@ -123,7 +123,7 @@ class FooterDesign extends StatelessWidget {
                         ),
                         GestureDetector(
                             onTap: () {
-                              Get.to(() => const AboutUs());
+                              Get.toNamed(AboutUs.routeName);
                             },
                             child: Text(
                               "About Us",
@@ -132,7 +132,7 @@ class FooterDesign extends StatelessWidget {
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
-                              Get.to(() => const ContactUs());
+                              Get.toNamed(ContactUs.routeName);
                             },
                             child: Text(
                               "Contact Us",
@@ -141,7 +141,7 @@ class FooterDesign extends StatelessWidget {
                         SizedBox(height: 1.5.h),
                         GestureDetector(
                             onTap: () {
-                              Get.to(() => const PaymentMethods());
+                              Get.toNamed(PaymentMethods.routeName);
                             },
                             child: Text(
                               "Payment Methods",

@@ -14,6 +14,7 @@ import 'package:sizer/sizer.dart';
 import '../../utills/app_text_style.dart';
 
 class UserScreen extends StatefulWidget {
+  static const routeName = '/user';
   const UserScreen({Key? key}) : super(key: key);
   @override
   State<UserScreen> createState() => _UserScreenState();
@@ -40,7 +41,7 @@ class _UserScreenState extends State<UserScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () {
-        Get.off(const HomePage());
+        Get.offNamed(HomePage.routeName);
         return Future(() => true);
       },
       child: Scaffold(

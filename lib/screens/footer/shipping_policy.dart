@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class ShippingPolicy extends StatelessWidget {
+  static const routeName = '/policy/shiping';
   const ShippingPolicy({Key? key}) : super(key: key);
 
   @override

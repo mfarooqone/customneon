@@ -6,6 +6,7 @@ import 'package:sizer/sizer.dart';
 import '../../utills/app_text_style.dart';
 
 class PaymentMethods extends StatelessWidget {
+  static const routeName = '/payments';
   const PaymentMethods({Key? key}) : super(key: key);
 
   @override

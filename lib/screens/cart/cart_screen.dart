@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class CartScreen extends StatefulWidget {
+  static const routeName = '/cart';
   const CartScreen({Key? key}) : super(key: key);
   @override
   State<CartScreen> createState() => _CartScreenState();

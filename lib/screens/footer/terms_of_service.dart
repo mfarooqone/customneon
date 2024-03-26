@@ -7,6 +7,7 @@ import '../../utills/app_colors.dart';
 import '../../utills/app_text_style.dart';
 
 class TermsOfService extends StatelessWidget {
+  static const routeName = '/terms';
   const TermsOfService({Key? key}) : super(key: key);
 
   @override

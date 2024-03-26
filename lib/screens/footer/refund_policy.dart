@@ -7,6 +7,7 @@ import 'package:sizer/sizer.dart';
 import '../../utills/app_colors.dart';
 
 class RefundPolicy extends StatelessWidget {
+  static const routeName = '/policy/refund';
   const RefundPolicy({Key? key}) : super(key: key);
 
   @override

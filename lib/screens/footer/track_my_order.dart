@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class TrackMyOrder extends StatelessWidget {
+  static const routeName = '/tracking';
+
   TrackMyOrder({Key? key}) : super(key: key);
 
   final TextEditingController trackController = TextEditingController();

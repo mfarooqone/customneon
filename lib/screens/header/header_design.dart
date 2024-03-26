@@ -36,7 +36,7 @@ class _HeaderDesignState extends State<HeaderDesign> {
         children: [
           GestureDetector(
             onTap: () {
-              Get.offAll(const HomePage(), transition: Transition.noTransition);
+              Get.offNamed(HomePage.routeName);
             },
             child: SizedBox(
               width: MediaQuery.of(context).size.width / 8,
@@ -94,8 +94,8 @@ class _HeaderDesignState extends State<HeaderDesign> {
                   bool isLogedIn =
                       await prefs.getBool(key: AppPreferencesLabels.isLogedin);
                   isLogedIn
-                      ? Get.to(() => const UserScreen())
-                      : Get.to(() => SigninView());
+                      ? Get.toNamed(UserScreen.routeName)
+                      : Get.toNamed(SigninView.routeName);
                 },
                 icon: const Icon(
                   PhosphorIconsBold.user,
@@ -109,10 +109,10 @@ class _HeaderDesignState extends State<HeaderDesign> {
                       await prefs.getBool(key: AppPreferencesLabels.isLogedin);
 
                   if (isLogedIn) {
-                    Get.to(() => const CartScreen());
+                    Get.toNamed(CartScreen.routeName);
                   } else {
                     showErrorMessage("Please login to view cart items");
-                    Get.to(() => SigninView());
+                    Get.toNamed(SigninView.routeName);
                   }
                 },
                 icon: const Icon(
@@ -166,7 +166,7 @@ class _HeaderDesignState extends State<HeaderDesign> {
           value: 'Option 2',
           child: GestureDetector(
               onTap: () {
-                Get.to(() => const FAQs());
+                Get.toNamed(FAQs.routeName);
               },
               child: Text(
                 'FAQ',
@@ -177,7 +177,7 @@ class _HeaderDesignState extends State<HeaderDesign> {
           value: 'Option 3',
           child: GestureDetector(
               onTap: () {
-                Get.to(() => const ContactUs());
+                Get.toNamed(ContactUs.routeName);
               },
               child: Text(
                 'Contact us',

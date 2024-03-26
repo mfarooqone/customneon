@@ -1,5 +1,5 @@
 import 'package:customneon/app_bindings.dart';
-import 'package:customneon/screens/homepage/homepage.dart';
+import 'package:customneon/config/app_routes.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -39,15 +39,17 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           theme: ThemeData(
-              scaffoldBackgroundColor: Colors.black,
-              iconTheme: IconThemeData(
-                color: AppColors.orange,
-              ),
-              brightness: Brightness.dark),
+            scaffoldBackgroundColor: Colors.black,
+            iconTheme: IconThemeData(
+              color: AppColors.orange,
+            ),
+            brightness: Brightness.dark,
+          ),
           debugShowCheckedModeBanner: false,
-          title: 'Custom Neon',
-          home: const HomePage(),
+          title: 'Customs Neon',
           initialBinding: createBindings(context),
+          initialRoute: dashboardRoute,
+          getPages: appRoutes,
         );
       },
     );

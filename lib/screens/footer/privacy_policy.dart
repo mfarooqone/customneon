@@ -7,6 +7,7 @@ import '../../utills/app_colors.dart';
 import '../../utills/app_text_style.dart';
 
 class PrivacyPolicy extends StatelessWidget {
+  static const routeName = '/policy/privacy';
   const PrivacyPolicy({Key? key}) : super(key: key);
 
   @override

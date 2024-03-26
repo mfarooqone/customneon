@@ -269,9 +269,9 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                                     if (isLogedIn) {
                                       await createNeonController
                                           .addToCart()
-                                          .then((value) => Get.to(
-                                                () => const CartScreen(),
-                                              ));
+                                          .then((value) => Get.toNamed(
+                                              CartScreen.routeName));
+
                                       neonController.text = "";
                                       descriptionController.text = "";
                                       createNeonController.isLoading.value =
@@ -281,7 +281,7 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                                     } else {
                                       showErrorMessage(
                                           "Please login to add item to cart");
-                                      Get.to(() => SigninView());
+                                      Get.toNamed(SigninView.routeName);
                                     }
                                   }
                                 },

@@ -13,6 +13,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class SignupView extends StatelessWidget {
+  static const routeName = '/signup';
   SignupView({Key? key}) : super(key: key);
 
   final TextEditingController firstNameController = TextEditingController();
@@ -58,7 +59,7 @@ class SignupView extends StatelessWidget {
                               fontWeight: FontWeight.w400)),
                       GestureDetector(
                         onTap: () {
-                          Get.to(() => SigninView());
+                          Get.toNamed(SigninView.routeName);
                         },
                         child: Text(" Signin",
                             style: AppTextStyle.white2.copyWith(

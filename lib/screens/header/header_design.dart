@@ -36,7 +36,7 @@ class _HeaderDesignState extends State<HeaderDesign> {
         children: [
           GestureDetector(
             onTap: () {
-              Get.offNamed(HomePage.routeName);
+              Get.offAllNamed(HomePage.routeName);
             },
             child: SizedBox(
               width: MediaQuery.of(context).size.width / 8,

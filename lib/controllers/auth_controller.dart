@@ -224,6 +224,6 @@ class AuthController extends GetxController {
     final AppPreferencesController prefs = Get.find();
     await prefs.setBool(key: AppPreferencesLabels.isLogedin, value: false);
     prefs.clearData();
-    Get.offNamed(HomePage.routeName);
+    Get.offAllNamed(HomePage.routeName);
   }
 }

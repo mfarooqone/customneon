@@ -39,10 +39,13 @@ class _UserScreenState extends State<UserScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () {
-        Get.offNamed(HomePage.routeName);
-        return Future(() => true);
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) async {
+        if (didPop) {
+          return;
+        }
+        Get.offAllNamed(HomePage.routeName);
       },
       child: Scaffold(
         body: Obx(() {

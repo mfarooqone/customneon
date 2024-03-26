@@ -1,7 +1,9 @@
 import 'package:customneon/screens/footer/footer_design.dart';
 import 'package:customneon/screens/header/header_design.dart';
+import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../utills/app_colors.dart';
@@ -42,112 +44,122 @@ class _FAQsState extends State<FAQs> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 5.h,
-            ),
-            const HeaderDesign(),
-            SizedBox(
-              height: 10.h,
-            ),
-            Center(
-              child: Text(
-                "FREQUENTLY ASKED QUESTIONS",
-                style: AppTextStyle.white2
-                    .copyWith(color: AppColors.white, fontSize: 8.sp),
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) async {
+        if (didPop) {
+          return;
+        }
+        Get.offAllNamed(HomePage.routeName);
+      },
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 5.h,
               ),
-            ),
-            SizedBox(
-              height: 8.h,
-            ),
-            Center(
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width / 1.8,
-                child: PrimaryTextField(
-                  controller: faqsTypingController,
-                  hintText: "Start typing",
-                  suffixIcon: Icon(
-                    Icons.search,
-                    size: 5.sp,
+              const HeaderDesign(),
+              SizedBox(
+                height: 10.h,
+              ),
+              Center(
+                child: Text(
+                  "FREQUENTLY ASKED QUESTIONS",
+                  style: AppTextStyle.white2
+                      .copyWith(color: AppColors.white, fontSize: 8.sp),
+                ),
+              ),
+              SizedBox(
+                height: 8.h,
+              ),
+              Center(
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width / 1.8,
+                  child: PrimaryTextField(
+                    controller: faqsTypingController,
+                    hintText: "Start typing",
+                    suffixIcon: Icon(
+                      Icons.search,
+                      size: 5.sp,
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 5.h,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    boxWidget(0),
-                    SizedBox(
-                      width: 3.w,
-                    ),
-                    boxWidget(1),
-                    SizedBox(
-                      width: 3.w,
-                    ),
-                    boxWidget(2),
-                  ],
-                ),
-                SizedBox(
-                  height: 5.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    boxWidget(3),
-                    SizedBox(
-                      width: 3.w,
-                    ),
-                    boxWidget(4),
-                    SizedBox(
-                      width: 3.w,
-                    ),
-                    boxWidget(5),
-                  ],
-                ),
-                SizedBox(
-                  height: 5.h,
-                ),
-                Center(child: boxWidget(6)),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 10.h, vertical: 5.h),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      _selectedIndex == -1 ? "" : faqTexts[_selectedIndex],
-                      style: AppTextStyle.white2.copyWith(color: Colors.white),
-                    ),
+              SizedBox(
+                height: 5.h,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      boxWidget(0),
+                      SizedBox(
+                        width: 3.w,
+                      ),
+                      boxWidget(1),
+                      SizedBox(
+                        width: 3.w,
+                      ),
+                      boxWidget(2),
+                    ],
                   ),
-                ),
-                if (_selectedIndex != -1)
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      boxWidget(3),
+                      SizedBox(
+                        width: 3.w,
+                      ),
+                      boxWidget(4),
+                      SizedBox(
+                        width: 3.w,
+                      ),
+                      boxWidget(5),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  Center(child: boxWidget(6)),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.h),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          faqDescriptions[_selectedIndex],
-                          style: TextStyle(fontSize: 3.sp),
-                        ),
-                      ],
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.h, vertical: 5.h),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        _selectedIndex == -1 ? "" : faqTexts[_selectedIndex],
+                        style:
+                            AppTextStyle.white2.copyWith(color: Colors.white),
+                      ),
                     ),
                   ),
-              ],
-            ),
-            SizedBox(
-              height: 12.h,
-            ),
-            FooterDesign(),
-          ],
+                  if (_selectedIndex != -1)
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            faqDescriptions[_selectedIndex],
+                            style: TextStyle(fontSize: 3.sp),
+                          ),
+                        ],
+                      ),
+                    ),
+                ],
+              ),
+              SizedBox(
+                height: 12.h,
+              ),
+              FooterDesign(),
+            ],
+          ),
         ),
       ),
     );

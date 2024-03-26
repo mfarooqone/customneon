@@ -12,27 +12,22 @@ class CartController extends GetxController {
 
   final CreateNeonController createNeonController = Get.find();
 
-  CartModel? cartModel;
-
+  List<CartModel> cartList = [];
   Future<void> getCartData() async {
     isLoading.value = true;
-
     UserModel? storedUser = await AppPreferencesController.getUser();
-
     final result = await Get.find<NetworkClient>().get(
       "/user/${storedUser!.sId!}/cart",
       sendUserAuth: true,
     );
     if (result.isSuccess) {
-      ///
-      final Map<String, dynamic> rawData = result.rawData;
-      cartModel = CartModel.fromJson(rawData);
+      cartList.clear();
+      List jsonResponse = result.rawData;
+      cartList = jsonResponse.map((job) => CartModel.fromJson(job)).toList();
 
-      ///
       isLoading.value = false;
     } else {
       showErrorMessage(result.message!);
-
       isLoading.value = false;
     }
   }

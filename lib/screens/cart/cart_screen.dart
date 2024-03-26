@@ -1,7 +1,5 @@
 import 'package:customneon/controllers/cart_controller.dart';
-import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/models/cart_model.dart';
-import 'package:customneon/models/user_model.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
@@ -19,20 +17,12 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   final CartController cartController = Get.put(CartController());
 
-  UserModel? storedUser;
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      getUser();
       await cartController.getCartData();
     });
     super.initState();
-  }
-
-  void getUser() async {
-    cartController.isLoading.value = true;
-    storedUser = await AppPreferencesController.getUser();
-    cartController.isLoading.value = false;
   }
 
   @override
@@ -48,11 +38,12 @@ class _CartScreenState extends State<CartScreen> {
                     ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: storedUser!.cart!.length,
+                      itemCount: cartController.cartList.length,
                       itemBuilder: (context, index) {
-                        CartModel cart = storedUser!.cart![index];
+                        CartModel cart = cartController.cartList[index];
                         Color color = cartController.getColorFromName(
-                            colorName: cart.color!);
+                          colorName: cart.color!,
+                        );
 
                         return Row(
                           children: [

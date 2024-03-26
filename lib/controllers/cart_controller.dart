@@ -58,4 +58,29 @@ class CartController extends GetxController {
       return Colors.black;
     }
   }
+
+  ///
+  ///
+  ///
+  Future<void> deleteCartItem({
+    required String itemId,
+  }) async {
+    isLoading.value = true;
+    var data = {"": ""};
+
+    UserModel? storedUser = await AppPreferencesController.getUser();
+    final result = await Get.find<NetworkClient>().delete(
+      "/user/${storedUser!.sId!}/cart/$itemId",
+      data: data,
+      sendUserAuth: true,
+    );
+    if (result.isSuccess) {
+      await getCartData();
+      showSuccessMessage("Item delete successfully");
+      isLoading.value = false;
+    } else {
+      showErrorMessage(result.error.toString());
+      isLoading.value = false;
+    }
+  }
 }

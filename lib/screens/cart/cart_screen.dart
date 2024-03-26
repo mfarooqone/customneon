@@ -2,6 +2,7 @@ import 'package:customneon/controllers/cart_controller.dart';
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/models/cart_model.dart';
 import 'package:customneon/models/user_model.dart';
+import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
@@ -131,7 +132,17 @@ class _CartScreenState extends State<CartScreen> {
                                 Text(
                                   cart.neon!,
                                   style: AppTextStyle.white1,
-                                )
+                                ),
+                                IconButton(
+                                    onPressed: () {
+                                      cartController.deleteCartItem(
+                                        itemId: cart.id!,
+                                      );
+                                    },
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: AppColors.red,
+                                    ))
                               ],
                             )
                           ],

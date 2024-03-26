@@ -272,6 +272,12 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                                           .then((value) => Get.to(
                                                 () => const CartScreen(),
                                               ));
+                                      neonController.text = "";
+                                      descriptionController.text = "";
+                                      createNeonController.isLoading.value =
+                                          true;
+                                      createNeonController.isLoading.value =
+                                          false;
                                     } else {
                                       showErrorMessage(
                                           "Please login to add item to cart");
@@ -295,32 +301,4 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
             );
     });
   }
-
-  ///
-  ///
-  ///
-  // bool validate() {
-  //   if (eventNameController.text.isEmpty) {
-  //     showErrorMessage(context, "Please write Event name");
-  //     return false;
-  //   } else if (createEventStep1Controller.selectedCategory.value == "select") {
-  //     showErrorMessage(context, "Please select category");
-  //     return false;
-  //   } else if (createEventStep1Controller.selectedSession.value ==
-  //           createEventStep1Controller.sessionType[0] &&
-  //       locationController.text.isEmpty) {
-  //     showErrorMessage(context, "Please select location");
-  //     return false;
-  //   } else if (createEventStep1Controller.selectedSession.value ==
-  //           createEventStep1Controller.sessionType[0] &&
-  //       venueController.selectedVenueName.isEmpty) {
-  //     showErrorMessage(context, "Please select venue");
-  //     return false;
-  //   } else if (copyTimeController.eventSelectedDatesList.isEmpty) {
-  //     showErrorMessage(context, "Please select Dates");
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
-  // }
 }

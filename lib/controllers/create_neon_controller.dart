@@ -232,7 +232,7 @@ class CreateNeonController extends GetxController {
     ///
     ///
     textHeight.value = textHeight.value * 4;
-    textWidth.value = textWidth.value * 4.5;
+    textWidth.value = textWidth.value * 5.5;
 
     ///
     getPriceInfo(selectedSize.value);
@@ -251,8 +251,8 @@ class CreateNeonController extends GetxController {
     double height, width;
     switch (size) {
       case "S":
-        height = textHeight.value;
-        width = textWidth.value;
+        height = textHeight.value + 1.5;
+        width = textWidth.value + 1.5;
         break;
       case "M":
         height = textHeight.value + 2.5;

@@ -13,6 +13,11 @@ class CartController extends GetxController {
   final CreateNeonController createNeonController = Get.find();
 
   List<CartModel> cartList = [];
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 getCartData                                */
+  /* -------------------------------------------------------------------------- */
+
   Future<void> getCartData() async {
     isLoading.value = true;
     UserModel? storedUser = await AppPreferencesController.getUser();
@@ -32,31 +37,10 @@ class CartController extends GetxController {
     }
   }
 
-  ///
-  ///
-  ///
-  ///
-  Color getColorFromName({required String colorName}) {
-    int index = createNeonController.neonColorNames.indexOf(colorName);
-    if (index != -1 && index < createNeonController.neonColorList.length) {
-      return createNeonController.neonColorList[index];
-    } else {
-      return Colors.black;
-    }
-  }
+/* -------------------------------------------------------------------------- */
+/*                               deleteCartItem                               */
+/* -------------------------------------------------------------------------- */
 
-  Color getColorFromBackboardName({required String colorName}) {
-    int index = createNeonController.backBoardColorNames.indexOf(colorName);
-    if (index != -1 && index < createNeonController.backBoardColorList.length) {
-      return createNeonController.backBoardColorList[index];
-    } else {
-      return Colors.black;
-    }
-  }
-
-  ///
-  ///
-  ///
   Future<void> deleteCartItem({
     required String itemId,
   }) async {
@@ -76,6 +60,27 @@ class CartController extends GetxController {
     } else {
       showErrorMessage(result.error.toString());
       isLoading.value = false;
+    }
+  }
+
+  ///
+  ///
+  ///
+  Color getColorFromName({required String colorName}) {
+    int index = createNeonController.neonColorNames.indexOf(colorName);
+    if (index != -1 && index < createNeonController.neonColorList.length) {
+      return createNeonController.neonColorList[index];
+    } else {
+      return Colors.black;
+    }
+  }
+
+  Color getColorFromBackboardName({required String colorName}) {
+    int index = createNeonController.backBoardColorNames.indexOf(colorName);
+    if (index != -1 && index < createNeonController.backBoardColorList.length) {
+      return createNeonController.backBoardColorList[index];
+    } else {
+      return Colors.black;
     }
   }
 }

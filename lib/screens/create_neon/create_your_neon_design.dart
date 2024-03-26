@@ -261,21 +261,23 @@ class _CreateYourNeonDesignState extends State<CreateYourNeonDesign> {
                               PrimaryButton(
                                 title: "Finalize and Review",
                                 onPressed: () async {
-                                  // if (validate()) {
-                                  bool isLogedIn = await prefs.getBool(
-                                      key: AppPreferencesLabels.isLogedin);
-                                  if (isLogedIn) {
-                                    await createNeonController
-                                        .addToCart()
-                                        .then((value) => Get.to(
-                                              () => const CartScreen(),
-                                            ));
+                                  if (neonController.text.isEmpty) {
+                                    showErrorMessage("Please write neon text");
                                   } else {
-                                    showErrorMessage(
-                                        "Please login to add item to cart");
-                                    Get.to(() => SigninView());
+                                    bool isLogedIn = await prefs.getBool(
+                                        key: AppPreferencesLabels.isLogedin);
+                                    if (isLogedIn) {
+                                      await createNeonController
+                                          .addToCart()
+                                          .then((value) => Get.to(
+                                                () => const CartScreen(),
+                                              ));
+                                    } else {
+                                      showErrorMessage(
+                                          "Please login to add item to cart");
+                                      Get.to(() => SigninView());
+                                    }
                                   }
-                                  // }
                                 },
                               )
                             ],

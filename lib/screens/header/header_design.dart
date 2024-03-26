@@ -6,6 +6,7 @@ import 'package:customneon/screens/footer/faqs.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/preference_labels.dart';
+import 'package:customneon/utills/show_messages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -92,7 +93,6 @@ class _HeaderDesignState extends State<HeaderDesign> {
                 onPressed: () async {
                   bool isLogedIn =
                       await prefs.getBool(key: AppPreferencesLabels.isLogedin);
-
                   isLogedIn
                       ? Get.to(() => const UserScreen())
                       : Get.to(() => SigninView());
@@ -104,8 +104,16 @@ class _HeaderDesignState extends State<HeaderDesign> {
 
               ///
               IconButton(
-                onPressed: () {
-                  Get.to(() => const CartScreen());
+                onPressed: () async {
+                  bool isLogedIn =
+                      await prefs.getBool(key: AppPreferencesLabels.isLogedin);
+
+                  if (isLogedIn) {
+                    Get.to(() => const CartScreen());
+                  } else {
+                    showErrorMessage("Please login to view cart items");
+                    Get.to(() => SigninView());
+                  }
                 },
                 icon: const Icon(
                   PhosphorIconsBold.shoppingCart,

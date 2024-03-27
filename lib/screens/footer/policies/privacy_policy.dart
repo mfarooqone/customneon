@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../utills/app_colors.dart';
-import '../../utills/app_text_style.dart';
+import '../../../utills/app_colors.dart';
+import '../../../utills/app_text_style.dart';
 
 class PrivacyPolicy extends StatefulWidget {
   static const routeName = '/policies/privacy-policy';
@@ -45,25 +45,13 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
               : SingleChildScrollView(
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
                       const HeaderDesign(),
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 10.h, vertical: 10.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ///
-                            autoText(
-                              policiesController.privacyPolicy.value,
-                            ),
-                          ],
+                        child: autoText(
+                          policiesController.privacyPolicy.value,
                         ),
-                      ),
-                      SizedBox(
-                        height: 12.h,
                       ),
                       FooterDesign(),
                     ],

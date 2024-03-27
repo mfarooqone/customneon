@@ -7,6 +7,8 @@ class PoliciesController extends GetxController {
   RxString privacyPolicy = ''.obs;
   RxString refundPolicy = ''.obs;
   RxString shippingPolicy = ''.obs;
+  RxString aboutUs = ''.obs;
+  RxString contactInfo = ''.obs;
 
   ///
 
@@ -55,6 +57,42 @@ class PoliciesController extends GetxController {
     );
     if (result.isSuccess) {
       shippingPolicy.value = result.rawData;
+      isLoading.value = false;
+    } else {
+      showErrorMessage(result.message!);
+      isLoading.value = false;
+    }
+  }
+
+  ///
+  ///
+  Future<void> getAboutUs() async {
+    isLoading.value = true;
+
+    final result = await Get.find<NetworkClient>().get(
+      "/pages/about-us",
+      sendUserAuth: true,
+    );
+    if (result.isSuccess) {
+      aboutUs.value = result.rawData;
+      isLoading.value = false;
+    } else {
+      showErrorMessage(result.message!);
+      isLoading.value = false;
+    }
+  }
+
+  ///
+  ///
+  Future<void> getContactInfo() async {
+    isLoading.value = true;
+
+    final result = await Get.find<NetworkClient>().get(
+      "/pages/contact-info",
+      sendUserAuth: true,
+    );
+    if (result.isSuccess) {
+      contactInfo.value = result.rawData;
       isLoading.value = false;
     } else {
       showErrorMessage(result.message!);

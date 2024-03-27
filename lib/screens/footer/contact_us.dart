@@ -40,21 +40,12 @@ class _ContactUsState extends State<ContactUs> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: 5.h,
-              ),
               const HeaderDesign(),
-              SizedBox(
-                height: 8.h,
-              ),
               Center(
                 child: Text(
                   "Contact Us",
                   style: AppTextStyle.white2.copyWith(fontSize: 10.sp),
                 ),
-              ),
-              SizedBox(
-                height: 5.h,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
@@ -118,9 +109,9 @@ class _ContactUsState extends State<ContactUs> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 12.h,
-              ),
+
+              ///
+              ///
               FooterDesign(),
             ],
           ),

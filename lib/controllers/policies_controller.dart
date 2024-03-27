@@ -6,6 +6,7 @@ class PoliciesController extends GetxController {
   RxBool isLoading = false.obs;
   RxString privacyPolicy = ''.obs;
   RxString refundPolicy = ''.obs;
+  RxString shippingPolicy = ''.obs;
 
   ///
 
@@ -36,6 +37,24 @@ class PoliciesController extends GetxController {
     );
     if (result.isSuccess) {
       refundPolicy.value = result.rawData;
+      isLoading.value = false;
+    } else {
+      showErrorMessage(result.message!);
+      isLoading.value = false;
+    }
+  }
+
+  ///
+  ///
+  Future<void> getShippingPolicy() async {
+    isLoading.value = true;
+
+    final result = await Get.find<NetworkClient>().get(
+      "/policies/shipping-policy",
+      sendUserAuth: true,
+    );
+    if (result.isSuccess) {
+      shippingPolicy.value = result.rawData;
       isLoading.value = false;
     } else {
       showErrorMessage(result.message!);

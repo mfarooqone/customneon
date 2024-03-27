@@ -170,85 +170,90 @@ class FooterDesign extends StatelessWidget {
             thickness: 0.5,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.h),
+            padding: EdgeInsets.symmetric(horizontal: 4.h),
             child: Text(
               "© 2024, CustomsNeon. All rights reserved.",
               style: AppTextStyle.white2,
             ),
           ),
 
-          SizedBox(
-            height: 5.h,
+          ///
+          SizedBox(height: 2.h),
+
+          ///
+          ///
+          ///
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 4.h),
+            child: Wrap(
+              spacing: 10,
+              direction: Axis.horizontal,
+              alignment: WrapAlignment.start,
+              runSpacing: 10,
+              children: [
+                ///
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(RefundPolicy.routeName);
+                  },
+                  child: Text(
+                    "Refund Policy",
+                    style: AppTextStyle.white1,
+                  ),
+                ),
+
+                ///
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(PrivacyPolicy.routeName);
+                  },
+                  child: Text(
+                    "Privacy Policy",
+                    style: AppTextStyle.white1,
+                  ),
+                ),
+
+                ///
+
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(TermsOfService.routeName);
+                  },
+                  child: Text(
+                    "Terms of Service",
+                    style: AppTextStyle.white2,
+                  ),
+                ),
+
+                ///
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(ShippingPolicy.routeName);
+                  },
+                  child: Text(
+                    "Shipping Policy",
+                    style: AppTextStyle.white1,
+                  ),
+                ),
+
+                ///
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(ContactInfo.routeName);
+                  },
+                  child: Text(
+                    "Contact Info",
+                    style: AppTextStyle.white2,
+                  ),
+                ),
+
+                ///
+              ],
+            ),
           ),
 
           ///
-          ///
-          ///
-          Wrap(
-            spacing: 10,
-            direction: Axis.horizontal,
-            alignment: WrapAlignment.start,
-            runSpacing: 10,
-            children: [
-              ///
-              InkWell(
-                onTap: () {
-                  Get.toNamed(RefundPolicy.routeName);
-                },
-                child: Text(
-                  "Refund Policy",
-                  style: AppTextStyle.white1,
-                ),
-              ),
-
-              ///
-              InkWell(
-                onTap: () {
-                  Get.toNamed(PrivacyPolicy.routeName);
-                },
-                child: Text(
-                  "Privacy Policy",
-                  style: AppTextStyle.white1,
-                ),
-              ),
-
-              ///
-
-              InkWell(
-                onTap: () {
-                  Get.toNamed(TermsOfService.routeName);
-                },
-                child: Text(
-                  "Terms of Service",
-                  style: AppTextStyle.white2,
-                ),
-              ),
-
-              ///
-              InkWell(
-                onTap: () {
-                  Get.toNamed(ShippingPolicy.routeName);
-                },
-                child: Text(
-                  "Shipping Policy",
-                  style: AppTextStyle.white1,
-                ),
-              ),
-
-              ///
-              InkWell(
-                onTap: () {
-                  Get.toNamed(ContactInfo.routeName);
-                },
-                child: Text(
-                  "Contact Info",
-                  style: AppTextStyle.white2,
-                ),
-              ),
-
-              ///
-            ],
-          )
+          SizedBox(height: 2.h),
         ],
       ),
     );

@@ -471,10 +471,31 @@ class _CreateNeonState extends State<CreateNeon> {
                     ///
                     ///
                     ///
+                    SizedBox(
+                      height: 2.h,
+                    ),
 
-                    BeforeAfter(
-                      beforeImage: Image.asset(AppImagePath.afterimage),
-                      afterImage: Image.asset(AppImagePath.beforeImage),
+                    ///
+                    Center(
+                      child: SizedBox(
+                        width: 90.w,
+                        child: BeforeAfter(
+                          beforeImage: Image.asset(
+                            AppImagePath.afterimage,
+                            width: 90.w,
+                            fit: BoxFit.contain,
+                          ),
+                          afterImage: Image.asset(
+                            AppImagePath.beforeImage,
+                            width: 90.w,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: 6.h,
                     ),
 
                     ///

@@ -24,108 +24,87 @@ class FooterDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.lightGrey,
-      height: 80.h,
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(right: 10.h, left: 10.h, top: 10.h),
+            padding: EdgeInsets.symmetric(horizontal: 4.h),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Support",
-                          style: AppTextStyle.white2,
-                        ),
-                        SizedBox(height: 2.5.h),
-                        InkWell(
-                            onTap: () {
-                              Get.toNamed(TrackMyOrder.routeName);
-                            },
-                            child: Text(
-                              "Track My Order",
-                              style: AppTextStyle.white2,
-                            )),
-
-                        SizedBox(height: 1.5.h),
-                        InkWell(
-                            onTap: () {
-                              Get.toNamed(FAQs.routeName);
-                            },
-                            child: Text(
-                              "FAQs",
-                              style: AppTextStyle.white2,
-                            ))
-                        ////
-                        ///
-                        ///
-                        ///
-                      ],
+                    Text(
+                      "Support",
+                      style: AppTextStyle.white3,
+                    ),
+                    SizedBox(height: 2.5.h),
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(TrackMyOrder.routeName);
+                      },
+                      child: Text(
+                        "Track My Order",
+                        style: AppTextStyle.white2,
+                      ),
                     ),
 
                     ///
-                    ///
-                    ///   second column
-                    ///
-                    ///
-                    ///
-                    SizedBox(width: 5.w),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Information",
-                          style: AppTextStyle.white2,
-                        ),
-                        SizedBox(
-                          height: 2.5.h,
-                        ),
-                        InkWell(
-                            onTap: () {
-                              Get.toNamed(AboutUs.routeName);
-                            },
-                            child: Text(
-                              "About Us",
-                              style: AppTextStyle.white2,
-                            )),
-                        SizedBox(height: 1.5.h),
-                        InkWell(
-                            onTap: () {
-                              Get.toNamed(ContactUs.routeName);
-                            },
-                            child: Text(
-                              "Contact Us",
-                              style: AppTextStyle.white2,
-                            )),
-
-                        SizedBox(height: 1.5.h),
-                        InkWell(
-                            onTap: () {
-                              Get.toNamed(PaymentMethods.routeName);
-                            },
-                            child: Text(
-                              "Payment Methods",
-                              style: AppTextStyle.white2,
-                            ))
-
-                        ////
-                        ///
-                        ///
-                        ///
-                      ],
+                    SizedBox(height: 1.5.h),
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(FAQs.routeName);
+                      },
+                      child: Text(
+                        "FAQs",
+                        style: AppTextStyle.white2,
+                      ),
                     ),
+
+                    ///
+                    SizedBox(height: 1.5.h),
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(AboutUs.routeName);
+                      },
+                      child: Text(
+                        "About Us",
+                        style: AppTextStyle.white2,
+                      ),
+                    ),
+                    SizedBox(height: 1.5.h),
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(ContactUs.routeName);
+                      },
+                      child: Text(
+                        "Contact Us",
+                        style: AppTextStyle.white2,
+                      ),
+                    ),
+
+                    SizedBox(height: 1.5.h),
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(PaymentMethods.routeName);
+                      },
+                      child: Text(
+                        "Payment Methods",
+                        style: AppTextStyle.white2,
+                      ),
+                    )
+                    ////
+                    ///
+                    ///
+                    ///
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(height: 2.5.h),
                     Text(
                       "Subscribe & Save",
                       style: AppTextStyle.white2,
@@ -134,7 +113,7 @@ class FooterDesign extends StatelessWidget {
                       height: 3.h,
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width / 5,
+                      width: 10.w,
                       child: PrimaryTextField(
                         controller: emailController,
                         hintText: "Enter email here",
@@ -144,9 +123,12 @@ class FooterDesign extends StatelessWidget {
                     SizedBox(
                       height: 3.h,
                     ),
-                    Text(
-                      "Sign up for exclusive deals, including a unique\ncoupon for \$30 OFF your first order.",
-                      style: AppTextStyle.white2,
+                    SizedBox(
+                      width: 10.w,
+                      child: Text(
+                        "Sign up for exclusive deals, including a unique coupon for \$30 OFF your first order.",
+                        style: AppTextStyle.white2,
+                      ),
                     ),
                     SizedBox(
                       height: 4.h,

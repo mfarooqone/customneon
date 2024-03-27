@@ -25,9 +25,6 @@ class PaymentMethods extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: 5.h,
-              ),
               const HeaderDesign(),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.h),
@@ -138,9 +135,6 @@ class PaymentMethods extends StatelessWidget {
                         AppTextStyle.white4),
                   ],
                 ),
-              ),
-              SizedBox(
-                height: 12.h,
               ),
               FooterDesign(),
             ],

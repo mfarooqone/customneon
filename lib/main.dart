@@ -1,5 +1,5 @@
 import 'package:customneon/app_bindings.dart';
-import 'package:customneon/config/app_routes.dart';
+import '../app_routes.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';

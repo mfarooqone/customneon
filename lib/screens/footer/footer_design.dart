@@ -1,10 +1,11 @@
-import 'package:customneon/screens/footer/about_us.dart';
 import 'package:customneon/screens/footer/contact_us.dart';
 import 'package:customneon/screens/footer/faqs.dart';
+import 'package:customneon/screens/footer/pages/about_us.dart';
+import 'package:customneon/screens/footer/pages/contact_info.dart';
 import 'package:customneon/screens/footer/payment_methods.dart';
-import 'package:customneon/screens/footer/privacy_policy.dart';
-import 'package:customneon/screens/footer/refund_policy.dart';
-import 'package:customneon/screens/footer/shipping_policy.dart';
+import 'package:customneon/screens/footer/policies/privacy_policy.dart';
+import 'package:customneon/screens/footer/policies/refund_policy.dart';
+import 'package:customneon/screens/footer/policies/shipping_policy.dart';
 import 'package:customneon/screens/footer/terms_of_service.dart';
 import 'package:customneon/screens/footer/track_my_order.dart';
 import 'package:customneon/utills/app_colors.dart';
@@ -136,6 +137,15 @@ class FooterDesign extends StatelessWidget {
                             },
                             child: Text(
                               "Contact Us",
+                              style: AppTextStyle.white2,
+                            )),
+                        SizedBox(height: 1.5.h),
+                        GestureDetector(
+                            onTap: () {
+                              Get.toNamed(ContactInfo.routeName);
+                            },
+                            child: Text(
+                              "Contact Info",
                               style: AppTextStyle.white2,
                             )),
                         SizedBox(height: 1.5.h),

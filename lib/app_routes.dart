@@ -1,13 +1,14 @@
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/auth_view/signup_view.dart';
 import 'package:customneon/screens/cart/cart_screen.dart';
-import 'package:customneon/screens/footer/about_us.dart';
 import 'package:customneon/screens/footer/contact_us.dart';
 import 'package:customneon/screens/footer/faqs.dart';
+import 'package:customneon/screens/footer/pages/about_us.dart';
+import 'package:customneon/screens/footer/pages/contact_info.dart';
 import 'package:customneon/screens/footer/payment_methods.dart';
-import 'package:customneon/screens/footer/privacy_policy.dart';
-import 'package:customneon/screens/footer/refund_policy.dart';
-import 'package:customneon/screens/footer/shipping_policy.dart';
+import 'package:customneon/screens/footer/policies/privacy_policy.dart';
+import 'package:customneon/screens/footer/policies/refund_policy.dart';
+import 'package:customneon/screens/footer/policies/shipping_policy.dart';
 import 'package:customneon/screens/footer/terms_of_service.dart';
 import 'package:customneon/screens/footer/track_my_order.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
@@ -103,6 +104,12 @@ final appRoutes = [
   GetPage(
     name: ContactUs.routeName,
     page: () => const ContactUs(),
+  ),
+
+  ///
+  GetPage(
+    name: ContactInfo.routeName,
+    page: () => const ContactInfo(),
   ),
 
   ///

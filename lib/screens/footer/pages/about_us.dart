@@ -2,27 +2,26 @@ import 'package:customneon/controllers/policies_controller.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
 import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
-import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-class ShippingPolicy extends StatefulWidget {
-  static const routeName = '/policies/shiping-policy';
-  const ShippingPolicy({Key? key}) : super(key: key);
+class AboutUs extends StatefulWidget {
+  static const routeName = '/pages/about-us';
+  const AboutUs({Key? key}) : super(key: key);
 
   @override
-  State<ShippingPolicy> createState() => _ShippingPolicyState();
+  State<AboutUs> createState() => _AboutUsState();
 }
 
-class _ShippingPolicyState extends State<ShippingPolicy> {
+class _AboutUsState extends State<AboutUs> {
   final PoliciesController policiesController = Get.put(PoliciesController());
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      policiesController.getShippingPolicy();
+      policiesController.getAboutUs();
     });
     super.initState();
   }
@@ -43,34 +42,14 @@ class _ShippingPolicyState extends State<ShippingPolicy> {
               ? const LoadingIndicator()
               : SingleChildScrollView(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
                       const HeaderDesign(),
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 10.h, vertical: 10.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Shipping Policy",
-                              style: AppTextStyle.white2.copyWith(
-                                  color: AppColors.white, fontSize: 8.sp),
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            autoText(
-                              policiesController.shippingPolicy.value,
-                            ),
-                          ],
+                        child: autoText(
+                          policiesController.aboutUs.value,
                         ),
-                      ),
-                      SizedBox(
-                        height: 12.h,
                       ),
                       FooterDesign(),
                     ],

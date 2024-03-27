@@ -8,22 +8,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../utills/app_colors.dart';
-
-class RefundPolicy extends StatefulWidget {
-  static const routeName = '/policies/refund-policy';
-  const RefundPolicy({Key? key}) : super(key: key);
+class ShippingPolicy extends StatefulWidget {
+  static const routeName = '/policies/shiping-policy';
+  const ShippingPolicy({Key? key}) : super(key: key);
 
   @override
-  State<RefundPolicy> createState() => _RefundPolicyState();
+  State<ShippingPolicy> createState() => _ShippingPolicyState();
 }
 
-class _RefundPolicyState extends State<RefundPolicy> {
+class _ShippingPolicyState extends State<ShippingPolicy> {
   final PoliciesController policiesController = Get.put(PoliciesController());
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      policiesController.getRefundPolicy();
+      policiesController.getShippingPolicy();
     });
     super.initState();
   }
@@ -46,9 +44,6 @@ class _RefundPolicyState extends State<RefundPolicy> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
                       const HeaderDesign(),
                       Padding(
                         padding: EdgeInsets.symmetric(
@@ -56,20 +51,11 @@ class _RefundPolicyState extends State<RefundPolicy> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              "Refund Policy",
-                              style: AppTextStyle.white2.copyWith(
-                                  color: AppColors.white, fontSize: 8.sp),
+                            autoText(
+                              policiesController.shippingPolicy.value,
                             ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            autoText(policiesController.refundPolicy.value),
                           ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 12.h,
                       ),
                       FooterDesign(),
                     ],

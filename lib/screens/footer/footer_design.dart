@@ -30,7 +30,7 @@ class FooterDesign extends StatelessWidget {
         children: [
           ///
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4.h),
+            padding: EdgeInsets.symmetric(horizontal: 4.h, vertical: 2.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,9 +150,6 @@ class FooterDesign extends StatelessWidget {
 
           ///
 
-          SizedBox(
-            height: 12.h,
-          ),
           const Divider(
             color: Colors.white,
             thickness: 0.5,

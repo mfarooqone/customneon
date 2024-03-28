@@ -28,7 +28,7 @@ class ContactUsController extends GetxController {
     );
     if (result.isSuccess) {
       isLoading.value = false;
-      showSuccessMessage("You have successfully send youe querry");
+      showSuccessMessage("You have successfully send your querry");
     } else {
       isLoading.value = false;
       showErrorMessage(result.message!);

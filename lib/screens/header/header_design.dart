@@ -1,4 +1,5 @@
 import 'package:customneon/controllers/preference_controller.dart';
+import 'package:customneon/models/user_model.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/cart/cart_screen.dart';
 import 'package:customneon/screens/footer/faqs.dart';
@@ -25,10 +26,28 @@ class HeaderDesign extends StatefulWidget {
 class _HeaderDesignState extends State<HeaderDesign> {
   final GlobalKey _key = GlobalKey();
   bool _isHovering = false;
+
+  bool isLogedIn = false;
+  UserModel? storedUser;
+  String badgeText = "";
+  @override
+  void initState() {
+    getUser();
+    super.initState();
+  }
+
+  final AppPreferencesController prefs = Get.find();
+  void getUser() async {
+    isLogedIn = await prefs.getBool(key: AppPreferencesLabels.isLogedin);
+    storedUser = await AppPreferencesController.getUser();
+    if (storedUser != null && storedUser!.cart != null) {
+      badgeText = storedUser!.cart!.length.toString();
+    }
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    final AppPreferencesController prefs = Get.find();
-
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 1.w, vertical: 2.h),
       child: Row(
@@ -96,8 +115,6 @@ class _HeaderDesignState extends State<HeaderDesign> {
               SizedBox(width: 5.w),
               IconButton(
                 onPressed: () async {
-                  bool isLogedIn =
-                      await prefs.getBool(key: AppPreferencesLabels.isLogedin);
                   isLogedIn
                       ? Get.toNamed(UserScreen.routeName)
                       : Get.toNamed(SigninView.routeName);
@@ -108,20 +125,24 @@ class _HeaderDesignState extends State<HeaderDesign> {
               ),
 
               ///
-              IconButton(
-                onPressed: () async {
-                  bool isLogedIn =
-                      await prefs.getBool(key: AppPreferencesLabels.isLogedin);
+              Badge(
+                label: Text(badgeText),
+                isLabelVisible: isLogedIn ? true : false,
+                child: IconButton(
+                  onPressed: () async {
+                    bool isLogedIn = await prefs.getBool(
+                        key: AppPreferencesLabels.isLogedin);
 
-                  if (isLogedIn) {
-                    Get.toNamed(CartScreen.routeName);
-                  } else {
-                    showErrorMessage("Please login to view cart items");
-                    Get.toNamed(SigninView.routeName);
-                  }
-                },
-                icon: const Icon(
-                  PhosphorIconsBold.shoppingCart,
+                    if (isLogedIn) {
+                      Get.toNamed(CartScreen.routeName);
+                    } else {
+                      showErrorMessage("Please login to view cart items");
+                      Get.toNamed(SigninView.routeName);
+                    }
+                  },
+                  icon: const Icon(
+                    PhosphorIconsBold.shoppingCart,
+                  ),
                 ),
               ),
             ],

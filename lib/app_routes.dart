@@ -1,7 +1,7 @@
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/auth_view/signup_view.dart';
 import 'package:customneon/screens/cart/cart_screen.dart';
-import 'package:customneon/screens/footer/contact_us.dart';
+import 'package:customneon/screens/footer/pages/contact_us.dart';
 import 'package:customneon/screens/footer/faqs.dart';
 import 'package:customneon/screens/footer/pages/about_us.dart';
 import 'package:customneon/screens/footer/pages/contact_info.dart';

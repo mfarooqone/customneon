@@ -1,7 +1,7 @@
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/cart/cart_screen.dart';
-import 'package:customneon/screens/footer/contact_us.dart';
+import 'package:customneon/screens/footer/pages/contact_us.dart';
 import 'package:customneon/screens/footer/faqs.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:customneon/utills/app_text_style.dart';

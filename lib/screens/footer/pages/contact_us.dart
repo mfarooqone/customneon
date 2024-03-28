@@ -1,13 +1,14 @@
 import 'package:customneon/screens/footer/footer_design.dart';
 import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
+import 'package:customneon/utills/show_messages.dart';
 import 'package:customneon/widgets/primary_button.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../utills/app_text_style.dart';
+import '../../../utills/app_text_style.dart';
 
 class ContactUs extends StatefulWidget {
   static const routeName = '/pages/contact-us';
@@ -19,12 +20,27 @@ class ContactUs extends StatefulWidget {
 
 class _ContactUsState extends State<ContactUs> {
   TextEditingController nameController = TextEditingController();
-
   TextEditingController emailController = TextEditingController();
-
   TextEditingController phoneNumberController = TextEditingController();
-
   TextEditingController commentController = TextEditingController();
+
+  ///
+  ///
+  ///
+  String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter an email address';
+    }
+    // Check if the entered email matches the email pattern
+    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+      return 'Please enter a valid email address';
+    }
+    return null;
+  }
+
+  ///
+  ///
+  ///
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +113,34 @@ class _ContactUsState extends State<ContactUs> {
                       width: MediaQuery.of(context).size.width / 4,
                       child: PrimaryButton(
                         title: "Send Message",
-                        onPressed: () {},
+                        onPressed: () {
+                          if (nameController.text.isEmpty) {
+                            showErrorMessage("Please enter name");
+                          }
+
+                          ///
+
+                          else if (emailController.text.isEmpty) {
+                            showErrorMessage("Please enter email");
+                          }
+
+                          ///
+                          ///
+                          else if (phoneNumberController.text.isEmpty) {
+                            showErrorMessage("Please enter phone number");
+                          } else if (commentController.text.isEmpty) {
+                            showErrorMessage("Please enter comment");
+                          } else if (emailController.text.isNotEmpty) {
+                            final isValid = validateEmail(emailController.text);
+                            if (isValid == null) {
+                              // Email is valid, do something with it
+                            } else {
+                              // Email is not valid, show error message
+                              showErrorMessage(
+                                  "Please enter a valid email address");
+                            }
+                          } else {}
+                        },
                       ),
                     ),
 

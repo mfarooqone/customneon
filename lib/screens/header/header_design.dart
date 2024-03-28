@@ -1,10 +1,11 @@
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/cart/cart_screen.dart';
-import 'package:customneon/screens/footer/pages/contact_us.dart';
 import 'package:customneon/screens/footer/faqs.dart';
+import 'package:customneon/screens/footer/pages/contact_us.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:customneon/utills/app_text_style.dart';
+import 'package:customneon/utills/image_path.dart';
 import 'package:customneon/utills/preference_labels.dart';
 import 'package:customneon/utills/show_messages.dart';
 import 'package:flutter/material.dart';
@@ -40,55 +41,59 @@ class _HeaderDesignState extends State<HeaderDesign> {
             },
             child: SizedBox(
               width: MediaQuery.of(context).size.width / 8,
-              height: MediaQuery.of(context).size.height / 8,
               child: Image.asset(
-                "assets/logo.png",
+                AppImagePath.logo,
                 fit: BoxFit.contain,
               ),
             ),
           ),
+          // Row(
+          //   children: [
+          //     Text(
+          //       "Design your text".toUpperCase(),
+          //       style: AppTextStyle.white2,
+          //     ),
+          //     SizedBox(
+          //       width: 3.w,
+          //     ),
+          //     Text(
+          //       "Get a quote".toUpperCase(),
+          //       style: AppTextStyle.white2,
+          //     ),
+          //     SizedBox(
+          //       width: 3.w,
+          //     ),
+          //     Text(
+          //       "Shop".toUpperCase(),
+          //       style: AppTextStyle.white2,
+          //     ),
+          //     SizedBox(
+          //       width: 3.w,
+          //     ),
+          //     Text(
+          //       "Business Signs".toUpperCase(),
+          //       style: AppTextStyle.white2,
+          //     ),
+          //     SizedBox(
+          //       width: 3.w,
+          //     ),
+          //     Text(
+          //       "Blogs".toUpperCase(),
+          //       style: AppTextStyle.white2,
+          //     ),
+          //     SizedBox(
+          //       width: 3.w,
+          //     ),
+          //     mouserRegionWidget(context, "Support")
+          //   ],
+          // ),
+          ///
+          ///
+          ///
           Row(
             children: [
-              Text(
-                "Design your text".toUpperCase(),
-                style: AppTextStyle.white2,
-              ),
-              SizedBox(
-                width: 3.w,
-              ),
-              Text(
-                "Get a quote".toUpperCase(),
-                style: AppTextStyle.white2,
-              ),
-              SizedBox(
-                width: 3.w,
-              ),
-              Text(
-                "Shop".toUpperCase(),
-                style: AppTextStyle.white2,
-              ),
-              SizedBox(
-                width: 3.w,
-              ),
-              Text(
-                "Business Signs".toUpperCase(),
-                style: AppTextStyle.white2,
-              ),
-              SizedBox(
-                width: 3.w,
-              ),
-              Text(
-                "Blogs".toUpperCase(),
-                style: AppTextStyle.white2,
-              ),
-              SizedBox(
-                width: 3.w,
-              ),
-              mouserRegionWidget(context, "Support")
-            ],
-          ),
-          Row(
-            children: [
+              mouserRegionWidget(context, "Support"),
+              SizedBox(width: 5.w),
               IconButton(
                 onPressed: () async {
                   bool isLogedIn =

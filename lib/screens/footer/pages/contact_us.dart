@@ -1,7 +1,9 @@
+import 'package:customneon/controllers/contact_us_controller.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
 import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
 import 'package:customneon/utills/show_messages.dart';
+import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:customneon/widgets/primary_button.dart';
 import 'package:customneon/widgets/primary_textfield.dart';
 import 'package:flutter/material.dart';
@@ -24,19 +26,12 @@ class _ContactUsState extends State<ContactUs> {
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController commentController = TextEditingController();
 
+  final ContactUsController contactUsController =
+      Get.put(ContactUsController());
+
   ///
   ///
   ///
-  String? validateEmail(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter an email address';
-    }
-    // Check if the entered email matches the email pattern
-    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
-      return 'Please enter a valid email address';
-    }
-    return null;
-  }
 
   ///
   ///
@@ -53,8 +48,8 @@ class _ContactUsState extends State<ContactUs> {
         Get.offAllNamed(HomePage.routeName);
       },
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
+        body: SingleChildScrollView(child: Obx(() {
+          return Column(
             children: [
               const HeaderDesign(),
               Center(
@@ -111,37 +106,34 @@ class _ContactUsState extends State<ContactUs> {
                     ///
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 4,
-                      child: PrimaryButton(
-                        title: "Send Message",
-                        onPressed: () {
-                          if (nameController.text.isEmpty) {
-                            showErrorMessage("Please enter name");
-                          }
-
-                          ///
-
-                          else if (emailController.text.isEmpty) {
-                            showErrorMessage("Please enter email");
-                          }
-
-                          ///
-                          ///
-                          else if (phoneNumberController.text.isEmpty) {
-                            showErrorMessage("Please enter phone number");
-                          } else if (commentController.text.isEmpty) {
-                            showErrorMessage("Please enter comment");
-                          } else if (emailController.text.isNotEmpty) {
-                            final isValid = validateEmail(emailController.text);
-                            if (isValid == null) {
-                              // Email is valid, do something with it
-                            } else {
-                              // Email is not valid, show error message
-                              showErrorMessage(
-                                  "Please enter a valid email address");
-                            }
-                          } else {}
-                        },
-                      ),
+                      child: contactUsController.isLoading.value
+                          ? const LoadingIndicator()
+                          : PrimaryButton(
+                              title: "Send Message",
+                              onPressed: () async {
+                                if (nameController.text.isEmpty) {
+                                  showErrorMessage("Please enter name");
+                                } else if (emailController.text.isEmpty) {
+                                  showErrorMessage("Please enter email");
+                                } else if (!RegExp(
+                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                    .hasMatch(emailController.text)) {
+                                  showErrorMessage(
+                                      "Please enter a valid email");
+                                } else if (phoneNumberController.text.isEmpty) {
+                                  showErrorMessage("Please enter phone number");
+                                } else if (commentController.text.isEmpty) {
+                                  showErrorMessage("Please enter comment");
+                                } else {
+                                  await contactUsController.contactUsMessage(
+                                    name: nameController.text,
+                                    email: emailController.text,
+                                    phone: phoneNumberController.text,
+                                    comment: commentController.text,
+                                  );
+                                }
+                              },
+                            ),
                     ),
 
                     SizedBox(
@@ -157,8 +149,8 @@ class _ContactUsState extends State<ContactUs> {
               ///
               FooterDesign(),
             ],
-          ),
-        ),
+          );
+        })),
       ),
     );
   }

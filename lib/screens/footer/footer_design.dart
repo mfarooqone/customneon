@@ -6,7 +6,7 @@ import 'package:customneon/screens/footer/payment_methods.dart';
 import 'package:customneon/screens/footer/policies/privacy_policy.dart';
 import 'package:customneon/screens/footer/policies/refund_policy.dart';
 import 'package:customneon/screens/footer/policies/shipping_policy.dart';
-import 'package:customneon/screens/footer/terms_of_service.dart';
+import 'package:customneon/screens/footer/policies/terms_of_service.dart';
 import 'package:customneon/screens/footer/track_my_order.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -221,7 +221,7 @@ class FooterDesign extends StatelessWidget {
                   },
                   child: Text(
                     "Terms of Service",
-                    style: AppTextStyle.white2,
+                    style: AppTextStyle.white1,
                   ),
                 ),
 
@@ -243,7 +243,7 @@ class FooterDesign extends StatelessWidget {
                   },
                   child: Text(
                     "Contact Info",
-                    style: AppTextStyle.white2,
+                    style: AppTextStyle.white1,
                   ),
                 ),
 

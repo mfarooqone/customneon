@@ -5,7 +5,12 @@ import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
+import 'package:customneon/widgets/primary_button.dart';
+import 'package:customneon/widgets/primary_textfield.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
@@ -27,6 +32,8 @@ class _CartScreenState extends State<CartScreen> {
     super.initState();
   }
 
+  final TextEditingController promoCodeControler = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {
@@ -42,119 +49,324 @@ class _CartScreenState extends State<CartScreen> {
               },
               child: Scaffold(
                 body: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      const Text("data"), // if (storedUser!.cart != null)
-                      ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: cartController.cartList.length,
-                        itemBuilder: (context, index) {
-                          CartModel cart = cartController.cartList[index];
-                          Color color = cartController.getColorFromName(
-                            colorName: cart.color!,
-                          );
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 5.h, vertical: 10.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        // if (storedUser!.cart != null)
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: cartController.cartList.length,
+                            itemBuilder: (context, index) {
+                              CartModel cart = cartController.cartList[index];
+                              Color color = cartController.getColorFromName(
+                                colorName: cart.color!,
+                              );
+                              return Container(
+                                width: double.infinity,
+                                height: 65.h,
+                                margin: EdgeInsets.symmetric(vertical: 3.h),
+                                padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.h),
 
-                          return Row(
-                            children: [
-                              Stack(
-                                children: [
-                                  SizedBox(
-                                    width: 20.w,
-                                    height: 20.h,
-                                    child: Image.asset(
-                                      AppImagePath.bgImage,
-                                      fit: BoxFit.fill,
+                                decoration: BoxDecoration(
+                                  color: AppColors.lightGrey,
+                                  borderRadius: BorderRadius.circular(2.h)
+                                ),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        SizedBox(
+                                          width: 25.w,
+                                          height: 25.h,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(2.h),
+                                            child: Image.asset(
+                                              AppImagePath.bgImage,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 23.w,
+                                          height: 20.h,
+                                          child: Text(
+                                            cart.neon!,
+                                            textAlign: cart.align == "center"
+                                                ? TextAlign.center
+                                                : cart.align == "left"
+                                                    ? TextAlign.left
+                                                    : cart.align == "right"
+                                                        ? TextAlign.right
+                                                        : TextAlign.center,
+                                            style: AppTextStyle.white4.copyWith(
+                                              fontSize: 6.sp,
+                                              fontWeight: FontWeight.w800,
+                                              color: color,
+                                              fontFamily: cart.fontstyle,
+                                              shadows: <Shadow>[
+                                                Shadow(
+                                                    offset:
+                                                        const Offset(0.0, 0.0),
+                                                    blurRadius: 30.0,
+                                                    color: color),
+                                                Shadow(
+                                                  offset: const Offset(0.0, 0.0),
+                                                  blurRadius: 35.0,
+                                                  color: color,
+                                                ),
+                                                Shadow(
+                                                  offset: const Offset(0.0, 0.0),
+                                                  blurRadius: 40.0,
+                                                  color: color,
+                                                ),
+                                                Shadow(
+                                                  offset: const Offset(0.0, 0.0),
+                                                  blurRadius: 45.0,
+                                                  color: color,
+                                                ),
+                                                Shadow(
+                                                  offset: const Offset(0.0, 0.0),
+                                                  blurRadius: 50.0,
+                                                  color: color,
+                                                ),
+                                                Shadow(
+                                                  offset: const Offset(0.0, 0.0),
+                                                  blurRadius: 55.0,
+                                                  color: color,
+                                                ),
+                                                Shadow(
+                                                  offset: const Offset(0.0, 0.0),
+                                                  blurRadius: 60.0,
+                                                  color: color,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.center,
-                                    child: SizedBox(
-                                      width: 20.w,
-                                      height: 20.h,
-                                      child: Text(
-                                        cart.neon!,
-                                        textAlign: cart.align == "center"
-                                            ? TextAlign.center
-                                            : cart.align == "left"
-                                                ? TextAlign.left
-                                                : cart.align == "right"
-                                                    ? TextAlign.right
-                                                    : TextAlign.center,
-                                        style: AppTextStyle.white4.copyWith(
-                                          fontSize: 6.sp,
-                                          fontWeight: FontWeight.w800,
-                                          color: color,
-                                          fontFamily: cart.fontstyle,
-                                          shadows: <Shadow>[
-                                            Shadow(
-                                                offset: const Offset(0.0, 0.0),
-                                                blurRadius: 30.0,
-                                                color: color),
-                                            Shadow(
-                                              offset: const Offset(0.0, 0.0),
-                                              blurRadius: 35.0,
-                                              color: color,
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "${cart.neon}",
+                                          style: AppTextStyle.white3,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        rowWidget(
+                                            "Font Style:", "${cart.fontstyle}"),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        rowWidget("Color:", "${cart.color}"),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        rowWidget("Size:", "${cart.size}"),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        rowWidget(
+                                            "Location:", "${cart.location}"),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        rowWidget("Adaptor Type:",
+                                            "${cart.adaptertype}"),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width:
+                                          MediaQuery.of(context).size.width / 10,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Quantity",
+                                          style: AppTextStyle.white2,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Container(
+                                          height: 6.h,
+                                          width: 18.h,
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 1.w),
+                                          decoration: BoxDecoration(
+                                              color: AppColors.lightGrey,
+                                              border: Border.all(
+                                                  color: AppColors.white,
+                                                  width: 1),
+                                              borderRadius:
+                                                  BorderRadius.circular(1.h)),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Icon(
+                                                Icons.remove,
+                                                color: AppColors.white,
+                                                size: 3.sp,
+                                              ),
+                                              Text(
+                                                "1",
+                                                style: AppTextStyle.white2,
+                                              ),
+                                              Icon(
+                                                Icons.add,
+                                                color: AppColors.white,
+                                                size: 3.sp,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 1.5.h,
+                                        ),
+                                        Text(
+                                          "\$${cart.price}",
+                                          style: AppTextStyle.white2,
+                                        ),
+                                        SizedBox(
+                                          height: 1.5.h,
+                                        ),
+                                        Row(
+                                          children: [
+                                            InkWell(
+                                              onTap: () {},
+                                              child: Icon(
+                                                Icons.delete,
+                                                color: AppColors.red,
+                                                size: 4.sp,
+                                              ),
                                             ),
-                                            Shadow(
-                                              offset: const Offset(0.0, 0.0),
-                                              blurRadius: 40.0,
-                                              color: color,
+                                            SizedBox(
+                                              width: 1.w,
                                             ),
-                                            Shadow(
-                                              offset: const Offset(0.0, 0.0),
-                                              blurRadius: 45.0,
-                                              color: color,
-                                            ),
-                                            Shadow(
-                                              offset: const Offset(0.0, 0.0),
-                                              blurRadius: 50.0,
-                                              color: color,
-                                            ),
-                                            Shadow(
-                                              offset: const Offset(0.0, 0.0),
-                                              blurRadius: 55.0,
-                                              color: color,
-                                            ),
-                                            Shadow(
-                                              offset: const Offset(0.0, 0.0),
-                                              blurRadius: 60.0,
-                                              color: color,
+                                            Text(
+                                              "Remove",
+                                              style: AppTextStyle.white2
+                                                  .copyWith(color: Colors.red),
                                             ),
                                           ],
-                                        ),
-                                      ),
+                                        )
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    cart.neon!,
-                                    style: AppTextStyle.white1,
-                                  ),
-                                  IconButton(
-                                      onPressed: () {
-                                        cartController.deleteCartItem(
-                                          itemId: cart.id!,
-                                        );
-                                      },
-                                      icon: Icon(
-                                        Icons.delete,
-                                        color: AppColors.red,
-                                      ))
-                                ],
-                              )
-                            ],
-                          );
-                        },
-                      )
-                    ],
+                                    SizedBox(
+                                      width:
+                                          MediaQuery.of(context).size.width / 10,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Details",
+                                            style: AppTextStyle.white2),
+                                        SizedBox(
+                                          height: 3.h,
+                                        ),
+                                        rowWidget("Temporary amount", "\$79.99"),
+                                        SizedBox(
+                                          height: 2.h,
+                                        ),
+                                        rowWidget("Shipping", "Gratis"),
+                                        SizedBox(
+                                          height: 2.h,
+                                        ),
+                                        rowWidget("Total", "\$79.99"),
+                                        SizedBox(
+                                          height: 3.h,
+                                        ),
+                                        SizedBox(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width /
+                                                6,
+                                            child: PrimaryButton(
+                                                title: "Go To Checkout",
+                                                onPressed: () {})),
+                                        SizedBox(
+                                          height: 3.h,
+                                        ),
+                                        Text(
+                                          "Apply promo code",
+                                          style: AppTextStyle.white3
+                                              .copyWith(fontSize: 4.sp),
+                                        ),
+                                        SizedBox(
+                                          height: 3.h,
+                                        ),
+                                            SizedBox(
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                                  6,
+                                              child: PrimaryTextField(
+                                                controller: promoCodeControler,
+                                                hintText: "Promo Code",
+                                              ),
+                                            ),
+                                        SizedBox(
+                                          height: 2.h,
+                                        ),
+                                        SizedBox(
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width/9,
+                                            child: PrimaryButton(
+                                                title: "Apply",
+                                                onPressed: () {})),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             );
     });
+  }
+
+
+  Widget rowWidget(String label, String text) {
+    return Row(
+      children: [
+        Text(
+          label,
+          style: AppTextStyle.white2,
+        ),
+        SizedBox(
+          width: 1.w,
+        ),
+        Text(
+          text,
+          style: AppTextStyle.white2,
+        ),
+      ],
+    );
   }
 }

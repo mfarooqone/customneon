@@ -1,4 +1,5 @@
 import 'package:customneon/controllers/auth_controller.dart';
+import 'package:customneon/controllers/create_neon_controller.dart';
 import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/network_client/network_client.dart';
 import 'package:flutter/material.dart';
@@ -21,5 +22,6 @@ BindingsBuilder createBindings(BuildContext context) {
     );
 
     Get.put(AuthController(), permanent: true);
+    Get.put(CreateNeonController(), permanent: true);
   });
 }

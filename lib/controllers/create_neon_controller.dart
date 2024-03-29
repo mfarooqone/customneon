@@ -18,7 +18,6 @@ class CreateNeonController extends GetxController {
   RxBool isRemoteDimmer = false.obs;
   RxBool isOutdoor = false.obs;
   RxBool showNeon = true.obs;
-
   RxString selectedTextAlign = "center".obs;
   RxString selectedFont = "Fribash".obs;
   RxString neonText = "Hi".obs;

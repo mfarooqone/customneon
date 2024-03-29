@@ -50,7 +50,7 @@ class PrimaryButton extends StatelessWidget {
         onTap: enabled ? onPressed : null,
         borderRadius: BorderRadius.circular(1.h),
         child: Container(
-          width: width ?? double.infinity,
+          width: width ?? 20.w,
           height: height ?? 6.h,
           alignment: Alignment.center,
           padding: padding,

@@ -8,6 +8,7 @@ import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/utills/image_path.dart';
+import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -60,6 +61,7 @@ class _CreateNeonState extends State<CreateNeon> {
         () {
           return ModalProgressHUD(
             inAsyncCall: createNeonController.isAddingToCart.value,
+            progressIndicator: const LoadingIndicator(),
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),

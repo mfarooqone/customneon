@@ -20,6 +20,7 @@ class CartController extends GetxController {
 
   Future<void> getCartData() async {
     isLoading.value = true;
+
     UserModel? storedUser = await AppPreferencesController.getUser();
     final result = await Get.find<NetworkClient>().get(
       "/user/${storedUser!.sId!}/cart",

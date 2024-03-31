@@ -9,6 +9,7 @@ class PoliciesController extends GetxController {
   RxString shippingPolicy = ''.obs;
   RxString aboutUs = ''.obs;
   RxString contactInfo = ''.obs;
+  RxString terms = ''.obs;
 
   ///
 
@@ -93,6 +94,24 @@ class PoliciesController extends GetxController {
     );
     if (result.isSuccess) {
       contactInfo.value = result.rawData;
+      isLoading.value = false;
+    } else {
+      showErrorMessage(result.message!);
+      isLoading.value = false;
+    }
+  }
+
+  ///
+  ///
+  Future<void> getTerms() async {
+    isLoading.value = true;
+
+    final result = await Get.find<NetworkClient>().get(
+      "/policies/terms-of-service",
+      sendUserAuth: true,
+    );
+    if (result.isSuccess) {
+      terms.value = result.rawData;
       isLoading.value = false;
     } else {
       showErrorMessage(result.message!);

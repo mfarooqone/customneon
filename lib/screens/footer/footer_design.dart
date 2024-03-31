@@ -1,12 +1,12 @@
-import 'package:customneon/screens/footer/contact_us.dart';
 import 'package:customneon/screens/footer/faqs.dart';
 import 'package:customneon/screens/footer/pages/about_us.dart';
 import 'package:customneon/screens/footer/pages/contact_info.dart';
+import 'package:customneon/screens/footer/pages/contact_us.dart';
 import 'package:customneon/screens/footer/payment_methods.dart';
 import 'package:customneon/screens/footer/policies/privacy_policy.dart';
 import 'package:customneon/screens/footer/policies/refund_policy.dart';
 import 'package:customneon/screens/footer/policies/shipping_policy.dart';
-import 'package:customneon/screens/footer/terms_of_service.dart';
+import 'package:customneon/screens/footer/policies/terms_of_service.dart';
 import 'package:customneon/screens/footer/track_my_order.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:customneon/utills/app_text_style.dart';
@@ -24,226 +24,221 @@ class FooterDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.lightGrey,
-      height: 80.h,
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          ///
           Padding(
-            padding: EdgeInsets.only(right: 10.h, left: 10.h, top: 10.h),
+            padding: EdgeInsets.symmetric(horizontal: 4.h, vertical: 2.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Support",
-                          style: AppTextStyle.white2,
-                        ),
-                        SizedBox(height: 2.5.h),
-                        GestureDetector(
-                            onTap: () {
-                              Get.toNamed(TrackMyOrder.routeName);
-                            },
-                            child: Text(
-                              "Track My Order",
-                              style: AppTextStyle.white2,
-                            )),
-                        SizedBox(height: 1.5.h),
-                        GestureDetector(
-                            onTap: () {
-                              Get.toNamed(ShippingPolicy.routeName);
-                            },
-                            child: Text(
-                              "Shipping Policy",
-                              style: AppTextStyle.white2,
-                            )),
-                        SizedBox(height: 1.5.h),
-                        GestureDetector(
-                            onTap: () {
-                              Get.toNamed(RefundPolicy.routeName);
-                            },
-                            child: Text(
-                              "Refund Policy",
-                              style: AppTextStyle.white2,
-                            )),
-                        SizedBox(height: 1.5.h),
-                        GestureDetector(
-                            onTap: () {
-                              Get.toNamed(PrivacyPolicy.routeName);
-                            },
-                            child: Text(
-                              "Privacy Policy",
-                              style: AppTextStyle.white2,
-                            )),
-                        SizedBox(height: 1.5.h),
-                        GestureDetector(
-                            onTap: () {
-                              Get.toNamed(TermsOfService.routeName);
-                            },
-                            child: Text(
-                              "Terms of Service",
-                              style: AppTextStyle.white2,
-                            )),
-                        SizedBox(height: 1.5.h),
-                        GestureDetector(
-                            onTap: () {
-                              Get.toNamed(FAQs.routeName);
-                            },
-                            child: Text(
-                              "FAQs",
-                              style: AppTextStyle.white2,
-                            ))
-                        ////
-                        ///
-                        ///
-                        ///
-                      ],
-                    ),
-
-                    ///
-                    ///
-                    ///   second column
-                    ///
-                    ///
-                    ///
-                    SizedBox(width: 5.w),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Information",
-                          style: AppTextStyle.white2,
-                        ),
-                        SizedBox(
-                          height: 2.5.h,
-                        ),
-                        GestureDetector(
-                            onTap: () {
-                              Get.toNamed(AboutUs.routeName);
-                            },
-                            child: Text(
-                              "About Us",
-                              style: AppTextStyle.white2,
-                            )),
-                        SizedBox(height: 1.5.h),
-                        GestureDetector(
-                            onTap: () {
-                              Get.toNamed(ContactUs.routeName);
-                            },
-                            child: Text(
-                              "Contact Us",
-                              style: AppTextStyle.white2,
-                            )),
-                        SizedBox(height: 1.5.h),
-                        GestureDetector(
-                            onTap: () {
-                              Get.toNamed(ContactInfo.routeName);
-                            },
-                            child: Text(
-                              "Contact Info",
-                              style: AppTextStyle.white2,
-                            )),
-                        SizedBox(height: 1.5.h),
-                        GestureDetector(
-                            onTap: () {
-                              Get.toNamed(PaymentMethods.routeName);
-                            },
-                            child: Text(
-                              "Payment Methods",
-                              style: AppTextStyle.white2,
-                            ))
-
-                        ////
-                        ///
-                        ///
-                        ///
-                      ],
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Subscribe & Save",
-                      style: AppTextStyle.white2,
-                    ),
-                    SizedBox(
-                      height: 3.h,
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 5,
-                      child: PrimaryTextField(
-                        controller: emailController,
-                        hintText: "Enter email here",
-                        suffixIcon: const Icon(Icons.forward),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Support",
+                        style: AppTextStyle.white3,
                       ),
-                    ),
-                    SizedBox(
-                      height: 3.h,
-                    ),
-                    Text(
-                      "Sign up for exclusive deals, including a unique\ncoupon for \$30 OFF your first order.",
-                      style: AppTextStyle.white2,
-                    ),
-                    SizedBox(
-                      height: 4.h,
-                    ),
-                    Text(
-                      "Stay Connected",
-                      style: AppTextStyle.white2,
-                    ),
-                    SizedBox(
-                      height: 4.h,
-                    ),
-                    Row(
-                      children: [
-                        assetImage(AppImagePath.facebookIcon),
-                        SizedBox(
-                          width: 2.5.w,
+                      SizedBox(height: 2.5.h),
+                      InkWell(
+                        onTap: () {
+                          Get.toNamed(TrackMyOrder.routeName);
+                        },
+                        child: Text(
+                          "Track My Order",
+                          style: AppTextStyle.white2,
                         ),
-                        assetImage(AppImagePath.pinterestIcon),
-                        SizedBox(
-                          width: 2.5.w,
+                      ),
+                      SizedBox(height: 1.5.h),
+                      InkWell(
+                        onTap: () {
+                          Get.toNamed(FAQs.routeName);
+                        },
+                        child: Text(
+                          "FAQs",
+                          style: AppTextStyle.white2,
                         ),
-                        assetImage(AppImagePath.instagramIcon),
-                        SizedBox(
-                          width: 2.5.w,
+                      ),
+                      SizedBox(height: 1.5.h),
+                      InkWell(
+                        onTap: () {
+                          Get.toNamed(AboutUs.routeName);
+                        },
+                        child: Text(
+                          "About Us",
+                          style: AppTextStyle.white2,
                         ),
-                        assetImage(AppImagePath.youtubeIcon),
-                      ],
-                    ),
-                  ],
+                      ),
+                      SizedBox(height: 1.5.h),
+                      InkWell(
+                        onTap: () {
+                          Get.toNamed(ContactUs.routeName);
+                        },
+                        child: Text(
+                          "Contact Us",
+                          style: AppTextStyle.white2,
+                        ),
+                      ),
+                      SizedBox(height: 1.5.h),
+                      InkWell(
+                        onTap: () {
+                          Get.toNamed(PaymentMethods.routeName);
+                        },
+                        child: Text(
+                          "Payment Methods",
+                          style: AppTextStyle.white2,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Subscribe & Save",
+                        style: AppTextStyle.white2,
+                      ),
+                      SizedBox(height: 3.h),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width *
+                            0.8, // Adjusted width
+                        child: PrimaryTextField(
+                          controller: emailController,
+                          hintText: "Enter email here",
+                          suffixIcon: const Icon(Icons.forward),
+                        ),
+                      ),
+                      SizedBox(height: 3.h),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width *
+                            0.8, // Adjusted width
+                        child: Text(
+                          "Sign up for exclusive deals, including a unique coupon for \$30 OFF your first order.",
+                          style: AppTextStyle.white2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      SizedBox(height: 4.h),
+                      Text(
+                        "Stay Connected",
+                        style: AppTextStyle.white2,
+                      ),
+                      SizedBox(height: 4.h),
+                      Row(
+                        children: [
+                          assetImage(AppImagePath.facebookIcon),
+                          SizedBox(width: 2.5.w),
+                          assetImage(AppImagePath.pinterestIcon),
+                          SizedBox(width: 2.5.w),
+                          assetImage(AppImagePath.instagramIcon),
+                          SizedBox(width: 2.5.w),
+                          assetImage(AppImagePath.youtubeIcon),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-          SizedBox(
-            height: 12.h,
-          ),
+
+          ///
+
           const Divider(
             color: Colors.white,
             thickness: 0.5,
           ),
-          SizedBox(
-            height: 5.h,
-          ),
           Padding(
-            padding: EdgeInsets.only(right: 10.h, left: 10.h),
+            padding: EdgeInsets.symmetric(horizontal: 4.h),
             child: Text(
-              "© 2024, NeonWill. All rights reserved.",
+              "© 2024, CustomsNeon. All rights reserved.",
               style: AppTextStyle.white2,
             ),
           ),
-          SizedBox(
-            height: 3.h,
+
+          ///
+          SizedBox(height: 2.h),
+
+          ///
+          ///
+          ///
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 4.h),
+            child: Wrap(
+              spacing: 10,
+              direction: Axis.horizontal,
+              alignment: WrapAlignment.start,
+              runSpacing: 10,
+              children: [
+                ///
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(RefundPolicy.routeName);
+                  },
+                  child: Text(
+                    "Refund Policy",
+                    style: AppTextStyle.white1,
+                  ),
+                ),
+
+                ///
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(PrivacyPolicy.routeName);
+                  },
+                  child: Text(
+                    "Privacy Policy",
+                    style: AppTextStyle.white1,
+                  ),
+                ),
+
+                ///
+
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(TermsOfService.routeName);
+                  },
+                  child: Text(
+                    "Terms of Service",
+                    style: AppTextStyle.white1,
+                  ),
+                ),
+
+                ///
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(ShippingPolicy.routeName);
+                  },
+                  child: Text(
+                    "Shipping Policy",
+                    style: AppTextStyle.white1,
+                  ),
+                ),
+
+                ///
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(ContactInfo.routeName);
+                  },
+                  child: Text(
+                    "Contact Info",
+                    style: AppTextStyle.white1,
+                  ),
+                ),
+
+                ///
+              ],
+            ),
           ),
-          const Text("")
+
+          ///
+          SizedBox(height: 2.h),
         ],
       ),
     );

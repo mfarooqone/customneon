@@ -234,9 +234,20 @@ class _CartScreenState extends State<CartScreen> {
                                           Expanded(
                                             child: PrimaryButton(
                                               title: "Go To Checkout",
-                                              onPressed: () {},
+                                              onPressed: () async {
+                                                await cartController
+                                                    .makePayment();
+                                              },
                                             ),
                                           ),
+                                          // Expanded(
+                                          //   child: CardField(
+                                          //     cursorColor: Colors.red,
+                                          //     onCardChanged: (card) {
+                                          //       print(card);
+                                          //     },
+                                          //   ),
+                                          // ),
                                         ],
                                       ),
                                     ],

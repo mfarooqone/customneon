@@ -6,6 +6,7 @@ import 'dart:io';
 import 'package:customneon/network_client/api_response.dart';
 import 'package:customneon/utills/app_consts.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 typedef GetUserAuthTokenCallback = Future<String?> Function();
 
@@ -62,16 +63,21 @@ class NetworkClient {
     data,
     Map<String, dynamic>? queryParameters,
     bool? sendUserAuth,
+    bool? isStripe = false,
   }) async {
     try {
       final resp = await _restClient.post(
         path,
         data: data,
         queryParameters: queryParameters,
-        options: await _createDioOptions(
-          contentType: contentTypeJson,
-          sendUserAuth: sendUserAuth,
-        ),
+        options: isStripe == false
+            ? await _createDioOptions(
+                contentType: contentTypeJson,
+                sendUserAuth: sendUserAuth,
+              )
+            : await _createDioStripeOptions(
+                contentType: contentTypeJson,
+              ),
       );
 
       final jsonData = resp.data;
@@ -213,72 +219,6 @@ class NetworkClient {
   ///
   ///
   ///
-  // ApiResponse<T> _createResponse<T>(DioException error) {
-  //   switch (error.type) {
-  //     case DioExceptionType.connectionTimeout:
-  //       return ApiResponse<T>.error(
-  //         statusCode: 501,
-  //         message: 'Connection timed out',
-  //       );
-  //     case DioExceptionType.sendTimeout:
-  //       return ApiResponse<T>.error(
-  //         statusCode: 502,
-  //         message: 'Send timed out',
-  //       );
-  //     case DioExceptionType.receiveTimeout:
-  //       return ApiResponse<T>.error(
-  //         statusCode: 503,
-  //         message: 'Receive timed out',
-  //       );
-  //     case DioExceptionType.badResponse:
-  //       final response = error.response!;
-  //       final statusCode = response.statusCode;
-  //       switch (statusCode) {
-  //         case 400:
-  //           return ApiResponse<T>.error(
-  //             statusCode: 400,
-  //             message: 'Bad Request',
-  //           );
-  //         case 401:
-  //           return ApiResponse<T>.error(
-  //             statusCode: 401,
-  //             message: 'Unauthorized',
-  //           );
-  //         case 404:
-  //           return ApiResponse<T>.error(
-  //             statusCode: 404,
-  //             message: 'Not Found',
-  //           );
-  //         case 500:
-  //           return ApiResponse<T>.error(
-  //             statusCode: 500,
-  //             message: 'Internal Server Error',
-  //           );
-  //         // Add more status codes as needed
-  //         default:
-  //           return ApiResponse<T>.error(
-  //             statusCode: statusCode,
-  //             message: 'HTTP Error: $statusCode',
-  //           );
-  //       }
-  //     case DioExceptionType.cancel:
-  //       return ApiResponse<T>.error(
-  //         statusCode: 500,
-  //         message: 'Request canceled',
-  //       );
-
-  //     default:
-  //       return ApiResponse<T>.error(
-  //         statusCode: 503,
-  //         message:
-  //             'Something went wrong, check your internet connection and try again later',
-  //       );
-  //   }
-  // }
-
-  ///
-  ///
-  ///
   ApiResponse<T> _createResponse<T>(DioException error) {
     switch (error.type) {
       case DioExceptionType.connectionTimeout:
@@ -340,6 +280,24 @@ class NetworkClient {
   }) async {
     final headers = <String, String>{
       'Content-Type': 'application/json; charset=UTF-8'
+    };
+
+    final options = Options(
+      headers: headers,
+      contentType: contentType,
+    );
+    return options;
+  }
+
+  ///
+  ///
+  ///
+  Future<Options> _createDioStripeOptions({
+    required String contentType,
+  }) async {
+    final headers = <String, String>{
+      'Authorization': 'Bearer ${dotenv.env['STRIPE_SECRET_KEY']}',
+      'Content-Type': 'application/x-www-form-urlencoded'
     };
 
     final options = Options(

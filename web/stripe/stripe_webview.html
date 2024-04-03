@@ -16,11 +16,12 @@
       const urlParams = new URLSearchParams(window.location.search);
       const clientSecret = urlParams.get('clientSecret');
       const return_url = urlParams.get('returnURL');
+      const stripeKey = urlParams.get('stripeKey');
 
       if (!clientSecret) {
          alert('Client secret not found.');
       } else {
-         const stripe = Stripe("pk_test_51NXrWpIT6hf4mQbFXs7a4nPBogv8HqwtiARzLSg1cmA9h19kYXB14kbltiPOjo1FBRBn14HKlLctM99CAPHuL8Wq00AC8dImTi");
+         const stripe = Stripe(stripeKey);
          const elements = stripe.elements({clientSecret: clientSecret});
 
          if (!elements) {

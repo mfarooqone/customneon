@@ -20,9 +20,11 @@ class _PaymentPageState extends State<PaymentPage> {
   final CartController cartController = Get.put(CartController());
   final GlobalKey<HtmlWidgetState> _htmlWidgetKey = GlobalKey();
 
+  final String returnURL = "http://localhost:63794/dashboard";
+  final String stripeKey =
+      "pk_test_51NXrWpIT6hf4mQbFXs7a4nPBogv8HqwtiARzLSg1cmA9h19kYXB14kbltiPOjo1FBRBn14HKlLctM99CAPHuL8Wq00AC8dImTi";
   @override
   Widget build(BuildContext context) {
-    String returnURL = "http://localhost:63794/dashboard";
     return PopScope(
       canPop: false,
       onPopInvoked: (didPop) async {
@@ -44,9 +46,9 @@ class _PaymentPageState extends State<PaymentPage> {
                   Text(
                       "cartController.clientSecret = ${cartController.clientSecret.value}"),
                   Text(
-                      "url = http://localhost:63794//web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}?returnURL=$returnURL"),
+                      "url = http://localhost:63794//web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL"),
                   HtmlWidget(
-                    '<iframe src="http://localhost:63794/web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL"></iframe>',
+                    '<iframe src="http://localhost:63794/web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL&stripeKey=$stripeKey"></iframe>',
                     key: _htmlWidgetKey,
                     factoryBuilder: () => MyWidgetFactory(),
                   ),

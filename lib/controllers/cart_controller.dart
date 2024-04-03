@@ -13,7 +13,7 @@ class CartController extends GetxController {
   final CreateNeonController createNeonController = Get.find();
 
   List<CartModel> cartList = [];
-  Map<String, dynamic>? paymentIntent;
+  RxString clientSecret = "".obs;
 
   /* -------------------------------------------------------------------------- */
   /*                                 getCartData                                */
@@ -95,36 +95,53 @@ class CartController extends GetxController {
   Future<void> makePayment() async {
     isLoading.value = true;
     final result = await Get.find<NetworkClient>().post(
-      "http://localhost:3030/api/create-checkout-session",
-      // "/create-checkout-session",
-      data: {
-        "payment_method_types": ["card"],
-        "line_items": [
-          {
-            "price_data": {
-              "currency": "usd",
-              "product_data": {"name": "Your Product Name"},
-              "unit_amount": 1000
-            },
-            "quantity": 1
-          }
-        ],
-        "mode": "payment",
-        "success_url": "https://your-website.com/success",
-        "cancel_url": "https://your-website.com/cancel"
-      },
+      "http://localhost:3030/api/payment-intent",
+      data: {},
       sendUserAuth: true,
     );
     if (result.isSuccess) {
-      print(result.rawData['sessionId']);
-      // initStripe(sessionId: result.rawData['sessionId']);
-
+      print(result.rawData['client_secret']);
+      clientSecret.value = result.rawData['client_secret'];
       isLoading.value = false;
     } else {
       isLoading.value = false;
       showErrorMessage(result.message!);
     }
   }
+
+  // Future<void> makePayment() async {
+  //   isLoading.value = true;
+  //   final result = await Get.find<NetworkClient>().post(
+  //     "http://localhost:3030/api/create-checkout-session",
+  //     // "/create-checkout-session",
+  //     data: {
+  //       "payment_method_types": ["card"],
+  //       "line_items": [
+  //         {
+  //           "price_data": {
+  //             "currency": "usd",
+  //             "product_data": {"name": "Your Product Name"},
+  //             "unit_amount": 1000
+  //           },
+  //           "quantity": 1
+  //         }
+  //       ],
+  //       "mode": "payment",
+  //       "success_url": "https://your-website.com/success",
+  //       "cancel_url": "https://your-website.com/cancel"
+  //     },
+  //     sendUserAuth: true,
+  //   );
+  //   if (result.isSuccess) {
+  //     print(result.rawData['sessionId']);
+  //     // initStripe(sessionId: result.rawData['sessionId']);
+
+  //     isLoading.value = false;
+  //   } else {
+  //     isLoading.value = false;
+  //     showErrorMessage(result.message!);
+  //   }
+  // }
 
   ///
   ///

@@ -1,5 +1,6 @@
 import 'package:customneon/controllers/cart_controller.dart';
 import 'package:customneon/models/cart_model.dart';
+import 'package:customneon/screens/cart/web_view.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
 import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
@@ -236,18 +237,19 @@ class _CartScreenState extends State<CartScreen> {
                                               title: "Go To Checkout",
                                               onPressed: () async {
                                                 await cartController
-                                                    .makePayment();
+                                                    .makePayment()
+                                                    .then((value) {
+                                                  print(cartController
+                                                      .clientSecret.value);
+                                                  Get.toNamed(
+                                                    PaymentPage.routeName,
+                                                  );
+                                                });
+
+                                                ///
                                               },
                                             ),
                                           ),
-                                          // Expanded(
-                                          //   child: CardField(
-                                          //     cursorColor: Colors.red,
-                                          //     onCardChanged: (card) {
-                                          //       print(card);
-                                          //     },
-                                          //   ),
-                                          // ),
                                         ],
                                       ),
                                     ],

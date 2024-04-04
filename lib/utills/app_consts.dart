@@ -5,8 +5,10 @@ class AppConsts {
   static String baseApiUrl = '$baseUrl/api/';
 
   ///
-  static String localHostUrl = 'http://localhost:55469';
+  // static String localHostUrl = 'http://localhost:55469';
+  // static String returnUrl = '$localHostUrl/dashboard';
 
   ///
-  static String returnUrl = '$localHostUrl/dashboard';
+  static String localHostUrl = 'http://66.42.49.235:3030';
+  static String returnUrl = '$baseUrl/dashboard';
 }

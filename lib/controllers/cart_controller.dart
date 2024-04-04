@@ -95,7 +95,7 @@ class CartController extends GetxController {
   Future<void> makePayment({required String amount}) async {
     isLoading.value = true;
     final result = await Get.find<NetworkClient>().post(
-      "http://localhost:3030/api/payment-intent",
+      "/api/payment-intent",
       data: {"amount": amount},
       sendUserAuth: true,
     );

@@ -1,6 +1,8 @@
 import 'package:customneon/controllers/cart_controller.dart';
+import 'package:customneon/utills/app_consts.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:fwfh_webview/fwfh_webview.dart';
@@ -20,9 +22,11 @@ class _PaymentPageState extends State<PaymentPage> {
   final CartController cartController = Get.put(CartController());
   final GlobalKey<HtmlWidgetState> _htmlWidgetKey = GlobalKey();
 
-  final String returnURL = "http://localhost:63794/dashboard";
-  final String stripeKey =
-      "pk_test_51NXrWpIT6hf4mQbFXs7a4nPBogv8HqwtiARzLSg1cmA9h19kYXB14kbltiPOjo1FBRBn14HKlLctM99CAPHuL8Wq00AC8dImTi";
+  ///
+  final String returnURL = AppConsts.returnUrl;
+  final String stripeKey = dotenv.env['STRIPE_KEY']!;
+
+  ///
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -46,9 +50,9 @@ class _PaymentPageState extends State<PaymentPage> {
                   Text(
                       "cartController.clientSecret = ${cartController.clientSecret.value}"),
                   Text(
-                      "url = http://localhost:63794//web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL"),
+                      "url = ${AppConsts.localHostUrl}/web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL"),
                   HtmlWidget(
-                    '<iframe src="http://localhost:63794/web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL&stripeKey=$stripeKey"></iframe>',
+                    '<iframe src="${AppConsts.localHostUrl}/web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL&stripeKey=$stripeKey"></iframe>',
                     key: _htmlWidgetKey,
                     factoryBuilder: () => MyWidgetFactory(),
                   ),

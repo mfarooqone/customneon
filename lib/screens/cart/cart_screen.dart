@@ -82,7 +82,7 @@ class _CartScreenState extends State<CartScreen> {
                               ),
                               SizedBox(height: 2.h),
                               Text(
-                                "Brfore procedd to checkout you must add some products to your shopping cart",
+                                "Before procedd to checkout you must add some products to your shopping cart",
                                 style: AppTextStyle.white1,
                               ),
                               SizedBox(height: 4.h),
@@ -237,7 +237,9 @@ class _CartScreenState extends State<CartScreen> {
                                               title: "Go To Checkout",
                                               onPressed: () async {
                                                 await cartController
-                                                    .makePayment()
+                                                    .makePayment(
+                                                  amount: cart.price!,
+                                                )
                                                     .then((value) {
                                                   print(cartController
                                                       .clientSecret.value);

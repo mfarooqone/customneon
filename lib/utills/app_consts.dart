@@ -9,6 +9,6 @@ class AppConsts {
   // static String returnUrl = '$localHostUrl/dashboard';
 
   ///
-  static String localHostUrl = 'http://66.42.49.235:3030';
-  static String returnUrl = '$baseUrl/dashboard';
+  static String webUrl = 'http://66.42.49.235:3031';
+  static String returnUrl = '$webUrl/dashboard';
 }

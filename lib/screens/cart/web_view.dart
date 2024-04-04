@@ -50,9 +50,9 @@ class _PaymentPageState extends State<PaymentPage> {
                   Text(
                       "cartController.clientSecret = ${cartController.clientSecret.value}"),
                   Text(
-                      "url = ${AppConsts.localHostUrl}/web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL"),
+                      "url = ${AppConsts.webUrl}/web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL"),
                   HtmlWidget(
-                    '<iframe src="${AppConsts.localHostUrl}/web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL&stripeKey=$stripeKey"></iframe>',
+                    '<iframe src="${AppConsts.webUrl}/web/stripe/stripe_webview.html?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL&stripeKey=$stripeKey"></iframe>',
                     key: _htmlWidgetKey,
                     factoryBuilder: () => MyWidgetFactory(),
                   ),

@@ -219,6 +219,8 @@ class _CartScreenState extends State<CartScreen> {
                                       SizedBox(height: 1.h),
                                       rowWidget("Total", "\$${cart.price}"),
                                       SizedBox(height: 3.h),
+                                      const Text("testing"),
+                                      SizedBox(height: 3.h),
                                       Row(
                                         children: [
                                           Expanded(

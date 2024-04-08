@@ -240,15 +240,15 @@ class _CartScreenState extends State<CartScreen> {
                                               onPressed: () async {
                                                 await cartController
                                                     .makePayment(
-                                                  amount: cart.price!,
-                                                )
-                                                    .then((value) {
-                                                  print(cartController
-                                                      .clientSecret.value);
-                                                  Get.toNamed(
-                                                    PaymentPage.routeName,
-                                                  );
-                                                });
+                                                      amount: cart.price!,
+                                                    )
+                                                    .then((value) {});
+
+                                                print(cartController
+                                                    .clientSecret.value);
+                                                Get.toNamed(
+                                                  PaymentPage.routeName,
+                                                );
 
                                                 ///
                                               },

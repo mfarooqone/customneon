@@ -9,8 +9,7 @@ class AppConsts {
   // static String returnUrl = '$localHostUrl/dashboard';
 
   ///
-  static String webUrl =
-      'http://localhost:54242/web/stripe/stripe_webview.html';
+  static String webUrl = 'http://66.42.49.235:3031/stripe/stripe_webview.html';
   // static String webUrl = 'http://66.42.49.235:3031/stripe/stripe_webview.html';
   static String returnUrl = 'http://66.42.49.235:3031';
 }

@@ -85,7 +85,7 @@ class _CreateNeonState extends State<CreateNeon> {
                     Align(
                       alignment: Alignment.center,
                       child: Text(
-                        'CREATE YOUR OWN NEON SIGN Testing Web',
+                        'CREATE YOUR OWN NEON SIGN',
                         maxLines: 1,
                         style: AppTextStyle.white2
                             .copyWith(color: AppColors.orange),

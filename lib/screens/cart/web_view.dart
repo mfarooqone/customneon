@@ -11,9 +11,9 @@ import 'package:get/get.dart';
 import '../homepage/homepage.dart';
 
 class PaymentPage extends StatefulWidget {
-  static const routeName =
-      '/http://66.42.49.235:3031/stripe/stripe_webview.html';
-  // static const routeName = '/payments-page';
+  // static const routeName =
+  //     '/http://66.42.49.235:3031/stripe/stripe_webview.html';
+  static const routeName = '/payments-page';
   const PaymentPage({Key? key}) : super(key: key);
 
   @override

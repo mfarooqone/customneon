@@ -13,6 +13,7 @@ import 'package:customneon/screens/footer/policies/shipping_policy.dart';
 import 'package:customneon/screens/footer/policies/terms_of_service.dart';
 import 'package:customneon/screens/footer/track_my_order.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
+import 'package:customneon/screens/my_orders/my_orders.dart';
 import 'package:customneon/screens/user_screen/user_screen.dart';
 import 'package:get/get.dart';
 
@@ -123,5 +124,11 @@ final appRoutes = [
   GetPage(
     name: PaymentPage.routeName,
     page: () => const PaymentPage(),
+  ),
+
+  ///
+  GetPage(
+    name: MyOrdersScreen.routeName,
+    page: () => const MyOrdersScreen(),
   ),
 ];

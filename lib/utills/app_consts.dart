@@ -10,6 +10,8 @@ class AppConsts {
 
   ///
   static String webUrl = 'http://66.42.49.235:3031/stripe/stripe_webview.html';
-  // static String webUrl = 'http://66.42.49.235:3031/stripe/stripe_webview.html';
+
+  ///
   static String returnUrl = 'http://66.42.49.235:3031/dashboard';
+  static String returnUrlLocal = 'http://localhost:50454//dashboard';
 }

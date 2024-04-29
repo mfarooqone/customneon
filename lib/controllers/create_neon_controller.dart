@@ -309,6 +309,7 @@ class CreateNeonController extends GetxController {
           "adaptertype": selectedAdapter.value,
           "remote": isRemoteDimmer.value ? "yes" : "no",
           "description": descriptionText.value,
+          "payment_status": "pending",
         }
       ]
     };

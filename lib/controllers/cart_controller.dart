@@ -13,6 +13,7 @@ class CartController extends GetxController {
   final CreateNeonController createNeonController = Get.find();
 
   List<CartModel> cartList = [];
+  RxString clientSecret = "".obs;
 
   /* -------------------------------------------------------------------------- */
   /*                                 getCartData                                */
@@ -84,4 +85,32 @@ class CartController extends GetxController {
       return Colors.black;
     }
   }
+
+  ///
+  ///
+  ///
+  ///
+  ///
+
+  Future<void> makePayment({required String amount}) async {
+    isLoading.value = true;
+    final result = await Get.find<NetworkClient>().post(
+      "/payment-intent",
+      data: {"amount": amount},
+      sendUserAuth: true,
+    );
+    if (result.isSuccess) {
+      clientSecret.value = result.rawData['client_secret'];
+      isLoading.value = false;
+    } else {
+      isLoading.value = false;
+      showErrorMessage(result.message!);
+    }
+  }
+
+  ///
+  ///
+  ///
+  ///
+  ///
 }

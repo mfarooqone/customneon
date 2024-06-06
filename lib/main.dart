@@ -1,12 +1,17 @@
 import 'package:customneon/app_bindings.dart';
-import '../app_routes.dart';
 import 'package:customneon/utills/app_colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
+// import 'package:flutter_dotenv/flutter_dotenv.dart' as dotenv;
+// import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_strategy/url_strategy.dart';
+
+import '../app_routes.dart';
 
 Future main() async {
   setPathUrlStrategy();
@@ -26,6 +31,9 @@ Future main() async {
   } else {
     await Firebase.initializeApp();
   }
+
+  await dotenv.load(fileName: "assets/.env");
+  Stripe.publishableKey = dotenv.env['STRIPE_KEY']!;
 
   runApp(const MyApp());
 }

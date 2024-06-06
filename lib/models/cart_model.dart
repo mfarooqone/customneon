@@ -14,6 +14,7 @@ class CartModel {
   String? adaptertype;
   String? remote;
   String? description;
+  String? paymentStatus;
 
   CartModel(
       {this.id,
@@ -30,6 +31,7 @@ class CartModel {
       this.location,
       this.adaptertype,
       this.remote,
+      this.paymentStatus,
       this.description});
 
   CartModel.fromJson(Map<String, dynamic> json) {
@@ -48,6 +50,7 @@ class CartModel {
     adaptertype = json['adaptertype'];
     remote = json['remote'];
     description = json['description'];
+    paymentStatus = json['payment_status'];
   }
 
   Map<String, dynamic> toJson() {
@@ -67,6 +70,7 @@ class CartModel {
     data['adaptertype'] = adaptertype;
     data['remote'] = remote;
     data['description'] = description;
+    data['payment_status'] = paymentStatus;
     return data;
   }
 }

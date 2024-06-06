@@ -27,7 +27,7 @@ class CreateNeonController extends GetxController {
   ///
 
   Color selectedColor = AppColors.orange;
-  Color selectedBackBoardColor = Colors.transparent;
+  Color selectedBackBoardColor = Colors.white60;
   RxString selectedSize = "S".obs;
   RxString selectedBackBoardStyle = "Cut to shape".obs;
   RxString selectedAdapter = "USA / CANADA 120V".obs;
@@ -309,6 +309,7 @@ class CreateNeonController extends GetxController {
           "adaptertype": selectedAdapter.value,
           "remote": isRemoteDimmer.value ? "yes" : "no",
           "description": descriptionText.value,
+          "payment_status": "pending",
         }
       ]
     };

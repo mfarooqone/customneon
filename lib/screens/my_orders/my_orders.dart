@@ -1,7 +1,10 @@
+import 'dart:html' as html;
+
 import 'package:customneon/controllers/my_orders_controller.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
 import 'package:customneon/screens/header/header_design.dart';
 import 'package:customneon/screens/homepage/homepage.dart';
+import 'package:customneon/utills/app_text_style.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,11 +23,22 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
 
   @override
   void initState() {
-    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-    //   // await cartController.getCartData();
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      getCurrentUrl();
+      print(getCurrentUrl());
+      // addData();
+    });
     super.initState();
   }
+
+  String getCurrentUrl() {
+    // Access the current URL from the window.location.href property
+    return html.window.location.href;
+  }
+
+  // void addData() async {
+  //   await myOrdersController.addOrder(itemId: itemId);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +63,17 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const HeaderDesign(),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      "My Orders",
+                      style: AppTextStyle.white4,
+                    ),
 
-                    const Text("My Orders"),
+                    const SizedBox(
+                      height: 16,
+                    ),
 
                     ///
                     ///

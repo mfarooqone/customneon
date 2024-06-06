@@ -3,7 +3,6 @@ import 'package:customneon/utills/app_consts.dart';
 import 'package:customneon/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-// ignore: depend_on_referenced_packages
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:fwfh_webview/fwfh_webview.dart';
 import 'package:get/get.dart';
@@ -23,6 +22,13 @@ class PaymentPage extends StatefulWidget {
 class _PaymentPageState extends State<PaymentPage> {
   final CartController cartController = Get.put(CartController());
   final GlobalKey<HtmlWidgetState> _htmlWidgetKey = GlobalKey();
+  late String itemId;
+  @override
+  void initState() {
+    super.initState();
+    // Retrieve itemId from arguments
+    itemId = ModalRoute.of(context)!.settings.arguments as String;
+  }
 
   ///
   // final String returnURL = AppConsts.returnUrl;
@@ -53,9 +59,9 @@ class _PaymentPageState extends State<PaymentPage> {
                   Text(
                       "cartController.clientSecret = ${cartController.clientSecret.value}"),
                   Text(
-                      "url = ${AppConsts.webUrl}?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL"),
+                      "url = ${AppConsts.webUrlLocal}?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL&stripeKey=$stripeKey&itemId=$itemId"),
                   HtmlWidget(
-                    '<iframe src="${AppConsts.webUrl}?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL&stripeKey=$stripeKey"></iframe>',
+                    '<iframe src="${AppConsts.webUrlLocal}?clientSecret=${cartController.clientSecret.value}&returnURL=$returnURL&stripeKey=$stripeKey&itemId=$itemId"></iframe>',
                     key: _htmlWidgetKey,
                     factoryBuilder: () => MyWidgetFactory(),
                   ),

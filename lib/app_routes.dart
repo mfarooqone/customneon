@@ -2,6 +2,7 @@ import 'package:customneon/screens/auth_view/signin_view.dart';
 import 'package:customneon/screens/auth_view/signup_view.dart';
 import 'package:customneon/screens/cart/cart_screen.dart';
 import 'package:customneon/screens/cart/web_view.dart';
+import 'package:customneon/screens/error_screen/error_screen.dart';
 import 'package:customneon/screens/footer/faqs.dart';
 import 'package:customneon/screens/footer/pages/about_us.dart';
 import 'package:customneon/screens/footer/pages/contact_info.dart';
@@ -130,5 +131,11 @@ final appRoutes = [
   GetPage(
     name: MyOrdersScreen.routeName,
     page: () => const MyOrdersScreen(),
+  ),
+
+  ///
+  GetPage(
+    name: ErrorScreen.routeName,
+    page: () => const ErrorScreen(),
   ),
 ];

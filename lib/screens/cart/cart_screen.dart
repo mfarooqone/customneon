@@ -1,5 +1,7 @@
 import 'package:customneon/controllers/cart_controller.dart';
+import 'package:customneon/controllers/preference_controller.dart';
 import 'package:customneon/models/cart_model.dart';
+import 'package:customneon/models/user_model.dart';
 import 'package:customneon/screens/cart/web_view.dart';
 import 'package:customneon/screens/footer/footer_design.dart';
 import 'package:customneon/screens/header/header_design.dart';
@@ -238,6 +240,12 @@ class _CartScreenState extends State<CartScreen> {
                                             child: PrimaryButton(
                                               title: "Go To Checkout",
                                               onPressed: () async {
+                                                UserModel? storedUser =
+                                                    await AppPreferencesController
+                                                        .getUser();
+
+                                                print(storedUser!.sId);
+                                                print(cart.id);
                                                 await cartController
                                                     .makePayment(
                                                       amount: cart.price!,
@@ -248,6 +256,7 @@ class _CartScreenState extends State<CartScreen> {
                                                     .clientSecret.value);
                                                 Get.toNamed(
                                                   PaymentPage.routeName,
+                                                  arguments: cart.id,
                                                 );
 
                                                 ///
